@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Introduction to DocPad, the tool you should start using">
+    <meta name="author" content="0">
+
+
+    <title>exTW Blog</title>
+
+    <!-- Using DocPad built in helper to collect all the styles listed in configuration file and render a HTML markup for them -->
+    <link  rel="stylesheet" href="/css/bootstrap.min.css" /><link  rel="stylesheet" href="/css/clean-blog.min.css" />
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>(function(i,s,o,g,r,a,m)            {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();            a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;            a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script',            '//www.google-analytics.com/analytics.js','ga');            ga('create', 'UA-62858836-1', 'auto');            ga('send', 'pageview');</script>
+    <script type='text/javascript' id='inspectletjs'>            window.__insp = window.__insp || [];            __insp.push(['wid', 1668565138]);            (function() {            function __ldinsp(){var insp = document.createElement('script');            insp.type = 'text/javascript'; insp.async = true;            insp.id = 'inspsync';            insp.src = ('https:'            == document.location.protocol ? 'https' : 'http')            + '://cdn.inspectlet.com/inspectlet.js';            var x = document.getElementsByTagName('script')[0];            x.parentNode.insertBefore(insp, x); }            if (window.attachEvent) window.attachEvent('onload', __ldinsp);            else window.addEventListener('load', __ldinsp, false);            })();            </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+                    <!--<li>
+                        <a href="/posts/index.html">Posts</a>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  -->
+    <!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('/img/post-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Modern Documentation with DocPad</h1>
+                    <h2 class="subheading">Introduction to DocPad, the tool you should start using</h2>
+                    <span class="meta">Posted by <a href="#">Lukasz Gornicki</a> on February 16, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  -->
+                <p>Until April last year I was convinced that there are only two technologies you can use produce professional documentation portals:</p>
+<ul>
+<li>Wiki based solutions</li>
+<li>DITA</li>
+</ul>
+<p>Of course I&#39;ve seen some other tools to generate HTML output for documentation but I always thought about them as of some kind of Frankensteins. All these &quot;automated Web UI documentation generators&quot; or HTML outputs with crappy navigation tree.</p>
+<p>So my working experience is connected only with wikis. It was Atlassian&#39;s Confluence - to be more precise. And I&#39;m so happy I can write &quot;was&quot;. I loved the tool with all its disadvantages, but since they introduced WYSIWYG editor everything changed. It is still an awesome tool for collaboration between different teams. It is not a good documentation tool.</p>
+<p>What about DITA? I have no experience here, and this time I&#39;m happy I can write &quot;no&quot;. I saw few sample documentation source files with all these html/xml tags - yikes. I know there are tools that give you an editor for such files, but that is not my story, I don&#39;t want to have an editor with bunch of toolbars. Anyway, I don&#39;t want to focus on hating DITA here, as I&#39;m pretty sure that there is a bunch of people in the world that love DITA. Guys, I&#39;m your friend...but read this <a href="http://idratherbewriting.com/2015/01/28/10-reasons-for-moving-away-from-dita/">post</a> to understand me.</p>
+<p>I just want to show you that there is something else. Something super cool and modern that you can start using. Something that doesn&#39;t not require an expensive consultancy and implementations. Something that you can do on your own - if not now, then for sure after reading my blog posts :)
+If you read my <a href="/about.html">about</a> section, you know that my biggest focus goes to content structure, navigation, availability and flexibility. The tool that I want to introduce you to gives a 100% flexibility in that field. With this tool the only limitation comes with a lack of imagination, which sometimes may be frustrating :)</p>
+<h1 id="static-site-generators">Static Site Generators</h1>
+<p>Yeah, right. Maybe Dynamic Seat Controllers? huh? I&#39;ve learned about them (SSG not DSC), by accident, last year. I was conducting some research on how to document RESTfull WebService API and found this nice project: <a href="https://github.com/devo-ps/carte">carte</a>. It is a project build on <a href="http://jekyllrb.com/">Jekyll</a>...and till that day I knew Jekyll only because of doctor Hyde (btw, interesting fact: there is also a static site generator called <a href="http://hyde.github.io/">Hyde</a>). So I&#39;ve quickly tried it out and felt in love with it, and markdown too.</p>
+<p>If there is Jekyll, the must be something else right? after some research, my friend - Google pointed me to this page: <a href="https://staticsitegenerators.net/">Static Site Generators</a>. You know what was my first thought? &quot;I&#39;ve just learned about Jekyll, and it&#39;s first release was already 6 years ago. Was I locked in a cave or something?&quot;.</p>
+<p>So me and my friend, we:</p>
+<ul>
+<li>Sorted the list of generators by popularity (Jekyll is an outstanding lider there)</li>
+<li>Picked 4 different tools built on different technologies</li>
+<li>Tried to port the Jekyll carte project to these tools</li>
+<li>Compared with Jekyll a tool that was the easiest to learn</li>
+</ul>
+<p>I don&#39;t remember all the tools we checked. I just remember that I was checking <a href="http://nanoc.ws/">nanoc</a> and <a href="https://docpad.org/">DocPad</a>. Even though we didn&#39;t choose nanoc, it showed us how professional portals we can build with these tools -  GitHub Developers portal was build with nanoc and you can see its sources here <a href="https://github.com/github/developer.github.com">github</a>.</p>
+<h1 id="docpad">DocPad</h1>
+<p>We decided to go with DocPad for several reasons, but one of the most important was that we were able to learn the basics and port carte project do DocPad in just two days. So what is DocPad. In fact it is not a static site generator :) Of course one of the things you can do with DocPad is to generate a static Web page, but it is just one thing.</p>
+<p>DocPad was created and is maintained by awesome Australian company called Bevery. It is written in <a href="http://coffeescript.org/">CoffeeScript</a>, and it is a <a href="http://nodejs.org/">Node.js</a> application. Not sure how that sounds for you but for me it always sounds super hipster :)
+Anyway, I&#39;m an ex technical writer, so I will just do the usual bullet point description here:</p>
+<ul>
+<li>Its architecture is highly modular and prepared for unlimited contribution from the community. It means DocPad has only core mechanism and the rest of the functionality is provided in plugins.</li>
+<li>Currently on NPM (it is a Node package manager that makes your life supper easy if you want to add new node modules to your project) you can find a list of <a href="https://www.npmjs.com/browse/keyword/docpad-plugin">180 packages</a> registered with <em>docpad-plugin</em> prefix.</li>
+<li>Plugins are written in CoffeeScript. CoffeeScript is a nicer non-developer readable version of JavaScript. It is not a new JavaScript cause at the end the CoffeeScript code must be compiled into JavaScript. It just makes it easier to understand the scripts and quickly learn to write your own.</li>
+<li>It uses a great <a href="https://learn.bevry.me/queryengine/guide">QueryEngine</a> with the same syntax as <a href="http://www.mongodb.org/">MongoDB</a> (NoSQL database). You can use it to query over documents collections to decide with a very good precision what documents or their content should be rendered.</li>
+<li>If you do not want to have the advantage of hosting static content, you can always run the app as a server and transform to some kind of CMS</li>
+<li>DocPad provides over 10 sample skeletons. It means that when you run DocPad locally and want to start a new project, you can generate it out of the sample skeleton to start quicker. There is a skeleton with Bootstrap and some sample pages that give you a basic blogging functionality.</li>
+</ul>
+<p>I could provide a lot of bullet points here, but it doesn&#39;t make sense as you wouldn&#39;t probably understand most of them if you are just beginning your journey in this topic. So just follow my blog and learn from post to post about DocPad.</p>
+<h1 id="let-s-do-something">Let&#39;s Do Something</h1>
+<h2 id="install-docpad-and-nodejs">Install DocPad and NodeJS</h2>
+<p>First things first: you need to install DocPad. If you don&#39;t have it yet, you will also have to install Node.js. This is the only thing that I don&#39;t want to cover in this blog as this is pretty easy to do (depending on the operating system). You should manage with these instructions: <a href="https://docpad.org/docs/install">https://docpad.org/docs/install</a></p>
+<h2 id="get-github-account-and-fork-my-project">Get GitHub Account and Fork My Project</h2>
+<p>If you really want to learn with me, you should <a href="https://help.github.com/articles/fork-a-repo/">fork</a> my blog project, and try to implement there all the new stuff that I will be introducing in my posts.</p>
+<ol>
+<li>Register for <a href="https://github.com/">GitHub</a> account</li>
+<li>Go to <a href="https://github.com/derberg/blog-docpad-learn">my blog project</a> and click <strong>Fork</strong></li>
+<li>Go to your repositories and copy its URL</li>
+<li>Go to your git client (I hope you decided to use <a href="http://www.sourcetreeapp.com/">SourceTree</a>) and create a new project out of the clone (simply saying: clone this repo to have it locally). Here you need to use the URL of your repository.</li>
+</ol>
+<p>If you have a problem with understanding the Git concept, do this free interactive course to learn concept of cloning,commiting and pushing: <a href="https://try.github.io/levels/1/challenges/1">https://try.github.io/levels/1/challenges/1</a></p>
+<h2 id="start-blog-project">Start Blog Project</h2>
+<p>You need to have DocPad installed and blog project cloned to your machine. So after following above chapters with a success:</p>
+<ol>
+<li>Navigate to the project directory using a command line.</li>
+<li>Call <code>npm install</code> to get all the npm dependencies installed.</li>
+<li>Call <code>docpad run</code> to start the server and host the blog locally.</li>
+<li>Click <a href="http://localhost:9778">http://localhost:9778</a> and let&#39;s hope you can see the blog.</li>
+</ol>
+<h1 id="summary">Summary</h1>
+<p>Contact me whenever you run into some issues with installation or cloning. My twitter contact is available below. Next post will cover an explanation of how did I create this basic blog project.</p>
+
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES * * */
+                    var disqus_shortname = 'extwblog';
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+        </div>
+    </div>
+</article>
+<hr>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com/derberq">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/users/2088167/lukasz-gornicki">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/derberg">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class='foot'>
+                      <center>
+                        I'm using Google Analytics and Inspectlet to track </br>behaviour of my readers to learn how they interact with my blog.
+                      </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Using DocPad built in helper to collect all the scripts listed in configuration file and render a HTML markup for them -->
+    <script defer="defer"  src="/js/jquery.min.js"></script><script defer="defer"  src="/js/bootstrap.min.js"></script><script defer="defer"  src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
