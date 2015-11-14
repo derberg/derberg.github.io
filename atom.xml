@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<title>Release Notes | YaaS Dev Portal</title>
+	<title>Release Notes | API Docu</title>
 	<link href="http://derberg.github.io/atom.xml" rel="self"/>
 	<link href="http://derberg.github.io"/>
-	<updated>2015-11-14T00:38:06.217Z</updated>
+	<updated>2015-11-14T01:38:18.472Z</updated>
 	<id>http://derberg.github.io/</id>
 	<author>
 		<name>hybris</name>

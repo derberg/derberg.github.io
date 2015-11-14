@@ -1,7 +1,7 @@
 $(function(){
 
 	///////////////////
-	// API HEADER 
+	// API HEADER
 	//////////////////
 
 	(function () {
@@ -19,7 +19,7 @@ $(function(){
 	// cache aipLink from the right nav
 	var apiLink = $( '#right-nav a[href^="#ApiConsole"]' );
 
-	// show tooltip, add class and then use the class for placement 
+	// show tooltip, add class and then use the class for placement
 	var apiTooltipPosition = function(){
 
 		// append tooltip
@@ -31,7 +31,7 @@ $(function(){
 		$( '.api-tooltip .tooltip-arrow' ).css( 'top', '50%' );
 	};
 
-	// initilaize tooltip 
+	// initilaize tooltip
 	apiTooltipPosition();
 
 	// show on hover
@@ -40,15 +40,15 @@ $(function(){
 	// hide tooltip after 5 seconds.
 	setTimeout( function() { $(apiLink).tooltip('hide'); }, 5000 );
 
-	// end  tool tip // 
-	
+	// end  tool tip //
+
 	////////////////////////////
 	// right nav mobile version.
 	////////////////////////////
 
 	var mobileRightNav = function(){
 
-		// build needed markup 
+		// build needed markup
 		var rightNav = [];
 
 		rightNav.push('<nav class="navbar navbar-default right-nav-mobile visible-xs">');
@@ -66,7 +66,7 @@ $(function(){
 		var el = rightNav.join("");
 		$(el).appendTo('.navbar-super-holder');
 
-		// clean up unwanted markup 
+		// clean up unwanted markup
 		$("#right-nav").children().clone().appendTo(".right-nav-mobile-list");
 		$(".right-nav-mobile-list li ul").remove();
 		$('.right-nav-mobile-list a[href^="#ApiConsole"] ~ div').remove();
@@ -80,7 +80,7 @@ $(function(){
 
 	};
 
-	// check if there is a right nav before doing everyhting. 
+	// check if there is a right nav before doing everyhting.
 	// disable mobile nav for now.
 	// if( $('#right-nav').length ){ mobileRightNav(); }
 
@@ -88,43 +88,15 @@ $(function(){
 
 });
 
-///////////////////////////////////////
-// copy service url button in right nav
-///////////////////////////////////////
-
-var apiLink = new ZeroClipboard( document.getElementById("copy-api-button") );
-
-apiLink.on( "ready", function( readyEvent ) {
-
-  	apiLink.on( "aftercopy", function( event ) {
-	  	// update tooltip content once url is copied 
-	    $('#copy-api-button').tooltip('hide')
-  						 .attr('data-original-title', 'Copied!')
-  						 .tooltip('fixTitle')
-  						 .tooltip('show');
-  });
-
-});
-
-var apiSpecLink = new ZeroClipboard( document.getElementById("copy-api-spec") );
-
-apiSpecLink.on( "ready", function( readyEvent ) {
-
-  	apiSpecLink.on( "aftercopy", function( event ) {
-	  	// update tooltip content once url is copied 
-	    $('#copy-api-spec').parent().parent().hide();
-  });
-
-});
 
 $('#raml-download-link').click(function(){
 	$(this).parent().parent().hide();
 })
 
-// end copy service url // 
+// end copy service url //
 
 ///////////////////////////////////////
-// api specification url 
+// api specification url
 ///////////////////////////////////////
 
 $('#api-spec-btn').click(function(){
@@ -134,8 +106,3 @@ $('#api-spec-btn').click(function(){
 });
 
 // end api specificatio button
-
-
-
-
-
