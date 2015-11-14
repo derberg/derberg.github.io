@@ -1,0 +1,67 @@
+// Popover
+//
+// Popover States
+// Deprecated - The states will be removed in the future 
+// please don't use it anymore
+// 
+// Markup:
+//<div class="popover bottom {$modifiers}">
+//	<div class="arrow"></div>
+//	<h3 class="popover-title">Popover</h3>
+//	<div class="popover-content">
+//		<p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+//	</div>
+//</div>
+// 
+// .pop-over
+//
+// Styleguide 21.3
+
+//Color States are deprecated, please remove them soon
+
+.popover-variant(has-success; @state-success-bg; 5px solid @state-success-bg; #fff);
+.popover-variant(has-info; @state-info-bg; 5px solid @state-info-bg; #fff);
+.popover-variant(has-warning; @state-warning-bg; 5px solid @state-warning-bg; #fff);
+.popover-variant(has-error; @state-danger-bg; 5px solid @state-danger-bg; #fff);
+
+
+
+/* EXTENDED THE DEFAULT POPUP TO HAVE DIFFERENT STATES */
+.popover-variant(@state; @background; @border; @color) {
+
+  .popover{
+    &.@{state}{
+      background: @background;
+      color: @color;
+
+      &.top {
+        > .arrow:after{
+        border-top-color: @background;
+        }
+      }
+      &.bottom {
+        > .arrow:after{
+        border-bottom-color: @background;
+        }
+      }
+      &.left {
+        > .arrow:after{
+        border-left-color: @background;
+        }
+      }
+      &.right {
+        > .arrow:after{
+        border-right-color: @background;
+        }
+      }
+
+
+      .popover-title{
+        background: darken(@background, 5%);
+        color: @color;
+        border-bottom: @border;
+      }
+    }
+  }
+
+}

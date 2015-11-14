@@ -1,0 +1,190 @@
+// Table With Mobile Drop
+//
+// Modifier Class for responsive behavoir
+//
+// Markup:
+// <table ng-if="orders.length" class="table table-striped techne-table">
+//  <thead>
+//    <tr>
+//      <th>Order #</th>
+//      <th>Placed At</th>
+//      <th>Placed By</th>
+//      <th>Customer Email</th>
+//      <th># Of Items</th>
+//      <th>Order Total</th>
+//   </tr>
+//  </thead>
+//  <tbody>
+//    <tr>
+//      <td data-th="Order #" >
+//          <div class="cellcontent">
+//              <a>1</a>
+//          </div>
+//      </td>
+//      <td data-th="Placed At" >
+//          <div class="cellcontent">
+//              5/22/32
+//          </div>
+//      </td>
+//      <td data-th="Placed By" >
+//          <div class="cellcontent">
+//              Test Data
+//          </div>
+//      </td>
+//      <td data-th="Customer Email" >
+//          <div class="cellcontent">
+//              Test Data
+//          </div>
+//      </td>
+//      <td data-th="# Of Items" > 
+//          <div class="cellcontent">
+//              Test Data 
+//          </div>
+//      </td>
+//      <td data-th="Order Total" >
+//          <div class="cellcontent">
+//              Test Data
+//          </div>
+//      </td>
+//    </tr>
+//    <tr>
+//      <td data-th="Order #" >
+//          <div class="cellcontent">
+//              <a>1</a>
+//          </div>
+//      </td>
+//      <td data-th="Placed At" >
+//          <div class="cellcontent">
+//              5/22/32
+//          </div>
+//      </td>
+//      <td data-th="Placed By" >
+//          <div class="cellcontent">
+//              Test Data
+//          </div>
+//      </td>
+//      <td data-th="Customer Email" >
+//          <div class="cellcontent">
+//              Test Data
+//          </div>
+//      </td>
+//      <td data-th="# Of Items" > 
+//          <div class="cellcontent">
+//              Test Data
+//          </div>
+//      </td>
+//      <td data-th="Order Total" >
+//          <div class="cellcontent">
+//              Test Data
+//          </div>
+//      </td>
+//    </tr>
+//  </tbody>
+// </table>
+//
+// Styleguide 7.1
+table.techne-table {
+    td {
+        display: table-cell;
+        padding-top: 23px;
+        padding-bottom: 60px !important;
+        clear: both;
+    }
+    tr.even {
+        background-color: #f5f5f5;
+    }
+    tr.odd {
+        background-color: #fff;
+    }
+    
+    > tbody > tr:hover {
+        background-color: @default-greyblue-200 !important;
+        cursor: pointer;
+        .status {
+            &.info, &.CREATED, &.CONFIRMED, &.success, &.SHIPPED {
+                color: #fff;
+            }
+        }
+    }
+    
+    > tbody > tr >td:first-child {
+        padding-left: 8px;
+    }
+    .nested-body {
+        background-color: @nested-body-backgroundcolor;
+        margin: 0 -15px 30px -15px;
+        padding: 15px;
+        border: 1px solid @nested-body-bordercolor;
+    }
+    @media (max-width: @screen-xs-max) {
+        thead {
+            display: none;
+        }
+        td {
+            display: block;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border-top: none !important;
+        }
+        td > div.cellcontent {
+            width: 60%;
+            display: inline-block;
+            float: left;
+        }
+        td:before {
+            content: attr(data-th) "";
+            font-weight: bold;
+            width: 40%;
+            display: inline-block;
+            vertical-align: top;
+            float: left;
+        }
+        
+        tr {
+            display: block;
+        }
+        tr:hover {
+            cursor: pointer;
+            .status {
+                &.info, &.CREATED, &.CONFIRMED, &.success, &.SHIPPED {
+                    color: #fff;
+                }
+            }
+        }
+        tr + tr {
+            border-top: none !important;
+        }
+        padding: .25em .5em;
+        :first-child {
+            padding-left: 0;
+        }
+    }
+    table.techne-table {
+        padding: 0;
+        tr {
+            border: none !important;
+            padding: 20px 5px;
+        }
+        tr.even {
+            background-color: transparent;
+        }
+        td:before {
+            font-weight: normal !important;
+            display: block !important;
+        }
+        td {
+            padding: 3px 10px !important;
+            display: block !important;
+            font-weight: bold !important;
+        }
+        td span {
+            display: block !important;
+        }
+        td + td {
+            padding-top: 12px !important;
+        }
+        td:after {
+            display: none !imporant;
+        }
+    }
+}
