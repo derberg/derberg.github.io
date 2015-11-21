@@ -1,0 +1,59 @@
+---
+name: Batman Ipsum
+service: Batman Ipsum
+nameInternal: Batman Ipsum
+shortName: batmanipsum
+shortNameInternal: batmanipsum
+type: services
+version: v2
+latest: true
+latestVersion: Latest - v2
+docuDir: /
+baseUri: https://api.yaas.io/dccomics/batman-ipsum/v2
+baseUriInternal: https://api.yaas.io/dccomics/robin-ipsum/v2
+builderIdentifier: batman-ipsum
+builderIdentifierInternal: robin-ipsum
+raml: /src/main/resources/api/*.raml
+ramlInternal: /src/main/resources/api/*.raml
+sourcesCloneLoc: ./tmp/docuSources/services/batmanipsum/v2
+topicSrcLocation: ./tmp/docuSources/services/batmanipsum/v2/docu/files
+topicSrcLocationInternal: ./tmp/docuSources/services/batmanipsum/v2/docu/internal/files
+srcLocation: ./tmp/docuSources/services/batmanipsum/v2/docu/files/**,!./**/apireferenceTempContent.html
+srcLocationInternal: ./tmp/docuSources/services/batmanipsum/v2/docu/internal/files/**,!./**/apireferenceTempContent.html
+destLocation: ./src/documents/services/batmanipsum/v2
+destLocationInternal: ./src/documents/internal/services/batmanipsum/v2
+clonedGenDestLocation: ./tmp/latestResultRepo/services/batmanipsum/v2
+clonedGenDestLocationInternal: ./tmp/latestResultRepo/internal/services/batmanipsum/v2
+clonedGenRNDestLocation: ./tmp/latestResultRepo/rn/services/batmanipsum/v2
+clonedGenRNDestLocationInternal: ./tmp/latestResultRepo/internal/rn/services/batmanipsum/v2
+placeholderLocation: ../placeholders/services/index.*
+placeholderRNLocation: ../placeholders/release_notes/release_notes.*
+layoutName: generalnav
+layoutNameInternal: internal_generalnav
+collectionName: services
+collectionNameInternal: internalServices
+partialsSrcLocation: ./tmp/docuSources/services/batmanipsum/v2/docu/partials/*
+partialsSrcLocationInternal: ./tmp/docuSources/services/batmanipsum/v2/docu/internal/partials/*
+partialsDestLocation: ./src/partials
+rnBaseLocation: ./tmp/docuSources/services/batmanipsum/v2/docu/release_notes
+rnBaseLocationInternal: ./tmp/docuSources/services/batmanipsum/v2/docu/internal/release_notes
+rnSrcLocation: ./tmp/docuSources/services/batmanipsum/v2/docu/release_notes/**
+rnSrcLocationInternal: ./tmp/docuSources/services/batmanipsum/v2/docu/internal/release_notes/**
+rnDestLocation: ./src/documents/rn/services/batmanipsum/v2
+rnDestLocationInternal: ./src/documents/internal/rn/services/batmanipsum/v2
+genBasicRNLocation: ./out/rn/services/batmanipsum
+genRNLocation: ./out/rn/services/batmanipsum/v2
+genBasicRNLocationInternal: ./out/internal/rn/services/batmanipsum
+genRNLocationInternal: ./out/internal/rn/services/batmanipsum/v2
+genBasicDocuLocation: ./out/services/batmanipsum
+genDocuLocation: ./out/services/batmanipsum/v2
+genBasicDocuLocationInternal: ./out/internal/services/batmanipsum
+genDocuLocationInternal: ./out/internal/services/batmanipsum/v2
+genDocuLocationLatest: ./out/services/batmanipsum/latest
+genDocuLocationInternalLatest: ./out/internal/services/batmanipsum/latest
+genRNLocationLatest: ./out/rn/services/batmanipsum/latest
+genRNLocationInternalLatest: ./out/internal/rn/services/batmanipsum/latest
+area: Movies
+location: https://github.com/derberg/service-batman.git
+branchTag: master
+---

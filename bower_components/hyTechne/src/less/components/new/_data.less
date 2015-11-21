@@ -1,0 +1,100 @@
+// User Avatar
+//
+// Markup:
+//<div class="userAvatar">
+//  <img src="https://s3.amazonaws.com/uifaces/faces/twitter/mantia/128.jpg"/>
+//</div>
+//
+// Styleguide 8.2
+
+
+.userAvatar{
+  background-color: @component-active-color;
+  border-radius:2em;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  overflow: hidden;
+
+  //center all children
+  img{
+    margin: 0 auto;
+    vertical-align: middle;
+  }
+}
+
+
+
+
+// Primary Value
+//
+// Markup:
+//<p class="primaryData">
+//  &lt;Primary Value&gt;
+//</p>
+//
+// Styleguide 8.3
+
+.primaryData{
+  color: @gray-base;
+  font-size: 15px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+
+// Secondary Value
+//
+// Markup:
+//<p class="secondaryData">
+//  &lt;Secondary Value goes here&gt;
+//</p>
+//
+// Styleguide 8.4
+
+.secondaryData{
+  color: #7f90a4;
+  font-weight: normal;
+  margin-bottom: 3px;
+}
+
+// Status Value Label
+//
+// Markup:
+//<p class="statusDataValue">
+//  <span class="active">
+//    Active
+//  </span>
+//</p>
+//
+// Styleguide 8.5
+
+.statusDataValue{
+  text-transform: uppercase;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 11px;
+  
+  > .active{
+    color: @default-green;
+  }
+
+  .inactive{
+    color: @default-red;
+  }
+}
+
+.status{
+  text-transform: uppercase;
+  font-weight: bold;
+
+
+  &.info, &.CREATED, &.CONFIRMED{
+    color: #5bc0de;
+  }
+
+  &.success, &.SHIPPED{
+    color: @default-green;
+  }
+
+}

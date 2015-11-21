@@ -1,0 +1,142 @@
+// Panels
+//
+// Use panels to display content in the builder
+// 
+// Markup:
+//<div id="demo-page-background" class="panel panel-default">
+//	<div class="panel-heading">Panel heading without title</div>
+//	<div class="panel-body">Panel content</div>
+//</div>
+// 
+// .panel
+//
+// Styleguide 6.1
+
+
+//Color States are deprecated, please remove them soon
+//Styling specifically for the component on the componenst page in techné
+#demo-page-background {
+		background-color: #e0e9f0;
+		padding: 40px;
+		.panel-body {
+			background-color: #fff;
+		}
+	}
+	
+.panel{
+	// For panel Component body
+	.box-shadow(0 0 0 @default-grey-600);
+	
+	&.panel-border{
+		//		border: 1px solid @default-grey-600;
+		border-radius: 0;
+		.box-shadow(0 0 0 @default-grey-600);
+	}
+	.panel-heading{
+	// RESET FOR HEADING TO USE RIGHT MARKUP
+		h1,h2,h3,h4,h5,h6{
+			font-size: 18px;
+			margin-bottom: 10px;
+			margin-top: 10px;
+		}
+	}
+	.panel-footer{
+		color: @dark-blue-100;
+	}
+	
+	.nested-body{
+		background-color: @nested-body-backgroundcolor;
+		margin: 0 -15px 30px -15px;
+		padding: 15px;
+		border: 1px solid @nested-body-bordercolor;
+	}
+}
+
+.panel, .panel-heading, .panel-footer{
+  border: none;
+}
+
+.panel .panel-heading h2{
+  font-size: 21px;
+}
+
+// Panels Test
+//
+// Panel States
+// 
+// Markup:
+//<div class="panel panel-default">
+//	<div class="panel-heading clearfix">
+//    <div class="pull-left">
+//				Panel heading
+//		</div>
+// <div class="pull-right">
+// <nav>
+//       <ul class="pagination">
+//         <li class="disabled"><a aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+//         <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+//         <li><a href="#">2</a></li>
+//         <li><a href="#">3</a></li>
+//         <li><a href="#">4</a></li>
+//         <li><a href="#">5</a></li>
+//         <li><a aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+//      </ul>
+//    </nav>
+// </div></div>
+// <div class="list-group">
+//   <a href="#" class="list-group-item {$modifiers}">Dapibus ac facilisis in</a>
+//   <a href="#" class="list-group-item {$modifiers} active">Dapibus ac facilisis in</a>
+//   <a href="#" class="list-group-item">Morbi leo risus</a>
+//   <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+// <a class="list-group-item deleteable">
+//         <span  class="badge">date</span>
+//         <div class="usercard">
+//             <div class="usercard-info">
+//                 <h6>TeamID: Swinka</h6>
+//                 <h3>subscriptionproductname</h3>
+//                 <h4>subscriptionproductdescription</h4>
+//             </div>
+//         </div>
+//         <div class="list-group-item-delete" data-toggle="modal" ng-click="unsubscribe(subscription.id)" ng-if="isTestProject">
+//             <span class="hyicon-remove"></span>
+//         </div>
+//     </a>
+// </div>
+// <table class="table table-striped table-hover">
+//         <thead>
+//           <tr>
+//             <th>First Name</th>
+//             <th>Last Name</th>
+//             <th>Username</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           <tr>
+//             <td>Mark</td>
+//             <td>Otto</td>
+//             <td>@mdo</td>
+//           </tr>
+//           <tr>
+//             <td>Jacob</td>
+//             <td>Thornton</td>
+//             <td>@fat</td>
+//           </tr>
+//           <tr>
+//             <td>Larry</td>
+//             <td>the Bird</td>
+//             <td>@twitter</td>
+//           </tr>
+//         </tbody>
+//       </table>
+// <div class="panel-footer clearfix">
+// 	<div class="pull-left"><button class="btn btn-link">Cancel</button></div>
+//	<div class="pull-right"><button class="btn btn-danger">Delete</button></div>
+// </div>
+//</div>
+// 
+// .has-info - info
+// .has-success - success
+// .has-danger - danger
+// .has-warning - warning
+//
+// Styleguide 6.10 
