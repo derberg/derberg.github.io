@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Get feedback, enable your audience to comment your content">
+    <meta name="author" content="0">
+
+
+    <title>exTW Blog</title>
+
+    <!-- Using DocPad built in helper to collect all the styles listed in configuration file and render a HTML markup for them -->
+    <link  rel="stylesheet" href="/css/bootstrap.min.css" /><link  rel="stylesheet" href="/css/clean-blog.min.css" />
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date(); a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1; a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', '//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-62858836-1', 'auto'); ga('send', 'pageview');</script>
+    <script type='text/javascript' id='inspectletjs'> window.__insp = window.__insp || []; __insp.push(['wid', 1668565138]); (function() { function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = 'inspsync'; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); } if (window.attachEvent) window.attachEvent('onload', __ldinsp); else window.addEventListener('load', __ldinsp, false); })(); </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+                    <!--<li>
+                        <a href="/posts/index.html">Posts</a>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  -->
+    <!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('/img/post-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Enable Commenting</h1>
+                    <h2 class="subheading">Get feedback, enable your audience to comment your content</h2>
+                    <span class="meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on April 13, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  -->
+                <p>Every serious content provider wants to get a feedback. When I started working as a Software Technical Writer few years ago, I wanted to know if my work matters, if my audience likes it, if there is anything I could do better. We had all the feedback features there, <code>like</code> function, rating with starts and commenting. Likes are cool, rating also gives you a good feeling about the quality. Nevertheless nothing is as valuable as comments. Our problem was that commenting feature was pretty basic with useless notification system and no management functionality...so we decided to switch it off.</p>
+<p>I&#39;ve learned few months ago that there is an awesome 3rd party tool for enabling comments on your page. It is really cool tool with management console, blacklisting and others. The tool is called <a href="https://disqus.com/">Disqus</a>. Ever since then, I can see disqus is used almost everywhere possible.</p>
+<h2 id="get-disqus">Get Disqus</h2>
+<p>Of course, first you need to sign up for disqus account. Then you need to select <strong>Add disqus to your site</strong> option and provide:</p>
+<ul>
+<li>Site name: For example <code>exTW Blog</code></li>
+<li>Disqus URL: For accessing management console. Can be the same as site name.</li>
+<li>Category: Choose whatever you want.</li>
+</ul>
+<p>Then you can copy the code that is suggested for so called installation of the feature on your page. For DocPad we need universal code. This is a super simple html&#39;s div element and some JavaScript:</p>
+<pre><code>&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = &#39;extwblog&#39;;
+
+    /* * * DON&#39;T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;
+        dsq.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;
+        (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+</code></pre><p>The only part you need to modify in the code is the <strong>disqus_shortname</strong> variable value, the name you&#39;ve provided as a Disqus URL.</p>
+<h2 id="embed-disqus-in-docpad-project">Embed Disqus in DocPad Project</h2>
+<p>Now all you need to do is to place above code in your project in a proper place, to get the disqus comment at the bottom of each post. This blog consists of two layouts (I wrote more about layouts <a href="/posts/2015-02-21.html#layouts">here</a>). The <strong>default</strong> layout is not something we should touch as it is inherited by all blog pages, which means that anything add there will be populated to all pages - and we don&#39;t want to have commenting on main blog page for example.</p>
+<p>The layout that we need to modify is the <strong>post</strong> layout. Every blog post is built with this layout.
+Looking on a part of the code of the layout:</p>
+<pre><code>&lt;!-- Post Content --&gt;
+&lt;article&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&quot;&gt;
+                &lt;!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  --&gt;
+                &lt;%- @content %&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+</code></pre><p>Each post is added in this place: <strong>&lt;%- @content %&gt;</strong>. We want to add comments below the article content, so we just need to add disqus code below <strong>&lt;%- @content %&gt;</strong> tag to keep disqus in the same bootstrap grid (to keep responsivenes and all that stuff):</p>
+<pre><code>&lt;!-- Post Content --&gt;
+&lt;article&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&quot;&gt;
+                &lt;!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  --&gt;
+                &lt;%- @content %&gt;
+                &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+                &lt;script type=&quot;text/javascript&quot;&gt;
+                    /* * * CONFIGURATION VARIABLES * * */
+                    var disqus_shortname = &#39;extwblog&#39;;
+
+                    /* * * DON&#39;T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;
+                        dsq.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;
+                        (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);
+                    })();
+                &lt;/script&gt;
+                &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+</code></pre><p>And that is it. Just 2 steps and you have commenting feature enabled on your static page. So if you don&#39;t want to provide me a feedback on twitter, please do so using my newest commenting option.</p>
+
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES * * */
+                    var disqus_shortname = 'extwblog';
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+        </div>
+    </div>
+</article>
+<hr>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com/derberq">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/users/2088167/lukasz-gornicki">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/derberg">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class='foot'>
+                      <center>
+                        I'm using Google Analytics and Inspectlet to track </br>behaviour of my readers to learn how they interact with my blog.
+                      </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Using DocPad built in helper to collect all the scripts listed in configuration file and render a HTML markup for them -->
+    <script defer="defer"  src="/js/jquery.min.js"></script><script defer="defer"  src="/js/bootstrap.min.js"></script><script defer="defer"  src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

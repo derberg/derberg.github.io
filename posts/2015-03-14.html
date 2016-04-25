@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Comparison between DocPad an the most popular static site generator called Jekyll">
+    <meta name="author" content="0">
+
+
+    <title>exTW Blog</title>
+
+    <!-- Using DocPad built in helper to collect all the styles listed in configuration file and render a HTML markup for them -->
+    <link  rel="stylesheet" href="/css/bootstrap.min.css" /><link  rel="stylesheet" href="/css/clean-blog.min.css" />
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date(); a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1; a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', '//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-62858836-1', 'auto'); ga('send', 'pageview');</script>
+    <script type='text/javascript' id='inspectletjs'> window.__insp = window.__insp || []; __insp.push(['wid', 1668565138]); (function() { function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = 'inspsync'; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); } if (window.attachEvent) window.attachEvent('onload', __ldinsp); else window.addEventListener('load', __ldinsp, false); })(); </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+                    <!--<li>
+                        <a href="/posts/index.html">Posts</a>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  -->
+    <!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('/img/post-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>DocPad vs Jekyll</h1>
+                    <h2 class="subheading">Comparison between DocPad an the most popular static site generator called Jekyll</h2>
+                    <span class="meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on March 14, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  -->
+                <p>It is always a problem to choose a proper technology, especially when you have so many possibilities. If you at least know what your requirements are - that should be relatively easier. Within this blog, I&#39;m promoting DocPad as a best tool for software documentation. Therefore, I feel like I have to make some kind of comparison between DocPad and its biggest competitor - Jekyll.</p>
+<p>I believe that to start comparison, you first need to define some super basic requirements. What you want to use the tool for? Are you thinking about your own blog or something more?</p>
+<h2 id="requirement-i">Requirement I</h2>
+<p>I need to have a documentation portal with static content, but also would like to deploy a blog with cms attached to it.</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>DocPad</th>
+    <th>Jekyll</th>
+  </tr>
+  </thead>
+  <tr>
+    <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><p>DocPad is not just a static site generator. It is built on nodejs, using expressjs. You can deploy it as a nodejs application and use it on production this way. It means that for example you can have documents marked as dynamic, that always render content on page refresh. With DocPad you can have a huge generated documentation portal, and next to it, a blog hosted as a web app with real CMS system.</p></td>
+    <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><p>Jekyll is just a generator.</p></td>
+  </tr>
+</table>
+
+<h2 id="requirement-ii">Requirement II</h2>
+<p>I&#39;m going to use an open source so I need to join a big community where I can find support I need.</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>DocPad</th>
+    <th>Jekyll</th>
+  </tr>
+  </thead>
+  <tr>
+    <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><p>There is a community I need. Lots of plugins on <a href="https://www.npmjs.com/">npm</a> and a lot of <a href="https://docpad.org/docs/showcase">projects</a> you can learn from. GitHub search says there are <a href="https://github.com/search?o=desc&amp;q=%22docpad-plugin%22&amp;s=forks&amp;type=Repositories&amp;utf8=%E2%9C%93">236</a> plugins.</p></td>
+    <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><p>Number of likes on github suggests that the community is also bit, much bigger than DocPad&#39;s. GitHub search says there are <a href="https://github.com/search?o=desc&amp;q=%22jekyll-plugin%22&amp;s=forks&amp;type=Repositories&amp;utf8=%E2%9C%93">208</a> plugins.</p></td>
+  </tr>
+</table>
+
+<h2 id="requirement-iii">Requirement III</h2>
+<p>I&#39;m going to build my documentation portal on different environments with different URLs. Therefore I need a possibility to set environment variables that I can later on use in certain files.</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>DocPad</th>
+    <th>Jekyll</th>
+  </tr>
+  </thead>
+  <tr>
+    <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><p>There is one configuration for development, that you can customize per environment. Possible use case is that you deploy your Web site to different environments with different URLs. You can add to the configuration file different environments with different URLs and call proper environment during generation. DocPad also supports <code>process.env</code> file for additional abstraction of some common values you use in the project. I guess it is out of the box nodejs stuff - don&#39;t know much more about it.</p><p>In general: One config file for the whole configuration, very flexible. My preference.</p></td>
+    <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><p>From what I&#39;ve learned there is no way to have different environment variables defined in the config file. On the other hand you can have multiple configuration files and call proper config on start. So that somehow fits the requirement, but it has drawbacks. The problem is that most of my configuration is common and only few parts are specific per environment - I don&#39;t want to maintain common config in multiple files, that is a error prone setup.</p></td>
+  </tr>
+</table>
+
+<h2 id="requirement-iv">Requirement IV</h2>
+<p>I want to have a possibility to switch between Markdown and some more advanced syntax and their parsers like Asciidoc.</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>DocPad</th>
+    <th>Jekyll</th>
+  </tr>
+  </thead>
+  <tr>
+<td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><p>For now there are plugins that use <a href="https://github.com/chjj/marked">marked</a> or <a href="http://fletcherpenney.net/multimarkdown/">MultiMarkdown</a> for markdown parsing. There is a plugin that enables support for <a href="http://orgmode.org/">orgmode</a> but it looks scary. Looks like there is also a plugin for <a href="http://txstyle.org/">textile</a>.</p></td>
+<td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><p>There are many different plugins that support pretty much everything that is on the market now - everything I&#39;m aware of:</p>
+<ul>
+  <li>
+    <a href="http://asciidoctor.org/docs/what-is-asciidoc/">Asciidoc</a>
+  </li>
+  <li>
+    <a href="http://johnmacfarlane.net/pandoc/">Markdown with pandoc</a>
+  </li>
+  <li>
+    <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>
+  </li>
+  <li>
+    <a href="http://txstyle.org/">textile</a>
+  </li>
+</ul>
+</td>  </tr>
+</table>
+
+
+<h2 id="requirement-v">Requirement V</h2>
+<p>I need to have a possibility to set different parsing per file. Sometimes I just want to have markdown to HTML, and sometimes some templating first, then markdown and HTML at the end.</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>DocPad</th>
+    <th>Jekyll</th>
+  </tr>
+  </thead>
+  <tr>
+    <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><p>In DocPad you define how the file should be processed by putting a proper information in the file&#39;s extension. In other words you define per file how it should be processes. Best sample: You have a markdown file that should be processed to HTML, so its full name should be <code>basename.html.md</code>. If you use some templating inside it, you can refer to proper templating with <code>.html.md.eco</code>. This gives you a great flexibility to decide that plugins use where.</p></td>
+    <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><p>As far as I remember when I worked on one project with jekyll it was only possible to define templates and parsers globally in configuration file.</p></td>
+  </tr>
+</table>
+
+
+<h2 id="requirement-vi">Requirement VI</h2>
+<p>It has to be super easy to extend the tool.</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>DocPad</th>
+    <th>Jekyll</th>
+  </tr>
+  </thead>
+  <tr>
+    <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><p>It is possible not only because the <a href="https://docpad.org/docs/plugin-write">plugin creation</a> is super easy but also because you can hook in with your plugin logic to any generation step by binding to <a href="https://docpad.org/docs/events">events</a>.</p></td>
+    <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><p>I can&#39;t say much here. Tried to learn quickly from jekyll page about how to create a custom plugin but did get much from there. There are many plugins out there so I guess it has to be possible to extend this tool.</p></td>
+  </tr>
+</table>
+
+
+<h2 id="requirement-vii">Requirement VII</h2>
+<p>My collections of documents will be big, and I want to reuse them in many places, take different types of documents out of them and render them where I need.</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>DocPad</th>
+    <th>Jekyll</th>
+  </tr>
+  </thead>
+  <tr>
+    <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><p>DocPad uses awesome <a href="https://learn.bevry.me/queryengine/guide">QueryEngine</a> that gives you a possibility to query over documents collections using the same syntax as in MongoDB. You can even extend collections when they get created; for example you can add some specific metadata to documents and later on refer to it in your templates. It helps a lot.</p></td>
+    <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><p>I used jekyll once, and from what I&#39;ve learned collections are defined by folders. In other words you have a <code>post</code> folder with bunch of files, and you refer to it as a collection of posts. When I look on this <a href="https://github.com/github-archive/training.github.com/tree/7049d7532a6856411e34046aedfce43a4afaf424">old github project</a> and its structure (probably imposed by the per folder approach) scares me out.</p></td>
+  </tr>
+</table>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>If you want to create a simple blog, then any static site generator is probably a good fit. Here I could quote Benjamin, founder of DocPad. This is his answer to <a href="http://www.quora.com/Is-DocPad-or-Jekyll-better-for-static-web-development">quora</a> question about what is better, DocPad or Jekyll.</p>
+<pre><code>In the end, tech that you enjoy using usually wins over tech that is the right solution.
+</code></pre><p>On the other hand, if you want to work on more complicated Web project, you should choose something that is extremely flexible and I just don&#39;t see this level of flexibility in jekyll. To be honest I don&#39;t really understand why it is so popular. I think that it is only because of its integration in <a href="https://pages.github.com/">GitHub Pages</a>. People just see it as an entry point, don&#39;t really know there are other solutions.</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>I&#39;m using DocPad for 10 months, and I used Jekyll only for 2 weeks for a very small project. Also the purpose of my entire blog project is to promote DocPad. Therefore I understand that my level of objectiveness is not the highest. If the information I&#39;ve provided in this post are not true and misleading please let me know on twitter, I&#39;ll verify and fix errors.</p>
+
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES * * */
+                    var disqus_shortname = 'extwblog';
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+        </div>
+    </div>
+</article>
+<hr>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com/derberq">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/users/2088167/lukasz-gornicki">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/derberg">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class='foot'>
+                      <center>
+                        I'm using Google Analytics and Inspectlet to track </br>behaviour of my readers to learn how they interact with my blog.
+                      </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Using DocPad built in helper to collect all the scripts listed in configuration file and render a HTML markup for them -->
+    <script defer="defer"  src="/js/jquery.min.js"></script><script defer="defer"  src="/js/bootstrap.min.js"></script><script defer="defer"  src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

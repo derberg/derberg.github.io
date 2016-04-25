@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="What can you get from Google Analytics and Inspectlet">
+    <meta name="author" content="0">
+
+
+    <title>exTW Blog</title>
+
+    <!-- Using DocPad built in helper to collect all the styles listed in configuration file and render a HTML markup for them -->
+    <link  rel="stylesheet" href="/css/bootstrap.min.css" /><link  rel="stylesheet" href="/css/clean-blog.min.css" />
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date(); a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1; a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', '//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-62858836-1', 'auto'); ga('send', 'pageview');</script>
+    <script type='text/javascript' id='inspectletjs'> window.__insp = window.__insp || []; __insp.push(['wid', 1668565138]); (function() { function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = 'inspsync'; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); } if (window.attachEvent) window.attachEvent('onload', __ldinsp); else window.addEventListener('load', __ldinsp, false); })(); </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+                    <!--<li>
+                        <a href="/posts/index.html">Posts</a>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  -->
+    <!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('/img/post-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Get Some Data! part 2</h1>
+                    <h2 class="subheading">What can you get from Google Analytics and Inspectlet</h2>
+                    <span class="meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on July 15, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  -->
+                <p>Over a month ago I&#39;ve enabled Google Analytics and Inspectlet on this blog and explained how to do it in post  <a href="2015-05-12.html">Get Some Data! part 1</a>. I did it for two reasons, I wanted to explain how to use custom environment settings in DocPad and wanted to check out Inspectlet. In general, I regret that I waited 3 months to enable analytics on my blog. I really do. I&#39;ve lost so much interesting data.</p>
+<h2 id="google-analytics">Google Analytics</h2>
+<p>This cow is huge, and brings a lot of milk. I&#39;ll just mention few the most interesting statistics here and share my opinion.</p>
+<h3 id="main-statistical-data-audience">Main Statistical Data - Audience</h3>
+<p>Of course the most important data are where you learn that you had 765 individuals reading your blog. But then it is kind of embarrassing to learn that the average time they&#39;ve spent on it was 26 seconds......not much time to read a post. This data is very useful but requires investigation. If most of the people get to my blog from google search, this is pretty clear that after reading a first paragraph they just quit as the page they received did not contain information they were looking for. This is pretty normal behavior, you get result and you open several pages one by one and quickly asses if page has content for you or not. Anyway it requires a further investigation for sure and a comparison with a long running readers sessions.</p>
+<h4 id="details">Details</h4>
+<p>So once I know I had 765 readers, I want to know what browsers they use and once they use mobile, which screen resolution is the most common. Why? Web is complicated with all those different browsers and devices, it is hard to make your page compatible with all of them. So you need to pick always the most popular once to deliver the best experience to the majority of your audience. Simple as that. And you need to take care for mobile readers obviously.</p>
+<p>So it was interesting for me to learn that almost 90% of my readers are a Chrome users and 80% of them use Macs...and they do not use Safari browser? I wonder why :)
+And it is interesting to know how hard it is to support mobile and try to support majority....as there is no majority. In case of my blog I have 50/50 rate for iOS and Android users with all possible screen resolutions. Mobile is hard.</p>
+<p>For Mobile there are of course more details data available. I can even identify what devices they use to read my blog - 50% of my readers use iPhone.</p>
+<h4 id="new-vs-returning">New vs Returning</h4>
+<p>This is also very interesting data from a documentation point of view. Good to know how many new visitors you have and how many of them return to your page.</p>
+<p>54 people regularly visit my blog again. I like it, it is super cool feeling to know that people want to read and visit you more often. The average time they&#39;ve spent on the blog is not 26 but 1,08sec. This means they are interested. This is also very important for documentation portal to learn how many regular users you have, how that number change over time and if it increases or rather decreases. If you have a portal with technical content that must be visited by your users, the number of regular users should increase over time so you see it is gaining popularity.</p>
+<h4 id="engagement">Engagement</h4>
+<p>There are two types of data:</p>
+<ul>
+<li>Session Duration: It is a comparison of session length, sessions amount and a page views. For example, I&#39;ve learned that sessions, when a reader took a look on two different pages on my blog, took between 31-60 seconds. Anyway, a picture can tell you more here:
+<br><br>
+<img src="img/session_duration.png" style="width: 800px; ">
+<br><br></li>
+<li>Page Depth: It is just a different view of the same data:
+<br><br>
+<img src="img/page_views.png" style="width: 800px; "></li>
+</ul>
+<h3 id="acquisition">Acquisition</h3>
+<p>In this section of Google Analytics you get an overview on how your readers got to your page. I&#39;ve learned that only half of my readers got to my page directly, and rest through social media or other channels.</p>
+<h4 id="social-network-referrals">Social Network Referrals</h4>
+<p>This one is probably interesting for bloggers. I personally love it. Cool to see that 10% of people that visited my blog learned about it on social media. On the other hand it is interesting that it is only 10%. It means that the rest has to come from other locations like google search for example.</p>
+<p>So people visit me thanks to mentions in Twitter, Facebook, Disqus comments on different blogs and also LinkedIn.</p>
+<p>It might be an interesting statistic but not very useful for documentation sites. &quot;Cool people share us with others on social media, but I can&#39;t use it much to improve my documentation page&quot;.</p>
+<h4 id="referral-traffic">Referral Traffic</h4>
+<p>It may be compared to previous data. So it is a list of sites that readers visited to end up in your page. Again, that is a kind of cool info only. But it is nice to know that I gained few more readers thanks to the fact that I was mentioned in the ETC blog: <a href="http://etc-conference.eu/news/new-approach-creating-software-documentation-non-wiki-and-non-dita">http://etc-conference.eu/news/new-approach-creating-software-documentation-non-wiki-and-non-dita</a></p>
+<h3 id="behavior">Behavior</h3>
+<p>So basically how readers behave on my blog.</p>
+<h4 id="content-drilldown">Content Drilldown</h4>
+<p>You can have a details data on page view per each section of your documentation site. You can see how many users read <code>tutorials</code> section and then drill down to see which tutorial is the most popular. That is very useful.</p>
+<h4 id="exit-pages">Exit Pages</h4>
+<p>It is an overview that shows how many users exit your blog from a specific page. 85% of my readers exit from my main page which is not good. I know I have to rework it and have to advertise specific posts more. Also, it doesn&#39;t necessarily mean that there is something wrong with my landing page, maybe it is clear enough for a reader to identify quickly that he is in a wrong place.
+Useful data that needs to be analyzed.</p>
+<h4 id="in-page-analytics">In-Page Analytics</h4>
+<p>Very cool stuff. You can open and see the analytics directly on page itself. You see where your readers click:</p>
+<p><img src="img/inpage_1.png" style="width: 800px; "></p>
+<p>and get a full overview of statistics for specific page:</p>
+<p><img src="img/inpage_2.png" style="width: 800px; "></p>
+<p>Thanks to it I&#39;ve learned that 55% of readers of my last blog clicked my name link to see details about me, and apparently I left a blank link and forgot to point it to a specific place. Now it is fixed. Imagine how many issues you can fix with this part of analytics.</p>
+<h3 id="flows">Flows</h3>
+<p>This is one of my favorites. You can have here a nice view on your users flow. How they navigate to get to their destination? Which path they had to take to get there? Is there a page that had a huge number of views, but a reader had to go through more then 3 different pages to get there?</p>
+<p>You have different flows, like <strong>User Flow</strong>, <strong>Social User Flow</strong> or <strong>Behavior Flow</strong> shown below.</p>
+<p><img src="img/flow.png" style="width: 800px; "></p>
+<p>After analyzing the flow you can have a good view on how you need to improve you navigation.</p>
+<h2 id="inspectlet">Inspectlet</h2>
+<p>Unfortunately the free account I use allows to record 4 individual user sessions a day. The tool gives two things that you can&#39;t get at Google Analytics:</p>
+<ul>
+<li>Full recording of user session</li>
+<li>Heatmaps:<ul>
+<li>eye-tracking heatmap</li>
+<li>click heatmap</li>
+<li>scroll heatmap</li>
+</ul>
+</li>
+</ul>
+<h3 id="recording">Recording</h3>
+<p>You can actually see in action how user interacts with your page. Sample of one of my recordings <a href="http://www.inspectlet.com/dashboard/watchsession/1668565138/3686093353?pn=1&amp;accessResourceKey=01d2f5132d752a0345bd5e6716013b76f1c9bfe8">http://www.inspectlet.com/dashboard/watchsession/1668565138/3686093353?pn=1&amp;accessResourceKey=01d2f5132d752a0345bd5e6716013b76f1c9bfe8</a></p>
+<p>This is pretty useful at the final stage of your data analysis. First you start with huge statistical data from Google Analytics, then you narrow down to individual users to get more specific answers. And in general it is cool to see how the user reads your whole article :)</p>
+<h3 id="heatmaps">Heatmaps</h3>
+<p>The most popular one is the eye-tracking heatmap. In this case it is not a camera that is obviously used for tracking, but the mouse movement. As you probably noticed, most of the time when you read from a screen, you tend to move your mouse into the same direction. So you get your page with additional layer of points where your user looked at. If more users looked at the same spot, the heat point gets more intensive and bigger. This is a eye-tracking heatmap from my main page created out of 36 individual visits:</p>
+<p><img src="img/eye.png" style="width: 800px; "></p>
+<p>Additional two heatmap data are the click and scroll, which means that you have a map of user clicks and info about how far users scrolled on your page. This is a scroll heatmap from my main page created out of 36 individual visits:</p>
+<p><img src="img/scroll.png" style="width: 800px; "></p>
+<p>Heatmaps are extremely useful but for that you need a lot of data, a lot of individual visits. With free account from Inspectlet it is not possible as it tracks only 4 users per day. For over a month, for my main page, I received data with only 36 individual visits although I know I had over 700 visits in total.</p>
+<p>These are the improvements you could implement after analyzing heatmap data:</p>
+<ul>
+<li>Restructure position and behavior of your navigation</li>
+<li>Place the most important information in front of user&#39;s eyes</li>
+<li>Eliminate parts that are not spotted</li>
+<li>From the scroll heatmap learn which documents suck in length and content. It is hard to make a clear statement like: <code>scroll</code> documents are wrong. Sometimes even long documents gets full attention, it also depends on the content - I noticed it on analyzing scroll heatmap on my post about DocPad and Jekyll comparison. So if you spot a document that is super long, but the scroll heatmap reveals that it had full reader attention, then analyze the doc, its style and structure and port it to other documents.</li>
+</ul>
+<p>There is probably much more learning possible.</p>
+<h2 id="final-conclusion">Final Conclusion</h2>
+<p>Having Google Analytics or any other analytics tool is not all. You get a lot of data that you need to understand it and it is really not easy. I will just bullet point few important things you need to assure before you start analyzing data:</p>
+<ul>
+<li><strong>Exclude data noise</strong>: Set it up in the way that your own team and other teams that do not use your solution as customers, are not tracked and do not make a noise in your statistics. They do not behave as real users.</li>
+<li><strong>Gather some data first</strong>: Give it few months to live. Get some data and then work on it. 1k page views is a minimum for a big documentation portal, on only for initial analysis without big decisions to change something in UI.</li>
+<li><strong>What is your target</strong>: To analyze data, first you need to know what are the assumptions, who are you targeting with your Web page. Do you actually expect only newbies to enter and don&#39;t expect them to come back. Is it normall for you that they should only open specific page and not drill down for more content. Do you expect to have a regular visitors that should read every new article otherwise it means they are not using your solution? You need this answers. Me myself I&#39;m still not able to answer all these questions in regards to my blog. So good luck :)</li>
+</ul>
+<h3 id="which-tool">Which Tool</h3>
+<p>You need both tools. You just start analyzing huge statistical data from Google Analytics and then just narrow down to more specific investigation with data from Inspectlet. Google Analytics is free but Inspectlet not. So you either get a budget for a license or get a talented Web developer to embed <a href="http://www.patrick-wied.at/static/heatmapjs/">heatmap.js</a> library directly in your UI.</p>
+
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES * * */
+                    var disqus_shortname = 'extwblog';
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+        </div>
+    </div>
+</article>
+<hr>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com/derberq">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/users/2088167/lukasz-gornicki">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/derberg">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class='foot'>
+                      <center>
+                        I'm using Google Analytics and Inspectlet to track </br>behaviour of my readers to learn how they interact with my blog.
+                      </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Using DocPad built in helper to collect all the scripts listed in configuration file and render a HTML markup for them -->
+    <script defer="defer"  src="/js/jquery.min.js"></script><script defer="defer"  src="/js/bootstrap.min.js"></script><script defer="defer"  src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

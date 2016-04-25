@@ -1,17 +1,309 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=content-type content="text/html; charset=utf-8"><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Home | API Docu for YaaS</title><meta name=description content="API Docu for YaaS"><meta name=keywords content="api yaas"><meta name=author content=hybris><meta name=generator content="DocPad v6.78.4"><meta name=viewport content="width=device-width, initial-scale=1"><link rel=alternate type=application/rss+xml title="DevPortal Blog!" href=/atom.xml><link rel=apple-touch-icon sizes=57x57 href=http://derberg.github.io/images/favicon/apple-touch-icon-57x57.png><link rel=apple-touch-icon sizes=114x114 href=http://derberg.github.io/images/favicon/apple-touch-icon-114x114.png><link rel=apple-touch-icon sizes=72x72 href=http://derberg.github.io/images/favicon/apple-touch-icon-72x72.png><link rel=apple-touch-icon sizes=144x144 href=http://derberg.github.io/images/favicon/apple-touch-icon-144x144.png><link rel=apple-touch-icon sizes=60x60 href=http://derberg.github.io/images/favicon/apple-touch-icon-60x60.png><link rel=apple-touch-icon sizes=120x120 href=http://derberg.github.io/images/favicon/apple-touch-icon-120x120.png><link rel=apple-touch-icon sizes=76x76 href=http://derberg.github.io/images/favicon/apple-touch-icon-76x76.png><link rel=apple-touch-icon sizes=152x152 href=http://derberg.github.io/images/favicon/apple-touch-icon-152x152.png><link rel=apple-touch-icon sizes=180x180 href=http://derberg.github.io/images/favicon/apple-touch-icon-180x180.png><link rel=icon type=image/png href=http://derberg.github.io/images/favicon/favicon-192x192.png sizes=192x192><link rel=icon type=image/png href=http://derberg.github.io/images/favicon/favicon-160x160.png sizes=160x160><link rel=icon type=image/png href=http://derberg.github.io/images/favicon/favicon-96x96.png sizes=96x96><link rel=icon type=image/png href=http://derberg.github.io/images/favicon/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=http://derberg.github.io/images/favicon/favicon-32x32.png sizes=32x32><meta name=msapplication-TileColor content=#da532c><meta name=msapplication-TileImage content=http://derberg.github.io/images/favicon//mstile-144x144.png><!--[if lt IE 9]>
- <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
- <![endif]--><link rel=stylesheet href=/styles/devportal-yaas.css><script src=""></script><script src=http://derberg.github.io/bower_components/jquery/dist/jquery.min.js></script><script src=http://derberg.github.io/bower_components/bootstrap/dist/js/bootstrap.min.js></script></head><body><div class=main-content><section id=content class="row-offcanvas row-offcanvas-left"><header class=navbar-super-holder><div class="navbar navbar-inverse mobile-nav"><div class=navbar-left><button data-toggle=offcanvas class="btn btn-primary btn-xs navbar-toggle navbar-btn" type=button><span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span></button><ul role=menu class="nav nav-pills hidden-xs" id=desktop-menu><li><a href="/" property=dc:title id=home-topNav>Home</a></li><li><a href="http://derberg.github.io/services/" property=dc:title id=apis-topNav>API Docs</a></li><li><a href="http://derberg.github.io/rn/" property=dc:title id=tools-topNav>Release Notes</a></li></ul></div><div class=navbar-right><div class=search-wrapper><img src=/images/icons/close-button.svg alt="" class=close-button></div></div></div></header><div class=content-offcanvas id=content><div class=container-fluid><div id=sidebar class="sidebar-offcanvas visible-xs" role=navigation><div class="left_nav hierarchy_list"><ul><li class="parent_node open"><ul role=menu class="nav nav-pills nav-stacked" id=mobile-menu></ul></li></ul></div></div><div class="homepage-wrapper homepage-wrapper-new"><div class="jumbotron text-center"><div class=row><div class="col-md-8 col-md-offset-2"><h1>Welcome to the API documentation portal skeleton</h1><p>Use it to document your service with YaaS standards</p></div></div></div><div class="row guide-steps"><div class="col-md-10 col-md-offset-1"><div class="col-md-6 col-sm-6 text-center"><a href="services/"><img src=/images/homepage/api-docs.png alt=""><h3>API Documentation</h3><p class=text-white>Read all about each service, or complete a tutorial filled with code examples.</p></a></div><div class="col-md-6 col-sm-6 text-center"><a href="rn/"><img src=/images/homepage/tools-resources.png alt=""><h3>Release Notes</h3><p class=text-white>Read details about new releases of awesome services</p></a></div></div></div></div></div></div></section></div><a href=#content id=back-top><span class="glyphicon glyphicon-arrow-up"></span> Back to Top</a><script src=https://builder.stage.yaas.io/sso/yaasAuth.js></script><script defer=defer src=/scripts/devportal-yaas.min.js></script><script>
-            $(document).ready(function() {
-              if(typeof sso !== 'undefined')
-                sso('https://builder.stage.yaas.io');
-            });
+<!DOCTYPE html>
+<html lang="en">
 
-    </script><script>
-  $(document).ready(function(){
-      $('ul.nav li.dropdown').hover(function() {
-        $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeIn(0);
-      }, function() {
-        $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeOut(0);
-      });
-  });
-  </script></body></html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="0">
+
+
+    <title>exTW Blog</title>
+
+    <!-- Using DocPad built in helper to collect all the styles listed in configuration file and render a HTML markup for them -->
+    <link  rel="stylesheet" href="/css/bootstrap.min.css" /><link  rel="stylesheet" href="/css/clean-blog.min.css" />
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date(); a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1; a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', '//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-62858836-1', 'auto'); ga('send', 'pageview');</script>
+    <script type='text/javascript' id='inspectletjs'> window.__insp = window.__insp || []; __insp.push(['wid', 1668565138]); (function() { function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = 'inspsync'; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); } if (window.attachEvent) window.attachEvent('onload', __ldinsp); else window.addEventListener('load', __ldinsp, false); })(); </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+                    <!--<li>
+                        <a href="/posts/index.html">Posts</a>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  -->
+    <!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>exTW Blog</h1>
+                    <hr class="small">
+                    <span class="subheading">Learn, enjoy and comment</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+					
+            <div class="post-preview">
+                <a href="/posts/2015-07-15.html">
+                    <h2 class="post-title">
+                        Get Some Data! part 2
+                    </h2>
+                    <h3 class="post-subtitle">
+                        What can you get from Google Analytics and Inspectlet
+                    </h3>
+                </a>
+                <!--Do not use below any more, just keep it in the code for a reference for others
+                <p>
+                  
+                    <p>Over a month ago I&#39;ve enabled Google Analytics and Inspectlet on this blog and explained how to do it in post  <a href="2015-05-12.html">Get Some Data! part 1</a>. I did it for two reasons, I wanted to explain how to use custom environment set
+                  
+                </p>
+                -->
+                <p class="post-meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on July 15, 2015</p>
+            </div>
+            <hr>
+          
+            <div class="post-preview">
+                <a href="/posts/2015-06-21.html">
+                    <h2 class="post-title">
+                        Evolution of Technical Communication
+                    </h2>
+                    <h3 class="post-subtitle">
+                        My findings after ETC 2015 conference in Sofia,Bulgaria 
+                    </h3>
+                </a>
+                <!--Do not use below any more, just keep it in the code for a reference for others
+                <p>
+                  
+                    <p>Some time passed since my last post. I was preparing for Evolution of Technical Communication conference that was hosted in Sofia, Bulgaria.
+I&#39;m proud that I was invited to speak, to have a chance to show a totally different view on documentat
+                  
+                </p>
+                -->
+                <p class="post-meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on June 21, 2015</p>
+            </div>
+            <hr>
+          
+            <div class="post-preview">
+                <a href="/posts/2015-05-12.html">
+                    <h2 class="post-title">
+                        Get Some Data! part 1
+                    </h2>
+                    <h3 class="post-subtitle">
+                        Learn from your reader's behavior and power up with DocPad's environments configuration
+                    </h3>
+                </a>
+                <!--Do not use below any more, just keep it in the code for a reference for others
+                <p>
+                  
+                    <h2 id="some-teenage-talking">Some Teenage Talking</h2>
+<p>My last blog post was last month. Many things were happening around. I got approved as a speaker for a conference about the Evolution of Technical Communication: <a href="http://etc-conferenc
+                  
+                </p>
+                -->
+                <p class="post-meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on May 12, 2015</p>
+            </div>
+            <hr>
+          
+            <div class="post-preview">
+                <a href="/posts/2015-04-13.html">
+                    <h2 class="post-title">
+                        Enable Commenting
+                    </h2>
+                    <h3 class="post-subtitle">
+                        Get feedback, enable your audience to comment your content
+                    </h3>
+                </a>
+                <!--Do not use below any more, just keep it in the code for a reference for others
+                <p>
+                  
+                    <p>Every serious content provider wants to get a feedback. When I started working as a Software Technical Writer few years ago, I wanted to know if my work matters, if my audience likes it, if there is anything I could do better. We had all the feedb
+                  
+                </p>
+                -->
+                <p class="post-meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on April 13, 2015</p>
+            </div>
+            <hr>
+          
+            <div class="post-preview">
+                <a href="/posts/2015-04-03.html">
+                    <h2 class="post-title">
+                        DocPad Configuration
+                    </h2>
+                    <h3 class="post-subtitle">
+                        Learn the configuration and understand its possibilities
+                    </h3>
+                </a>
+                <!--Do not use below any more, just keep it in the code for a reference for others
+                <p>
+                  
+                    <p>Before I jump to the main topic of this post I have to share with you my recent discoveries. Over last couple of days I played a bit with NodeJS and AngularJS. This post is not about them so I will just paste awesome learning resources here, for a
+                  
+                </p>
+                -->
+                <p class="post-meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on April 3, 2015</p>
+            </div>
+            <hr>
+          
+            <div class="post-preview">
+                <a href="/posts/2015-03-14.html">
+                    <h2 class="post-title">
+                        DocPad vs Jekyll
+                    </h2>
+                    <h3 class="post-subtitle">
+                        Comparison between DocPad an the most popular static site generator called Jekyll
+                    </h3>
+                </a>
+                <!--Do not use below any more, just keep it in the code for a reference for others
+                <p>
+                  
+                    <p>It is always a problem to choose a proper technology, especially when you have so many possibilities. If you at least know what your requirements are - that should be relatively easier. Within this blog, I&#39;m promoting DocPad as a best tool for
+                  
+                </p>
+                -->
+                <p class="post-meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on March 14, 2015</p>
+            </div>
+            <hr>
+          
+            <div class="post-preview">
+                <a href="/posts/2015-02-21.html">
+                    <h2 class="post-title">
+                        DocPad Architecture - Basics
+                    </h2>
+                    <h3 class="post-subtitle">
+                        Understanding the DocPad project structure and its architecture
+                    </h3>
+                </a>
+                <!--Do not use below any more, just keep it in the code for a reference for others
+                <p>
+                  
+                    <p>I&#39;ve just learned that I should not write in the post, what will be present in the next one. Before I show you how I&#39;ve created this blog post from the front end side (responsiveness, style, github pages deployment) I have to explain to yo
+                  
+                </p>
+                -->
+                <p class="post-meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on February 21, 2015</p>
+            </div>
+            <hr>
+          
+            <div class="post-preview">
+                <a href="/posts/2015-02-16.html">
+                    <h2 class="post-title">
+                        Modern Documentation with DocPad
+                    </h2>
+                    <h3 class="post-subtitle">
+                        Introduction to DocPad, the tool you should start using
+                    </h3>
+                </a>
+                <!--Do not use below any more, just keep it in the code for a reference for others
+                <p>
+                  
+                    <p>Until April last year I was convinced that there are only two technologies you can use produce professional documentation portals:</p>
+<ul>
+<li>Wiki based solutions</li>
+<li>DITA</li>
+</ul>
+<p>Of course I&#39;ve seen some other tools to generate H
+                  
+                </p>
+                -->
+                <p class="post-meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on February 16, 2015</p>
+            </div>
+            <hr>
+          
+
+            <!--
+            <ul class="pager">
+                <li class="next">
+                    <a href="#">Older Posts &rarr;</a>
+                </li>
+            </ul>
+            -->
+        </div>
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com/derberq">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/users/2088167/lukasz-gornicki">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/derberg">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class='foot'>
+                      <center>
+                        I'm using Google Analytics and Inspectlet to track </br>behaviour of my readers to learn how they interact with my blog.
+                      </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Using DocPad built in helper to collect all the scripts listed in configuration file and render a HTML markup for them -->
+    <script defer="defer"  src="/js/jquery.min.js"></script><script defer="defer"  src="/js/bootstrap.min.js"></script><script defer="defer"  src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

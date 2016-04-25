@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="My findings after ETC 2015 conference in Sofia,Bulgaria ">
+    <meta name="author" content="0">
+
+
+    <title>exTW Blog</title>
+
+    <!-- Using DocPad built in helper to collect all the styles listed in configuration file and render a HTML markup for them -->
+    <link  rel="stylesheet" href="/css/bootstrap.min.css" /><link  rel="stylesheet" href="/css/clean-blog.min.css" />
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date(); a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1; a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', '//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-62858836-1', 'auto'); ga('send', 'pageview');</script>
+    <script type='text/javascript' id='inspectletjs'> window.__insp = window.__insp || []; __insp.push(['wid', 1668565138]); (function() { function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = 'inspsync'; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); } if (window.attachEvent) window.attachEvent('onload', __ldinsp); else window.addEventListener('load', __ldinsp, false); })(); </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+                    <!--<li>
+                        <a href="/posts/index.html">Posts</a>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  -->
+    <!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('/img/post-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Evolution of Technical Communication</h1>
+                    <h2 class="subheading">My findings after ETC 2015 conference in Sofia,Bulgaria </h2>
+                    <span class="meta">Posted by <a href="https://twitter.com/derberq">Lukasz Gornicki</a> on June 21, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Content of any document that uses this layout is placed here, document by document during DocPad generation process  -->
+                <p>Some time passed since my last post. I was preparing for Evolution of Technical Communication conference that was hosted in Sofia, Bulgaria.
+I&#39;m proud that I was invited to speak, to have a chance to show a totally different view on documentation creation process. Before this conference.</p>
+<h2 id="dita">DITA</h2>
+<p>Before ETC 2015 conference, I&#39;ve attended <a href="http://conferences.tekom.de/">tekom</a> conference in Germany, twice, not as a presenter obviously. I was always coming back with head full of &quot;DITA&quot; + &quot;Topic oriented documentation&quot;, and that the second thing cannot exist without the first one. &quot;Topic oriented&quot; - of course, this is the best way to structure your documentation, &quot;Product oriented&quot; structure just sucks if you have some big monolithic software. But you don&#39;t need DITA for it. When I was working as a Documentation Architect on our &quot;monolithic&quot; product we&#39;ve managed to introduce topic oriented structure using our Wiki, that wasn&#39;t really hard, structuring and labeling is possible with Wiki, at least its Confluence version. Why would you need a DITA specification for it? At the end, when you change your documentation structure, most of the work is done on conceptual side during discussions and brain storming sessions. Later, implementation is just a manual job, putting vision on paper.</p>
+<p>I&#39;ve presented how we roll at <a href="https://yaas.io">hybris</a> and that there are better solutions then DITA out there. I showed how we use <a href="https://docpad.org/">DocPad</a> to accomplish what we need. DocPad is an open sourced simple static site generator (not only really, see for yourself), one of many: <a href="https://staticsitegenerators.net/">https://staticsitegenerators.net/</a>. Content is created in text files marked with metadata, which means that you can basically do whatever you want with the content, put it wherever you want in whatever structure you want. You don&#39;t need to much effort to start using it. You don&#39;t need to read <a href="http://docs.oasis-open.org/dita/v1.2/os/spec/DITA1.2-spec.pdf">DITA specification</a>, but it is of the same size as Lord of the Rings so might be a thrilling story :)</p>
+<p>Personally I have nothing against DITA as I&#39;ve never used it. I just want to have an option, I want technical communication community to have an option. I&#39;m from a different, agile generation that wants to act quickly, start with <a href="https://en.wikipedia.org/wiki/Minimum_viable_product">MVP</a> and then improve with each iteration and bring value coming from users feedback. You can&#39;t just have DITA and then wiki&#39;s as alternatives. If you talk only about DITA, don&#39;t think that people will listen and use only DITA. There are people out there, using different solutions, and I know it as they talked to me after my presentation.</p>
+<p>I hope that my presentation is a water drop from the saying &quot;constant dropping wears away a stone&quot;:</p>
+<p><blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Woohoo someone finally said they hated DITA :D <a href="https://twitter.com/hashtag/etc2015?src=hash">#etc2015</a> is not all about DITA!</p>&mdash; Iva Koevska (@admatha) <a href="https://twitter.com/admatha/status/611824647408062464">June 19, 2015</a></blockquote></p>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>I wasn&#39;t accepted for <a href="http://conferences.tekom.de/tcworld15/tcworld15/">tekom Stuttgart 2015</a> but there are other ways to shake the community, and the community motivates me to do it :)</p>
+<p><blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">We need more of these &quot;This is how we roll&quot; presentations at <a href="https://twitter.com/hashtag/etc2015?src=hash">#etc2015</a> Kudos to Lukasz Gornicki!</p>&mdash; Iva Koevska (@admatha) <a href="https://twitter.com/admatha/status/611827669966159873">June 19, 2015</a></blockquote></p>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h2 id="my-presentation-details">My Presentation Details</h2>
+<p>It is hosted here: <a href="http://derberg.github.io/documentation-continuous-delivery">http://derberg.github.io/documentation-continuous-delivery</a>
+Sources are available here: <a href="https://github.com/derberg/documentation-continuous-delivery">https://github.com/derberg/documentation-continuous-delivery</a>
+You can use it however you want. If you want to present it somewhere on some <a href="http://meetup.com/">meetup</a>, feel free.</p>
+<h2 id="my-favorite-etc-presentation">My Favorite ETC Presentation</h2>
+<p>It was &quot;To Teach Technical Writing or Not to Teach&quot; from <a href="http://etc-conference.eu/preDobrinka Stefanovasenters2015#dobrinkastefanova">Dobrinka Stefanova</a> that explained they managed to start the first government-approved university course in technical writing running in the Technical University of Sofia. Why I liked it? because I felt so jealous and a jerk at the same time. In Poland we have exactly the same situation as in Bulgaria; you won&#39;t find a technical writer with technical writing education, although I&#39;ve heard some studies started in Cracow recently. Jealous? - that you were so persistent to start it. Jerk? cause we thought about the same, but we failed at the very beginning as we mainly thought it is not possible. Huge respect to you!</p>
+<p>I also liked &quot;A UX Journey From Documentation to… Documentation&quot; from <a href="http://etc-conference.eu/presenters2015#dimitarsimov">Dimiter Simov</a> who showed a real story of how technical writer can evolve his carrer. Technical writers are awesome!</p>
+<h2 id="which-static-site-generator-to-use-">Which Static Site Generator to Use?</h2>
+<p>I got approached by few people that use Jekyll asking me why we choose DocPad. First of all there are many static site generators: <a href="https://staticsitegenerators.net/">https://staticsitegenerators.net/</a></p>
+<p>I don&#39;t want to say DocPad is the one and the only. It isn&#39;t, at the end it all depends on your technology preference and use cases. Just make a research (although I would decline at the very beginning the ones that advertise themselves as blogging frameworks), prepare a list of use cases and then evaluate which tool fits your needs and use it. I wrote a post about <a href="2015-03-14.html">use case driven evaluation of DocPad and Jekyll</a>, try to do something similar and you&#39;ll know what to choose.</p>
+<h2 id="organization">Organization</h2>
+<p>I had a chance to present the same topic on a conference organized by developers (Cloudyna 2014, Katowice, Poland). Therefore I didn&#39;t expect anything special for the presenters.</p>
+<p>If you are a presenter, you have to present on ETC 2016. Hospitality of all the people connected with the conference was amazing. We had a dinner a day before the conference where we could meet the organizers and speakers, then after the conference, on saturday we went for a trip to <a href="https://en.wikipedia.org/wiki/Rila_Monastery">Rila Monastery</a> and <a href="https://en.wikipedia.org/wiki/Blagoevgrad">Blagoevgrad</a>. To be honest, I didn&#39;t attend the first part of the trip as I choose to hike <a href="https://en.wikipedia.org/wiki/Musala">Musala</a>. To attend the second part of the trip I had to start hiking at night, but it was worth it. I had a chance again to encounter Bulgarian hospitality.</p>
+<p>I have to explicitly mention here Ralitsa Tsoneva who cared for me like a sister that I don&#39;t have. She worried about my hike, spent her time to make a research about the pathway, called her friend that hiked Musala to gather more details, communicated with me all the time, spent her private time to help me. Thank you is just not enough! Rali you rock!!!</p>
+<h2 id="biggest-finding">Biggest Finding</h2>
+<p>As a typical ignorant I thought that <a href="https://en.wikipedia.org/wiki/Cyrillic_script">Cyrillic script</a> comes from Russia. Respect shoult go to Bulgaria!</p>
+<h2 id="what-s-next">What&#39;s Next</h2>
+<p>I have to take a look on the analytics enabled for the last post and share my opinion with you. I will also start working on DocPad skeleton and configuration for documentation creation, to open it up to the community.</p>
+
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES * * */
+                    var disqus_shortname = 'extwblog';
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+        </div>
+    </div>
+</article>
+<hr>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com/derberq">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/users/2088167/lukasz-gornicki">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/derberg">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class='foot'>
+                      <center>
+                        I'm using Google Analytics and Inspectlet to track </br>behaviour of my readers to learn how they interact with my blog.
+                      </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Using DocPad built in helper to collect all the scripts listed in configuration file and render a HTML markup for them -->
+    <script defer="defer"  src="/js/jquery.min.js"></script><script defer="defer"  src="/js/bootstrap.min.js"></script><script defer="defer"  src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
