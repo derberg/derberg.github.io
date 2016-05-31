@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Release Notes | YaaS Dev Portal</title>
+	<link href="http://derberg.github.io/atom.xml" rel="self"/>
+	<link href="http://derberg.github.io"/>
+	<updated>2016-05-31T09:22:47.402Z</updated>
+	<id>http://derberg.github.io/</id>
+	<author>
+		<name></name>
+	</author>
+
+	
+
+		<entry>
+			<title>Minerva v1</title>
+			<link href="http://derberg.github.io/rn/services/minerva/latest/2016-05-27-MinervaRelease.html"/>
+			<content type="html">&lt;p&gt;This is a first release of the Minerva service.&lt;/p&gt;
+</content>
+			<updated>2016-05-26T22:00:00.000Z</updated>
+			<id>http://derberg.github.io/rn/services/minerva/latest/2016-05-27-MinervaRelease.html</id>
+		</entry>
+		
+	
+</feed>
