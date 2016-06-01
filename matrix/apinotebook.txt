@@ -1,1 +1,1 @@
-{"fileToCopy":[],"fileToVersion":[],"fileToCheckPartial":[]}
+{"fileToCopy":["gettingEventsFrom2016_minerva_v1"],"fileToVersion":["gettingEventsFrom2016_minerva_v1"],"fileToCheckPartial":["/Users/i303812/projects/docpad-skeleton-apidocs-fork/tmp/docuSources/services/minerva/v1/service/docu/files/gettingEventsFrom2016_minerva_v1.md.eco"]}
