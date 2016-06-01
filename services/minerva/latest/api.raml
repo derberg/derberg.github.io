@@ -5,24 +5,18 @@ baseUri: http://minerva.cfapps.io
 schemas:
   - Event: |
       {"type":"object","$schema":"http://json-schema.org/draft-03/schema#","description":"Array of events details.","title":"Event","properties":{"type":{"type":"string","required":true,"title":"type"},"name":{"type":"string","required":true,"title":"name"},"description":{"type":"string","required":true,"title":"description"},"website":{"type":"string","required":false,"title":"website"},"start_date":{"type":"string","required":false,"title":"start_date"},"end_date":{"type":"string","required":false,"title":"end_date"},"address":{"type":"string","required":false,"title":"address"},"latitude":{"type":"number","required":false,"title":"latitude"},"longitude":{"type":"number","required":false,"title":"longitude"},"eventId":{"type":"string","required":true,"title":"eventId"}}}
-
   - Creation Success: |
       {"type":"object","$schema":"http://json-schema.org/draft-03/schema#","description":"Object returned from the server after successful creation.","title":"Creation Success","properties":{"link":{"type":"string","required":false,"title":"link"},"id":{"type":"string","required":false,"title":"id"}}}
-
   - Error: |
       {"type":"object","$schema":"http://json-schema.org/draft-03/schema#","description":"Response from the server in case the request failed.","title":"Error","properties":{"status":{"type":"integer","required":false,"title":"status"},"message":{"type":"string","required":false,"title":"message"},"details":{"type":"string","required":false,"title":"details"}}}
-
   - Update Success: |
       {"type":"object","$schema":"http://json-schema.org/draft-03/schema#","description":"Object returned in case of successful update.","title":"Update Success","properties":{"code":{"type":"integer","required":false,"title":"code"},"status":{"type":"integer","required":false,"title":"status"},"message":{"type":"string","required":false,"title":"message"}}}
-
 /events:
   description: |
     Using this endpoint you can create new event or search for existing ones
-
   get:
     description: |
       Find events by name or other values. If no query params are set, it returns all the events.
-
     queryParameters:
       q:
         type: string
@@ -37,10 +31,8 @@ schemas:
           application/json:
             schema: |
               {"type":"object","$schema":"http://json-schema.org/draft-03/schema#","description":"Array of events details.","title":"Event","properties":{"type":{"type":"string","required":true,"title":"type"},"name":{"type":"string","required":true,"title":"name"},"description":{"type":"string","required":true,"title":"description"},"website":{"type":"string","required":false,"title":"website"},"start_date":{"type":"string","required":false,"title":"start_date"},"end_date":{"type":"string","required":false,"title":"end_date"},"address":{"type":"string","required":false,"title":"address"},"latitude":{"type":"number","required":false,"title":"latitude"},"longitude":{"type":"number","required":false,"title":"longitude"},"eventId":{"type":"string","required":true,"title":"eventId"}}}
-
             example: |
               [{"type":"sample type","name":"sample name","description":"sample description","website":"sample website","start_date":"sample start_date","end_date":"sample end_date","address":"sample address","latitude":1.1,"longitude":1.1,"eventId":"sample eventId"}]
-
   post:
     description: Create new event or organization data.
     headers:
@@ -53,19 +45,15 @@ schemas:
       application/json:
         schema: |
           {"type":"object","$schema":"http://json-schema.org/draft-03/schema#","description":"Array of events details.","title":"Event","properties":{"type":{"type":"string","required":true,"title":"type"},"name":{"type":"string","required":true,"title":"name"},"description":{"type":"string","required":true,"title":"description"},"website":{"type":"string","required":false,"title":"website"},"start_date":{"type":"string","required":false,"title":"start_date"},"end_date":{"type":"string","required":false,"title":"end_date"},"address":{"type":"string","required":false,"title":"address"},"latitude":{"type":"number","required":false,"title":"latitude"},"longitude":{"type":"number","required":false,"title":"longitude"},"eventId":{"type":"string","required":true,"title":"eventId"}}}
-
         example: |
           {"type":"sample type","name":"sample name","description":"sample description","website":"sample website","start_date":"sample start_date","end_date":"sample end_date","address":"sample address","latitude":1.1,"longitude":1.1,"eventId":"sample eventId"}
-
     responses:
       201:
         description: |
           Indicates successful event creation. It's Id is returned.
-
       400:
         description: |
           The event you wanted to create didn't pass the validation.
-
       409:
         description: The event you want to create already exists.
 /events/{eventId}:
@@ -84,17 +72,14 @@ schemas:
           application/json:
             schema: |
               {"type":"object","$schema":"http://json-schema.org/draft-03/schema#","description":"Array of events details.","title":"Event","properties":{"type":{"type":"string","required":true,"title":"type"},"name":{"type":"string","required":true,"title":"name"},"description":{"type":"string","required":true,"title":"description"},"website":{"type":"string","required":false,"title":"website"},"start_date":{"type":"string","required":false,"title":"start_date"},"end_date":{"type":"string","required":false,"title":"end_date"},"address":{"type":"string","required":false,"title":"address"},"latitude":{"type":"number","required":false,"title":"latitude"},"longitude":{"type":"number","required":false,"title":"longitude"},"eventId":{"type":"string","required":true,"title":"eventId"}}}
-
             example: |
               {"type":"sample type","name":"sample name","description":"sample description","website":"sample website","start_date":"sample start_date","end_date":"sample end_date","address":"sample address","latitude":1.1,"longitude":1.1,"eventId":"sample eventId"}
-
       404:
         description: "The event you want to retrieve doesn't exist."
         body:
           application/json:
             example: |
               {"status":1,"message":"sample message","details":"sample details"}
-
   delete:
     description: Delete specified event or organization
     responses:
@@ -105,7 +90,6 @@ schemas:
   put:
     description: |
       Updating specific event or organization. It is so called partial update, which means you need to provide only attributes that you want to edit or add
-
     headers:
       Content-Type:
         type: string
@@ -116,10 +100,8 @@ schemas:
       application/json:
         schema: |
           {"type":"object","$schema":"http://json-schema.org/draft-03/schema#","description":"Array of events details.","title":"Event","properties":{"type":{"type":"string","required":true,"title":"type"},"name":{"type":"string","required":true,"title":"name"},"description":{"type":"string","required":true,"title":"description"},"website":{"type":"string","required":false,"title":"website"},"start_date":{"type":"string","required":false,"title":"start_date"},"end_date":{"type":"string","required":false,"title":"end_date"},"address":{"type":"string","required":false,"title":"address"},"latitude":{"type":"number","required":false,"title":"latitude"},"longitude":{"type":"number","required":false,"title":"longitude"},"eventId":{"type":"string","required":true,"title":"eventId"}}}
-
         example: |
           {"type":"sample type","name":"sample name","description":"sample description","website":"sample website","start_date":"sample start_date","end_date":"sample end_date","address":"sample address","latitude":1.1,"longitude":1.1,"eventId":"sample eventId"}
-
     responses:
       200:
         description: Successfully updated event
@@ -127,17 +109,14 @@ schemas:
           application/json:
             schema: |
               {"type":"object","$schema":"http://json-schema.org/draft-03/schema#","description":"Object returned in case of successful update.","title":"Update Success","properties":{"code":{"type":"integer","required":false,"title":"code"},"status":{"type":"integer","required":false,"title":"status"},"message":{"type":"string","required":false,"title":"message"}}}
-
             example: "{\"code\":1,\"status\":1,\"message\":\"sample message\"}"
       400:
         description: |
           Details you wanted to save on the server did not pass the validation
-
         body:
           application/json:
             example: |
               {"status":1,"message":"sample message","details":"sample details"}
-
       404:
         description: "The event you wanted to update doesn't exist."
         body:
