@@ -32,7 +32,7 @@ schemas:
             schema: |
               {"type":"object","$schema":"http://json-schema.org/draft-03/schema#","description":"Array of events details.","title":"Event","properties":{"type":{"type":"string","required":true,"title":"type"},"name":{"type":"string","required":true,"title":"name"},"description":{"type":"string","required":true,"title":"description"},"website":{"type":"string","required":false,"title":"website"},"start_date":{"type":"string","required":false,"title":"start_date"},"end_date":{"type":"string","required":false,"title":"end_date"},"address":{"type":"string","required":false,"title":"address"},"latitude":{"type":"number","required":false,"title":"latitude"},"longitude":{"type":"number","required":false,"title":"longitude"},"eventId":{"type":"string","required":true,"title":"eventId"}}}
             example: |
-              [{"type":"sample type","name":"sample name","description":"sample description","website":"sample website","start_date":"sample start_date","end_date":"sample end_date","address":"sample address","latitude":1.1,"longitude":1.1,"eventId":"sample eventId"}]
+              [{"type":"sample type","name":"sample name","description":"sample description","website":"sample website","start_date":"sample start_date","end_date":"sample end_date","address":"sample address","latitude":1.1,"longitude":1.1,"eventId":"sampleeventId"}]
   post:
     description: Create new event or organization data.
     headers:
