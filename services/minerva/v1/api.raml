@@ -1,7 +1,7 @@
 #%RAML 0.8
 title: Minerva
 version: 0.0.1
-baseUri: http://minerva.cfapps.io
+baseUri: http://minerva.us-west-2.elasticbeanstalk.com/
 schemas:
   - Event: |
       {"type":"object","$schema":"http://json-schema.org/draft-03/schema#","description":"Array of events details.","title":"Event","properties":{"type":{"type":"string","required":true,"title":"type"},"name":{"type":"string","required":true,"title":"name"},"description":{"type":"string","required":true,"title":"description"},"website":{"type":"string","required":false,"title":"website"},"start_date":{"type":"string","required":false,"title":"start_date"},"end_date":{"type":"string","required":false,"title":"end_date"},"address":{"type":"string","required":false,"title":"address"},"latitude":{"type":"number","required":false,"title":"latitude"},"longitude":{"type":"number","required":false,"title":"longitude"},"eventId":{"type":"string","required":true,"title":"eventId"}}}

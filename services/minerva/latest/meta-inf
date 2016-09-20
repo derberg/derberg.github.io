@@ -19,4 +19,8 @@ clonedDocuFolderTypes: ./tmp/docuSources/services
 isInternalNameExists: false
 isService: true
 isGS: false
+isTools: false
+hasReleaseNotes: true
+isSrcLocNotMainDocu: false
+local: false
 ---

@@ -1,0 +1,25 @@
+{
+  "application": {
+    "url": "/build/"
+  },
+  "ramlPath": "https://devportal.yaas.io",
+  "plugins": {
+    "proxy": {
+      "proxyUrl": "/proxy"
+    },
+    "envVariables": {
+      "yodaLink": "https://api.yaas.io/hybris/yoda/v1",
+      "oauthService": "https://api.yaas.io/hybris/oauth2/v1",
+      "accountService": "https://api.yaas.io/hybris/account/v1/",
+      "APIManangementService": "https://api.yaas.io/hybris/api-management/v1/",
+      "marketplaceService": "https://api.yaas.io/hybris/marketplace/v3",
+      "clientId": "AhvOOZ7fLGgJu2PUZCOFTLsum0DqFCQH",
+      "redirUrl": "http://127.0.0.1:9778/auth.html",
+      "loginCssUrl": "https://devportal.yaas.io/styles/auth-iframe.css"
+    },
+    "customLocation": {
+      "path": "./apinotebooks",
+      "mode": "external"
+    }
+  }
+}

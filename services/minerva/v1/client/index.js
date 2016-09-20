@@ -227,7 +227,7 @@
 
   function Client (options) {
     this.options = extend({
-      baseUri: 'http://minerva.cfapps.io',
+      baseUri: 'http://minerva.us-west-2.elasticbeanstalk.com',
       baseUriParameters: {}
     }, options)
 
