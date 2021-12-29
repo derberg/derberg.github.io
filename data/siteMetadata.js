@@ -1,7 +1,7 @@
 const siteMetadata = {
-  title: 'Tech Brain Fart',
+  title: 'Brain Fart Dev',
   author: 'Lukasz Gornicki',
-  headerTitle: 'Tech Brain Fart',
+  headerTitle: 'Brain Fart Dev',
   description:
     'A blog where I share my thoughts on topics like open-source, AsyncAPI, GitHub Actions, and some other random stuff.',
   language: 'en-us',
