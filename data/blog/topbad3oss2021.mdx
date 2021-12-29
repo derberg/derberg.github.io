@@ -1,5 +1,5 @@
 ---
-title: 'Top 3 harmfull incidents in open-source in 2021'
+title: 'Top 3 harmful incidents in open-source in 2021'
 date: 2021-12-29 09:00:00Z
 lastmod: '2021-12-29'
 tags: ['open-source']
@@ -12,16 +12,132 @@ layout: PostSimple
 
 ## For starter
 
-https://twitter.com/shitoberfest
+I am a full-time open sourcerer by choice. I believe that open-source is the way software should be built, by default. Thus every single crap that happens in open source hurts me personally.
 
-## I don't have time for amatuer hour shenanigans
+In this 2021 summary, I will not tackle [Shitoberfest](https://twitter.com/shitoberfest) and all the hate around [Hacktoberfest](https://hacktoberfest.digitalocean.com/), as now it seems to be a regular October shitstorm.
 
-https://github.com/GitLabPHP/Client/pull/646
+I think that Shitoberfest initiative is harmful as every radical initiative that sees the world only in black and white colors. That is it. Maybe one day I'll write about it.
 
-## Rust moderation team resignation
+## 1. I don't have time for amateur hour shenanigans
 
-https://github.com/rust-lang/team/pull/671
+The Tech world is a small world.
 
-## Log4J
+GitHub is not Facebook. You can't just throw shit on people without consequences. Hate speech on GitHub is not easily forgotten; your relations can be easily tracked. If you do not control your emotions, you may become a ghost one day.
 
-https://nadh.in/blog/open-source-is-not-broken/
+<Image
+  alt="screen shot from GitHub showing hate user brownrl"
+  src="/static/images/topbad3oss2021/before-ghost.png"
+  width={512}
+  height={102}
+/>
+
+<Image
+  alt="screen shot from GitHub showing hate user as ghost after he removed account"
+  src="/static/images/topbad3oss2021/after-ghost.png"
+  width={512}
+  height={102}
+/>
+
+I'm referring to [GitLabPHP Client](https://github.com/GitLabPHP/Client/pull/646) related issue. I bet that [Graham Campbell](https://twitter.com/GrahamJCampbell/status/1396819482732023814) had some bad moments because of it.
+
+<Image
+  alt="screen shot of this message https://github.com/GitLabPHP/Client/pull/646#issuecomment-846893934"
+  src="/static/images/topbad3oss2021/hate.png"
+  width={640}
+  height={295}
+/>
+
+This is the essence of communication issues on social platforms.
+
+People forget they interact with real human beings. Like seriously, I bet this guy would never behave like this if he would speak to the maintainer, like face-to-face.
+
+<YouTube id="1GSaf4b1-Qw" />
+
+Is it really so hard to imagine that written words can harm another human? Even more than the ones you say directly, in private. Written words stay online forever.
+
+So to summarize:
+
+- Yes, there can be open-source projects that have a bug
+- Yes, there can be open-source projects that have broken tests
+
+Just help or leave, don't forget to take your frustrations with you.
+
+## 2. Rust moderation team resignation
+
+[The Rust programming language](https://github.com/rust-lang) is popular and has a large community.
+
+The larger you get, the more people you need to be actively involved with, especially project moderation. Somebody needs to ensure the code of conduct is followed, and the community is healthy.
+
+Unfortunately, something went wrong, and [the moderation team members resigned](https://github.com/rust-lang/team/pull/671).
+
+I'm not part of the Rust community. For me, this topic is interesting for two reasons:
+
+- I'm an open-source fanatic that simply feels sad when some glitches are showing up in open-source communities,
+- I'm building community at [AsyncAPI](https://www.asyncapi.com/) and definitely prefer to learn from the mistakes of others
+
+Now, public resignation had to happen for transparency reasons. It was a good call.
+
+The problem is that they tried to be as polite as possible and transparent at the same time. It only caused more confusion.
+
+I learned nothing. Provided [Reddit thread](https://www.reddit.com/r/rust/comments/qzme1z/moderation_team_resignation/) did not help much either.
+
+<Image
+  alt="screen shot of this message from reddit https://www.reddit.com/r/rust/comments/qzme1z/moderation_team_resignation/hln62vg"
+  src="/static/images/topbad3oss2021/reddit.png"
+  width={640}
+  height={466}
+/>
+
+[Official message](https://blog.rust-lang.org/inside-rust/2021/11/25/in-response-to-the-moderation-team-resignation.html) from the Rust team appeared 3 days later. Zero details, but at least acknowledgment. In a slow open-source world, pretty fast response.
+
+About 3 weeks later, we got [more details](https://blog.rust-lang.org/inside-rust/2021/12/17/follow-up-on-the-moderation-issue.html), but because of the sensitiveness of the issue, we didn't learn more.
+
+Sensitive topics require reasonable investigation, I agree. Unfortunately, a lack of transparency leaves many open questions.
+
+Open questions lead to more discussion and [conspiracy theories](https://news.ycombinator.com/item?id=29306845). So you either stand, be transparent and moderate discussion, or censor and let people talk about it elsewhere. I know it only sounds easy, though.
+
+What feels super weird to me is that the blog post about the issue was actually an email. It was sent a week earlier to project members. There seems to be a clear separation between the community and the Rust project members. It is not my community, I don't know the details, but it sounds super unhealthy that the community learns details a week after Project members. Like members are employees and community a customer.
+
+Anyway, there is one thing I like in the blog post:
+
+> Needless to say, it is difficult to govern an open-source project which has reached a size larger than most companies4 and yet is composed of volunteers.
+
+A large and sustainable community can't be built only on the shoulders of individual contributors.
+
+You always need a hybrid approach, individual and corporate contributors. Model governance to not favor any specific group.
+
+So to summarize:
+
+- Transparency, transparency, and transparency,
+- Doesn't matter if you are an active maintainer or occasional supporter. Every community member has an equal right to know the state of the project at the same time,
+- Large communities need lots of regular maintainers
+
+## 3. Log4J
+
+Oh yes, the recent tsunami of hate and love.
+
+Many hope it will shake companies and wake them up from a dream that they can use open-source software for free without consequences.
+
+I'm not a type of a believer. I don't share these hopes.
+
+For those that hear about it for the first time:
+
+- Log4J is a Java package for logging
+- It is open-source and under Apache Foundation
+- Folks found out [large vulnerability issue](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)
+
+Now, [is open-source broken](https://christine.website/blog/open-source-broken-2021-12-11) or [is it not broken](https://nadh.in/blog/open-source-is-not-broken/). Be or not to be that is the question.
+
+All the folks complaining at Log4J maintainers seem to miss a crucial point. Mainly because it is open-source, maintained by people with passion, the issue was solved quickly.
+
+Also, many people do not understand one thing. The fact that the project is under a foundation doesn't mean it is well funded. This is not the goal of having a project under a foundation.
+
+You put the project under the foundation to make all these corporations happy, so they do not have to worry about the project license in the long run. People that represent corporations basically admit that they use or plan to use your project for free on a scale. Unfortunately, they do not ask if your rent is due.
+
+There needs to be a way to finance open-source at scale. Have some global budget or something that distributes money. Maybe existing foundations should adjust their profile and collect more to put money back into the projects under their umbrella.
+
+Nobody should expect regular engineers to be good at coding and collecting money simultaneously. Going from door to door asking for money is not cool at all.
+
+Platforms like GitHub and package managers like NPM (in the case of JS ecosystem) should build a kind of alert system. There should be some reporting tool that lists all the projects at risk. There should be a foundation or something that gets money from all tech, asses the risky projects, contact maintainers, and offer help. Yeah, I know, super tricky, but the only way IMHO.
+
+Don't expect maintainers to beg for money!
