@@ -2,12 +2,14 @@
 import { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
 import Image from './Image'
+import YouTube from 'react-youtube-embed'
 import CustomLink from './Link'
 import TOCInline from './TOCInline'
 import Pre from './Pre'
 import { BlogNewsletterForm } from './NewsletterForm'
 
 export const MDXComponents = {
+  YouTube,
   Image,
   TOCInline,
   a: CustomLink,
