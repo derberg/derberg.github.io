@@ -6,7 +6,7 @@ const siteMetadata = {
     'A blog where I share my thoughts on topics like open-source, AsyncAPI, GitHub Actions, and some other random stuff.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://derberg.github.io/',
+  siteUrl: 'https://www.brainfart.dev/',
   siteRepo: 'https://github.com/derberg/derberg.github.io',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
