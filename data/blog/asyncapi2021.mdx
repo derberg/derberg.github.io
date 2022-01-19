@@ -1,0 +1,269 @@
+---
+title: 'What I did for AsyncAPI in 2021 and what comes in 2022'
+date: 2022-01-19 09:00:00Z
+lastmod: '2022-01-19'
+tags: ['open-source', 'asyncapi']
+draft: false
+summary: "I'm summarizing most critical things I managed to address in AsyncAPI in 2021 and what comes in 2022. I also share some key learnings."
+layout: PostSimple
+---
+
+<TOCInline toc={props.toc} toHeading={2} indentDepth={2} asDisclosure={true} />
+
+It is a good practice to stop, look back and see what you managed to achieve. It is like a combo retrospective, with one main goal: to improve, to adapt.
+
+But why do it publicly?
+
+- I'm a huge fan of transparency in open source
+- It might actually be a good source of information for AsyncAPI community members. Folks can learn about stuff that happened in the project
+- I want to demonstrate to the community that my work can be influenced and prioritized according to community needs
+- I'm messing in the AsyncAPI community all the time. Maybe I'm no longer paid by Open Collective donations, but I still feel I need to be transparent to the extreme
+
+Enjoy, or just jump to 2022 goals and lemme know what things you think are most important!
+
+# 2021 achievements
+
+Last year, in a GitHub issue, I listed all the big tasks [here](https://github.com/asyncapi/shape-up-process/issues/38). I updated it from time to time, also asking the community what they think I should pick next.
+
+There were many other activities where I was also active, just not on the initial list mentioned above. It was:
+
+- Mentoring students from Google Summer of Code and coordinating the list of ideas we submitted through Postman
+- Setting up a simple process of keeping a record of all the [Technical Steering Community](https://github.com/asyncapi/community/pull/62) members
+- Specification [2.1](https://www.asyncapi.com/blog/release-notes-2.1.0) and [2.2](https://www.asyncapi.com/blog/release-notes-2.2.0) release coordination and work related to its automation
+
+...and a few others.
+
+## Providing an extensive summary of 2020
+
+I took some time to analyze all places where AsyncAPI is present. Went through data from social media, search consoles, and many others to check how is the community doing.
+
+As a result, I published [a summary report](https://www.asyncapi.com/blog/2020-summary). Numbers just showed we grew a lot in 2021, and I can't wait to compare these numbers with 2022.
+
+What was the result of the summary:
+
+- LinkedIn proved to be an excellent channel to update the community, so we continued our journey there
+- We tried Twitter marketing again, but it was a waste of funds this year. You will learn more in the 2022 summary report I plan to release soon under asyncapi.com/blog.
+- Because of visible Slack growth, we reorganized channels. More about it later in this article
+- To get more data in 2022, we started using Google Search Console, Google Analytics v4, and even tracking some dedicated buttons on the website
+
+## Open governance model work
+
+I've spent endless hours on meetings with [Fran](https://twitter.com/fmvilas) to develop a good proposal to the community on what kind of open governance model we should have in the project.
+
+And [this is the outcome](https://github.com/asyncapi/community/blob/master/CHARTER.md) of the joint efforts we had.
+
+I highly recommend you to read an article where we [explain the vision](https://www.asyncapi.com/blog/governance-motivation).
+
+## WebSocket learning materials
+
+This was probably one of the tasks that I enjoyed the most. It was a pure DevRel job involving presenting, writing articles, researching, coding, and having lots of fun.
+
+Sum of all the things that I produced:
+
+- I wrote a series of articles:
+  - [WebSocket, Shrek, and AsyncAPI - An Opinionated Intro](https://www.asyncapi.com/blog/websocket-part1)
+  - [Creating AsyncAPI for WebSocket API - Step by Step](https://www.asyncapi.com/blog/websocket-part2)
+  - [From API-First to Code Generation - A WebSocket Use Case](https://www.asyncapi.com/blog/websocket-part3)
+- I provided an official example based on [WebSocket API from Gemini](https://github.com/asyncapi/spec/blob/master/examples/websocket-gemini.yml)
+- I recorded [a live stream](https://www.youtube.com/watch?v=8tFBcf31e_c) to cover the content of the above articles for those that do not like reading
+- I presented at EDA Conference [here](https://www.youtube.com/watch?v=PPeRnEaqBW8)
+
+Both recordings reached almost 1.5k views. Articles returned in almost 12k unique pageviews. These numbers make me super happy, and I only wish I could have more time to do this work.
+
+My most significant finding was how powerful it was to reference the above materials on different pages, where people usually land when they need help with WebSocket protocol. Check out the section where I write about my key learnings.
+
+## Conference and Hackathon organization
+
+Coordinating such big events requires a lot of work and commitment. Without community support, I would not make it, really.
+
+You can find a short summary in [this article](https://www.asyncapi.com/blog/july-december-2021-at-asyncapi#hackathon). You can also watch the conference from [this playlist](https://www.youtube.com/playlist?list=PLbi1gRlP7pijq9F5eYsJomWc7Zf6EYVTZ).
+
+Most important is that in 2022 we want to try a hybrid approach and have an in-person and online conference simultaneously.
+
+## Slack workspace restructuring
+
+We finally have our [Slack etiquette](https://github.com/asyncapi/.github/blob/master/slack-etiquette.md) and organized channels where we can openly discuss different topics.
+
+The most important though, is that because AsyncAPI is part of Linux Foundation, and because of how we designed our open governance model, Slack decided to treat us exceptionally and provide our workspace with a standard subscription.
+All Slack history is now preserved.
+
+My tip for you: even if you think something is impossible, knock on the door anyway. Maybe they'll open them up for you. Writing one or two extra emails didn't kill anyone yet.
+
+## AsyncAPI GitHub org security aka how we merge PRs
+
+After setting up an open governance model, it was time to clean up who has to write access in the GitHub organization. Some legacy settings allowed every member to have write access on all repos, even those they did not maintain. It is ok in a small group, but our maintainers' group exploded in 2021.
+
+We have close to 30 maintainers spread across repositories. We needed a clean setup where maintainers have `write` access only to specific repositories.
+
+The outcome of this work is kinda unexpected. When I listed this topic in my backlog, I didn't have any specific solution in my head. Anyway, now all is clear, and in addition, we got cool improvements for contributors with only read access. In your PR just make a comment that contains the following text: `/help`.
+
+We are expanding the use cases for GitHub Actions!
+
+## Contribution guide (In Progress)
+
+This is a huge topic, where I touched just a surface.
+
+Lots of work ahead, my main topic for 2022.
+
+So far, what we have:
+
+- Slack channel dedicated just to contributions
+- I presented at AsyncAPI conference on a contributor summit:
+  - [How to start contributing and become a Technical Steering Committee member](https://www.youtube.com/watch?v=uG_aLF9Z1F0)
+  - [How to contribute to AsyncAPI Specification](https://www.youtube.com/watch?v=QQYyGlMzJCc)
+- I regularly run a contributors-dedicated live stream about contributing. We have had 16 episodes so far!
+
+# 2021 failures
+
+In my 2020 summary blog post I wrote that we need to start collecting data. A nifty solution is possible, and I even started working on the code.
+
+Then life happened.
+
+It sucks that I lost focus, and instead of completing this one, I let myself be distracted by other topics. Something to work on in 2022!
+
+I started building a dedicated AsyncAPI Schema Store for this topic. I will drop what I wrote so far and push it into [Server API](https://github.com/asyncapi/server-api), as I think this is where the dedicated endpoint belongs.
+
+We end up in 2021 with no data again. This is definitely on my list for 2022
+
+# Key learnings
+
+## Twitter is overrated
+
+Not much to say, really. I do not believe this is a place where you should build your primary communication channel with the community, with developer community. It is a bubble that I'm definitely not enjoying.
+
+Just look at [these numbers](https://www.statista.com/statistics/272014/global-social-networks-ranked-by-number-of-users/). Twitter is pretty low on the list.
+
+Let's see how new [community-related features](https://twitter.com/HiCommunities) will change it. I don't think much, though. They do not invent these but just copy the concept from Reddit and Facebook.
+
+My advice: Just do not bet on Twitter only! We have a lot of community members coming from our LinkedIn posts or directly to GitHub, and they do not care about the Twitter bubble. You need to keep them informed on different channels. Lots of work, I know, but there is no other way. The world is diverse, accept it.
+
+Ok. I give you one example:
+
+- In 2021 we had 1421 visits to asyncapi.com through our Twitter posts. In general, from all the posts!
+- In 2021 we had 1419 visits in total from just two places where I placed references to AsyncAPI:
+  - 449 visits from [this GH issue](https://github.com/OAI/OpenAPI-Specification/issues/55#issuecomment-823974267) in OpenAPI Specification repo.
+  - 970 visits from [Mozzila doc on Websocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API#tools).
+
+Twitter visitors spent 51 seconds on the website on average. The others spent 1m 42sec (from Mozilla) and 2m 54sec (from OpenAPI).
+
+I mean, it is all about adequately targetting your audience. Tell folks what you do exactly when they actually need it.
+
+Of course, I might be biased by my negative opinion on Twitter, so what 😊
+
+## Sometimes just ask for help directly
+
+In a community, you should always try to engage a large group. If there is some work needed, enable anyone to join and help. Just do not forget to also ask people directly.
+
+Do you know this story: You are on the street, your partner faints, and you get on your knees to help out. Around you, a group of people shows up watching. You ask the group to help and call 911. There is a huge probability nobody will answer, as they will look at each other, expecting that the other person will do it. Life safety training teaches you to point directly to a specific person from the crowd and ask to do the call, and they will!
+
+For me, 2021 proved that this is true. It is easier to ignore if you are in a group. I had such a hard time with some topics, moments of doubt.
+
+Now I'm a free man 😊 I decided that 2022 is when I DM people whenever I know someone could actually help. Bad or good? Depends. Some people just need to be asked directly, as simple as that. They just do not want to make public commitments.
+
+So folks, do not get depressed when the group remains silent. This is normal human behavior. In many cases, people will respond, no worries, and in others, you just need to connect directly.
+
+The good thing is that while building community, you will not have to save lives; your question can wait for an answer.
+
+# 2022 goals
+
+Yay, this one is my favorite. New year new super cool things to do 💪🏼. 2022 will be my third year working on AsyncAPI full time. Let's see how it goes.
+
+Below are all the topics I want to work on in 2022 and beyond.
+
+This is not a complete list. The order is random. There might be some changes in the coming months as the list highly depends on community needs.
+
+Also, if you see something on the list that you feel you can take over, be my guest. Cheers 🍺, just lemme know. **Any help is welcomed!**
+
+I commit I will drive (or push, I don't know which word is actually better) these topics, not that I will do 100% of the job 😉
+
+## Complete contributor guide
+
+Last months, while working on contributions-related talks and live streams, I got a pretty decent understanding of what we need.
+
+In 2022 I want us to have a dedicated asyncapi.com/community page. A landing page for any community member, from where they can navigate to any kind of documentation related to the community that they need, like for example:
+
+- How to contribute
+- How CI works
+- How TSC operates
+
+I want to have a plain view, with some documents and a well-described backlog of missing documents that other community members could contribute. The best would be to have some persona-focused navigation too.
+
+## Summarize 2021
+
+I need to work on a report similar to the one I did at the beginning of last year. Get around all the numbers and see how much we grew. Of course, it will be published under asyncapi.com/blog.
+
+## Measuring adoption of the specification
+
+Yes. This year! I really believe my idea is brilliant, and we need to implement it, as simple as that 😆
+
+## TSC voting and communication
+
+I think we have a problem with communication in TSC. We tried [Google Groups](https://groups.google.com/u/1/g/asyncapi-users) and now trying just GitHub Discussion, so communication-based on GitHub that relies on GitHub Notifications a lot.
+
+I want us to have it well defined this year. This is super important to have a good solution in place that all agree to follow. One of TSC members' duties is to participate in the voting process, and we need to make sure we handle it like a pro.
+
+## AsyncAPI Conference
+
+This year, we want to try out in-person and online conferences simultaneously. Lots of work ahead. I will definitely help here as much as I can. Basically, making sure it happens.
+
+## GSoC and other similar initiatives
+
+Last year we participated in Google Summer of Code through Postman. This was an excellent experience for us as it brought many amazing folks into the project.
+
+We should participate in other related events. What is great about the AsyncAPI community is that we are extremely welcoming to all folks, and let's show it even more.
+
+I think it is lots of coordination work. I consider proposing AsyncAPI TSC that we hire someone full-time to handle this kind of initiative and other parts of the project, like social media.
+
+## Introduce interactive tutorials
+
+We have [this tutorial](https://www.asyncapi.com/docs/tutorials/streetlights-interactive). We get only positive feedback on it.
+
+This is the way that I believe we should go, especially with tools like [Docable](https://ottomatica.io/) that address a way to have a tutorial that can start an app for you.
+
+It also addresses a topic that was always close to my heart. Documentation testing aka how you know your tutorial still works after the last release, without manually checking it.
+
+## We need better documentation for Generator
+
+[AsyncAPI Generator](https://github.com/asyncapi/generator) is one of the core tools we have here. I have a feeling we do not educate about its usage enough. We need to restructure existing documentation, get it on the website, and provide an end-to-end tutorial that showcases all features. Of course best, if it is interactive 😆
+
+## Research best way to redistribute sponsor money
+
+We are getting better at collecting funds for AsyncAPI Initiative. We now should figure out how to redistribute it with the community members who regularly work on the project.
+
+I'm recently getting more into the crypto world and Web 3.0 concepts. Instead of tools like Issue Hunt, maybe we should explore ideas like [Radicle](https://twitter.com/radicle) or [GitCoin](https://twitter.com/gitcoin).
+
+I like and respect volunteers' job. I just think we need an option for those members that would be great maintainers, but they simply need to keep a good work/life balance.
+
+## Improve the way we work with stale and keep-open issues
+
+Come up with a process/mechanism that automatically pics up long-living `keep-open` issues and `stale` issues that were "unstaled" for too many times. How should we respond to the community about those? How do we prioritize those?
+
+We do not even have a recommendation for maintainers on triaging issues. It quickly gets out of hand if this is not a regular job. The best would be to look at it from the `spec` repository perspective, where we sometimes leave issues for long and then look at them only before release.
+
+## Meeting as a service
+
+We grow fast. There is a need for more discussions and more meetings. Sometimes one time, sometimes regularly.
+
+This needs to be automated as much as possible. We need to assure all is still done under AsyncAPI, transparently as always.
+
+We need to ensure we do not encourage easier to establish, fast private sync calls. We need guides and code some automation.
+
+Some more details in [this GitHub discussion](https://github.com/asyncapi/community/discussions/236)
+
+## Use cases you fool!
+
+Yes! Last but not least. I want us to get asyncapi.com/use-cases page, where we list all official use cases based on real stories from production. Use cases based on company stories, where not only developers can find answers.
+
+Don't get me wrong, I like developers. I just think that asyncapi.com should provide answers also to other groups.
+
+Outline is already [discussed here](https://github.com/asyncapi/community/discussions/187). I want to make sure this happens this year, and we get at least three official use cases. My goal here is to have a foundation that later anyone can pick up and contribute, so we expand use cases at scale.
+
+# Summary
+
+Thanks for taking the time to read it. For me, it was a great experience to summarize it, especially the part about key learnings.
+
+2022 goals... Yeah, I know it is a lot. Just join and help. I offer openness, mentoring, and probably lots of laughs.
+
+Interested in progress? Wanna help? Look at [this GitHub issue](https://github.com/asyncapi/community/issues/240).
+
+Cheers for 2022 🍺
