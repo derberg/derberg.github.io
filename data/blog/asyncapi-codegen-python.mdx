@@ -8,7 +8,7 @@ summary: "In this article I'm exloring how to create a code generation template 
 layout: PostSimple
 ---
 
-<TOCInline toc={props.toc} toHeading={2} />
+<TOCInline toc={props.toc} toHeading={4} />
 
 In case you want to generate something more than just models out of your AsyncAPI document, sooner or later you will reach out for [AsyncAPI Generator](https://github.com/asyncapi/generator/).
 
@@ -59,7 +59,7 @@ info:
   description: This service is in charge of processing all the events related to comments.
 
 servers:
-  mosquitto:
+  dev:
     url: mqtt://test.mosquitto.org
     protocol: mqtt
     bindings:
@@ -425,4 +425,83 @@ And the only thing I have to do in terminal to check if my generated code works 
 
 ### This time we can really start templating
 
-TODO: waiting for https://github.com/asyncapi/generator/pull/960 to get released
+The first part of the code that requires templating is:
+
+```js
+mqttBroker = 'test.mosquitto.org'
+```
+
+The URL of the broker is not a static information, especially in professional environment where you have different instance for broker for production and testing.
+
+In AsyncAPI document you can provide a list of different servers, but when you generate client code, it is for one of servers only.
+
+AsyncAPI Generator has cool feature that allows you to make template configurable in runtime. It is called `parameters`.
+
+#### Adding first parameters config
+
+In `package.json` under `generator` property (the one where I already specified that the template is created with react render engine), I can create `parameters` object where I define a set of different parameters that user can pass to template in runtime and dynamically modify the output.
+
+There is one special parameter that the generator supports and it is called `server`. The in the runtime I can say that "please generate code for me, but for server A" so in template code it is later much easier to extract server details from the AsyncAPI document.
+
+Ok, bla bla bla. Give examples as for not it sounds misterious.
+
+I added below to my `package.json`:
+
+```json
+    "generator": {
+        # ...(redacted for brevity)
+        "parameters": {
+            "server": {
+              "description": "The server you want to use in the code.",
+              "required": true
+            }
+        }
+    }
+```
+
+> "required": true makes the parameter mandatory and once user forgets about it, proper error message is yeld
+
+This means that later when I trigger generation with AsyncAPI CLI, I can pass to the generator information about server to be used in generated client:
+
+```
+--param=server=dev
+```
+
+It simplifies template code a lot because I can then extract the URL of the server like this:
+
+```js
+// "params" is a parametes object that generator injects into the template in runtime
+// "asyncapi" is the instance of the parsed AsyncAPI document that I mentioned earlier in the article
+asyncapi.servers().get(params.server).url()
+```
+
+So the template for now looks like:
+
+```js
+import { File } from '@asyncapi/generator-react-sdk'
+
+// notice that now the template now only gets the instance of parsed AsyncAPI document but also the parameters
+export default function ({ asyncapi, params }) {
+  return (
+    <File name="client.py">
+      {`import paho.mqtt.client as mqtt
+
+mqttBroker = "${asyncapi.servers().get(params.server)}"
+commentLikedTopic = "comment/liked"
+
+class CommentLikedClient:
+    def __init__(self):
+        self.client = mqtt.Client()
+        self.client.connect(mqttBroker)
+
+
+    def sendCommentLiked(self, id):
+        self.client.publish(commentLikedTopic, id)`}
+    </File>
+  )
+}
+```
+
+#### Templating of channel information
+
+TODO: to be continued
