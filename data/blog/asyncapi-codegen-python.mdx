@@ -60,7 +60,7 @@ info:
 
 servers:
   dev:
-    url: mqtt://test.mosquitto.org
+    url: test.mosquitto.org
     protocol: mqtt
     bindings:
       mqtt:
@@ -486,7 +486,7 @@ export default function ({ asyncapi, params }) {
     <File name="client.py">
       {`import paho.mqtt.client as mqtt
 
-mqttBroker = "${asyncapi.servers().get(params.server)}"
+mqttBroker = "${asyncapi.servers().get(params.server).url()}"
 commentLikedTopic = "comment/liked"
 
 class CommentLikedClient:
