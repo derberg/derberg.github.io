@@ -1,0 +1,428 @@
+---
+title: 'Creating MQTT client code generator with AsyncAPI'
+date: 2023-05-23 09:00:00Z
+lastmod: '2023-05-23'
+tags: ['asyncapi', 'codegen']
+draft: false
+summary: "In this article I'm exloring how to create a code generation template where main role plays AsyncAPI document and AsyncAPI Generator."
+layout: PostSimple
+---
+
+<TOCInline toc={props.toc} toHeading={2} />
+
+In case you want to generate something more than just models out of your AsyncAPI document, sooner or later you will reach out for [AsyncAPI Generator](https://github.com/asyncapi/generator/).
+
+`if ('I only want to generate models from my schemas) return "https://modelina.org/"`
+
+## Intro to AsyncAPI Generator
+
+AsyncAPI Generator is a library that you need to use to generate apps, SDKs or docs. Generator itself is just a set of helpers and configurations that do not really have any logic aobut SDKs or other stuff that you'd like to generate. The part that defines what should be generated out of your AsyncAPI document is what we call `Template`.
+
+What the heck is this? `Generator` and `Template` :thinking:
+
+You know Johannes Gutenberg and his printing press? not personally of course, he is dead...like almost 600y ago. Gutenberg is not important in this story, but the printing press.
+
+<Image
+  alt="picture showing old printing press"
+  src="/static/images/asyncapicodegen/printing-press.webp"
+  width={220}
+  height={202}
+/>
+
+So `Generator` is like printing press. It helps you to print stuff at scale, but alone, it is useless. Printing press needs input, a `Template` :tadam: and your AsyncAPI document.
+
+<Image
+  alt="picture showing printing press template"
+  src="/static/images/asyncapicodegen/printing-template.webp"
+  width={256}
+  height={170}
+/>
+
+In your AsyncAPI document you describe your application, and in the `Template` you say what part of the document should be used for a specific print output. So basically when you feed `Generator` with your AsyncAPI document and the `Template`, in `Template` you specify where `asyncapi.info.title()` should be rendered.
+
+## Community Templates
+
+You do not have to create a `Template` to generate something out of your AsyncAPI document. There are many [community maintained templates](https://www.asyncapi.com/docs/tools/generator/template#generator-templates-list), but for sure many are missing. Sometimes you need to create your custom template, tailored for your use case, which is completely fine. Just please remember, maintaining a template together with the community makes maintainance easier and also helps other community members to save on development time.
+
+## Prerequisite before template development
+
+As I explained earlier, all the fun makes sense when the generator gets the template and AsyncAPI document. Therefore before you start writing the template, you definitely need some sample AsyncAPI document that you will test your template agains :smiley:
+
+The template that I develop as part of this article is based on the following example:
+
+```yml
+asyncapi: 2.6.0
+
+info:
+  title: Comments Service
+  version: 1.0.0
+  description: This service is in charge of processing all the events related to comments.
+
+servers:
+  mosquitto:
+    url: mqtt://test.mosquitto.org
+    protocol: mqtt
+    bindings:
+      mqtt:
+        clientId: comment-service
+
+channels:
+  comment/liked:
+    description: Updates the likes count in the database.
+    publish:
+      operationId: sendCommentLiked
+      message:
+        description: Message that is being sent when a comment has been liked by someone.
+        payload:
+          type: object
+          title: commentLiked
+          additionalProperties: false
+          properties:
+            commentId:
+              type: string
+```
+
+I created `asyncapi.yml` document in new `test/fixtures` directory in my template project
+
+## Creating first template
+
+For the sake of this article I will create a `Template` that will support MQTT protocol and generate a Python client from your AsyncAPI document.
+
+I'm not a Python developer. This will actually be my first time I write some Python code, but I'm not worried, I'll try to get some inspiration from [articles like this one](https://medium.com/python-point/mqtt-basics-with-python-examples-7c758e605d4) and see if AI will be able to help a bit.
+
+Why Python then and not my beloved JavaScript?
+
+> The noisy sound of people leaving the room because they've heard the author loves JavaScript!
+
+<Image
+  alt="picture of people leaving the room"
+  src="/static/images/asyncapicodegen/leave-room.webp"
+  width={376}
+  height={250}
+/>
+
+I wanted to use Python as my lovely wife is learning it now, and I want to be able to mentor her on a long run.
+
+### Template tech stack
+
+`Template` is a standalone project that is not part of the `Generator` library logic and its codebase. You can store `Template` code wherever you want.
+
+AsyncAPI Generator is written in JavaScript.
+
+> Java people already left the room anyway, but now there rest, TypeScript lovers, left
+
+Ok, now we have only people with strong character left :muscle:
+
+AsyncAPI Generator is written in JavaScript and uses [npm](https://www.npmjs.com/) libraries to pass `Template` logic through the generator. In other words, when you tell AsyncAPI Generator to use `Template A`, the generator basically does `npm install` of the template. Thanks to this approach templates can be stored anywhere, like package registries, remote repository or just a tarball file - basically whatever `npm install` supports now.
+
+### Basic template structure
+
+I store all template code in folder called `python-mqtt-client-template`.
+
+1. First I create a `package.json` like you see below:
+
+   ```json
+   {
+     "generator": {
+       "renderer": "react",
+       "generator": ">=1.9.18 <2.0.0",
+       "supportedProtocols": ["mqtt"]
+     },
+     "dependencies": {
+       "@asyncapi/generator-react-sdk": "^0.2.25"
+     }
+   }
+   ```
+
+   AsyncAPI Generator supports two way of writing templates:
+
+   - using [Nunjucks templating language](https://mozilla.github.io/nunjucks/)
+   - using [React](https://www.asyncapi.com/blog/react-as-generator-engine)
+
+   Don't use the first one. Every AsyncAPI Generator maintainer lost a lot of hair debugging Nunjucks templates. One day it will be deprecated.
+
+   Lets see what is there in the `package.json`:
+
+   - `generator` is where I specify [generator specific configuration](https://www.asyncapi.com/docs/tools/generator/configuration-file).
+     - `renderer` is where I specify that the generator should push my template through react rendering enginge,
+     - `generator` is where I specify what versions of generator is my template compatible with. I don't know if AsyncAPI Generator 2.0 will bring changes that will break my template. I want my template users to have good experience and get a nice human-readable message from the generator that my template is not compatible with certain version of the generator,
+     - `supportedProtocols` is where I specify what protocols my template supports. Again purely developer experience related setting. I could leave that out, but no. I do not want user of my template to get undefined errors if they use `kafka` but a nice human-readable info that my template is at the moment compatible only with the `mqtt` protocol?
+   - `dependencies > @asyncapi/generator-react-sdk` is where I specify what version of react sdk should be used. This package contains a set of useful components that you MUST use in your template.
+
+1. Since there are dependencies added, I need them locally, so I run `npm install`
+1. Now I create `template` folder where all my template code will be located
+
+### Create highway to heaven
+
+Or to hell, if you are a developer that loves strongly typed languages but agile drawing machine drum picked you to work on the template.
+
+<Image
+  alt="picture of crying emoji looking at drawing machine"
+  src="/static/images/asyncapicodegen/cry-dev.webp"
+  width={300}
+  height={200}
+/>
+
+Everything starts in `index.js`
+
+```js
+import { File } from '@asyncapi/generator-react-sdk'
+
+export default function ({ asyncapi }) {
+  return <File name="client.py">{asyncapi.info().title()}</File>
+}
+```
+
+First template file and you already see `@asyncapi/generator-react-sdk` dependency is a must have as among other components it contains a `File` component that you need to use to specify that given template file must return a file.
+
+Focus your eyes on `{ asyncapi.info().title() }` as this is most important. Template files get access to many different goodies thanks to the generator, one of those is `asyncapi` that is not representing you AsyncAPI document 1:1 but it is an instance of the [AsyncAPI Parser](https://www.asyncapi.com/docs/tools/generator/parser) that is responsible for validating AsyncAPI documents and giving you an API that makes it much easier to extract information from AsyncAPI document.
+
+In other words `{ asyncapi.info().title() }` means that `asyncapi` contains a set of helper functions like `info()` that returns the `Info` object from an AsyncAPI document:
+
+```yml
+# ...(redacted for brevity)
+info:
+  title: Comments Service
+  version: 1.0.0
+  description: This service is in charge of processing all the events related to comments.
+# ...(redacted for brevity)
+```
+
+And the `title()` helper let's you extract the title from the `Info` object.
+
+Lets see if it will work and the template is valid.
+
+### Test the highway
+
+[AsyncAPI CLI](https://www.asyncapi.com/tools/cli) is a terminal tool that integrates different AsyncAPI tools that allow you to do different things with your AsyncAPI documents, like validation, optimization, bunding and others. You probably guessed already that AsyncAPI Generator is there too.
+
+#### Install AsyncAPI CLI
+
+Well, yes this one is in JavaScript as well. Like the source code is in TypeScript, but whatever, installation sill requires you do run:
+
+```bash
+npm install -g @asyncapi/cli
+```
+
+But calm down, we know people that do not like JS, also can't imagine installing node and npm. AsyncAPI CLI is also published in a much friendlier way, with binaries dedicated to different operating systems.
+
+I'm Mac user so I like this one the most: `brew install asyncapi`
+
+For more options just [check out the docs](https://www.asyncapi.com/docs/tools/cli/installation).
+
+#### Use AsyncAPI CLI to test Template
+
+tl;dr just run `asyncapi generate fromTemplate test/fixtures/asyncapi.yml ./ --output test/project`
+
+- `asyncapi generate fromTemplate` is the way to use AsyncAPI Generator
+- `asyncapi.yml` is how you provide the AsyncAPI document to the generator. Can be URL if you want.
+- `./` since this article describes how to write template, I assume you develop it locally, and it is not available on any server. I assume you call `asyncapi generate fromTemplate` from the directory where your template project is located
+- `--output test/project` is how you specify the folder where code should be generated
+
+In case all is good, success looks like below:
+
+```bash
+Generation in progress. Keep calm and wait a bit... done
+Check out your shiny new generated files at test/project.
+```
+
+Looks the same on your side, right?
+
+<Image
+  alt="meme saying that it works on my computer"
+  src="/static/images/asyncapicodegen/but-its-working.webp"
+  width={300}
+  height={230}
+/>
+
+I can see `client.js` file in `test/project` directory and the only content is `Comments Service`.
+
+### Let's finally create that client
+
+Nobody does it this way, like write template from scratch directly. At least I can't imagine doing it. My brain can get on that level of abstraction.
+
+Anyway, this is my article and we do it my way:
+
+1. Create some real working client code
+1. Create some test code that uses the client
+1. Update template with working client code
+1. Setup some script that will help you run this code quickly to test
+1. Start templating your code
+
+<Image
+  alt="mandalorian image with this is the way inscription"
+  src="/static/images/asyncapicodegen/this-is-the-way.webp"
+  width={256}
+  height={147}
+/>
+
+### Create some real working client code
+
+I'm not a Pyton dev and to save my time to get some real working code I used ChatGPT for the first time. I could get some code with additional refactoring in just few minutes.
+
+This is the module for the client I have in `client.py` file in the `test/project`:
+
+```python
+import paho.mqtt.client as mqtt
+
+mqttBroker = "test.mosquitto.org"
+commentLikedTopic = "comment/liked"
+
+class CommentLikedClient:
+    def __init__(self):
+        self.client = mqtt.Client()
+        self.client.connect(mqttBroker)
+
+
+    def sendCommentLiked(self, id):
+        self.client.publish(commentLikedTopic, id)
+```
+
+I'm using here an MQTT client from [Eclipse Paho](https://www.eclipse.org/paho/) project to connect to the MQTT broker. In this article I will not explain what MQTT is and its use case, instead, I send you to [article about MQTT in IoT](https://medium.com/python-point/mqtt-basics-with-python-examples-7c758e605d4).
+
+Instead of spinning my own broker instance, I'm using a public test instance of [Eclipse Mosquitto broker](https://test.mosquitto.org/).
+
+You will have to install that Paho package with `pip install paho-mqtt`.
+
+The idea is that if somebody wants to interact with my `Comments Service` they do it using my client module. Just create instance of the client like `client = CommentLikedClient()` and then use `sendCommentLiked` function to publish messages that `Comments Service` is subscribed to.
+
+Pretty neat and this is what the purpose of the client is right? User do not need the info about the server and topic name, but then only need a helper function with clear info on what data should be sent.
+
+### Create some test code that uses the client
+
+Let me try it in action. I created `test.py` in `test/project` directory that looks like below:
+
+```py
+from client import CommentLikedClient
+from random import randrange
+import time
+
+client = CommentLikedClient()
+
+id_length = 8
+min_value = 10**(id_length-1)  # Minimum value with 8 digits (e.g., 10000000)
+max_value = 10**id_length - 1  # Maximum value with 8 digits (e.g., 99999999)
+
+while True:
+    randomId = randrange(min_value, max_value + 1)
+    client.sendCommentLiked(randomId)
+    print("New like for comment " + str(randomId) + " sent to comment/liked")
+    time.sleep(1)
+```
+
+The code focus only on sending the message, no need for any configurations, all is provided by the client. Rest of the code is only focused on generating some random comment ID and then endlessly sending it to the broker.
+
+After calling `python test.py` I see the following logs:
+
+```bash
+New like for comment 39097159 sent to comment/liked
+New like for comment 13144095 sent to comment/liked
+New like for comment 19962377 sent to comment/liked
+New like for comment 10554318 sent to comment/liked
+```
+
+But how do I know it works? There are no errors comming from the broker, but how can I be 100% sure that the message I'm sending is actually reaching the broker and potential consumers?
+
+<Image
+  alt="diagram showing event driven flow with broker in the middle and unknown consumer"
+  src="/static/images/asyncapicodegen/diagram-mistery.svg"
+  width={1024}
+  height={204}
+/>
+
+I need to emulate some consumer that will subscribe to `comment/liked` and will log information about received message. I could write another python script that subscribes to the topic, but that would complicate the article too much and better is just use some MQTT CLI, and best to do it through docker.
+
+```bash
+docker run hivemq/mqtt-cli sub -t comment/liked -h test.mosquitto.org
+```
+
+Nothing more is needed. CLI connects to broker and subscribes to `comment/liked` and I should see incomming comment IDs:
+
+```bash
+$ docker run hivemq/mqtt-cli sub -t comment/liked -h test.mosquitto.org
+60982511
+93401458
+47315214
+30191547
+```
+
+All the dots are connected:
+
+<Image
+  alt="diagram showing event driven flow with broker in the middle and known consumer"
+  src="/static/images/asyncapicodegen/diagram-reveald.svg"
+  width={1024}
+  height={204}
+/>
+
+### Update template with working client code
+
+This part is the most simple, I copy contents of my `client.py` and replace what I had in my `index.js`, to be exact, I replace `asyncapi.info().title()` and result is:
+
+```js
+import { File } from '@asyncapi/generator-react-sdk'
+
+export default function ({ asyncapi }) {
+  return (
+    <File name="client.py">
+      {`import paho.mqtt.client as mqtt
+
+mqttBroker = "test.mosquitto.org"
+commentLikedTopic = "comment/liked"
+
+class CommentLikedClient:
+    def __init__(self):
+        self.client = mqtt.Client()
+        self.client.connect(mqttBroker)
+
+
+    def sendCommentLiked(self, id):
+        self.client.publish(commentLikedTopic, id)`}
+    </File>
+  )
+}
+```
+
+This is not all yet. There are hardcodes, right?
+
+### Setup script that runs test code
+
+Last step before actuall template work. During template development I will go back and forth quite a lot, so it would be nice to have a script that I can run to use the client, if it is still working.
+
+Let's laverage the fact that templates are Node.js projects and that we use `package.json`.
+
+In `package.json` you can have `scripts` property that later you can invoke by calling `npm run <yout_script>`.
+
+Before I show you my scripts, lets have a look at the current structure of the project:
+
+<Image
+  alt="picture showing project structure"
+  src="/static/images/asyncapicodegen/project-structure.webp"
+  width={366}
+  height={669}
+/>
+
+This are the scripts:
+
+```json
+    "scripts": {
+        "test:clean": "rimraf test/project/client.js",
+        "test:generate": "asyncapi generate fromTemplate test/fixtures/asyncapi.yml ./ --output test/project --force-write",
+        "test:start": "python test/project/test.py",
+        "test": "npm run test:clean && npm run test:generate && npm run test:start"
+    }
+```
+
+For clarity I created four scripts, to make it clear what each step of `test` script is doing.
+
+> You probably noticed something confusing, that is called `rimraf`. This is pretty standard package Node.js folks use in npm scripts for cleanup. The `rimraf` package is used to perform deletion. You will need to add it as development dependency to the template like this: `npm install rimraf --save-dev`
+
+- `test:clean` is needed because every time you run your test, you need to remove the old version of generated `client.py`
+- `test:generate` is responsible for calling AsyncAPI CLI to generate fresh version of `client.py`
+- `test:start` is for callin test python code that uses the `client.py`
+
+And the only thing I have to do in terminal to check if my generated code works is: `npm test`
+
+### This time we can really start templating
+
+TODO: waiting for https://github.com/asyncapi/generator/pull/960 to get released
