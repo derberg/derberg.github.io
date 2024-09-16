@@ -32,6 +32,13 @@ export default function AuthorLayout({ children, frontMatter }) {
               <SocialIcon kind="linkedin" href={linkedin} />
               <SocialIcon kind="twitter" href={twitter} />
             </div>
+            <iframe
+              src="https://github.com/sponsors/derberg/button"
+              title="Sponsor derberg"
+              height="32"
+              width="114"
+              style={{ border: 0, borderRadius: '6px' }}
+            />
           </div>
           <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">{children}</div>
         </div>
