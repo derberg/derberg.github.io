@@ -3,12 +3,11 @@
   "entity": {
       "type": "individual",
       "role": "steward",
-      "name": "AsyncAPI Initiative",
+      "name": "Lukasz Gornicki",
       "email": "lpgornicki@gmail.com",
-      "description": "I'm a individial contributor with my own business entitiy that allows me to create invoices and do some consulting. I'm maintaining AsyncAPI spec, generator and few other AsyncAPI repositories. Also act as Executive Director pushing for setup of the board. Not sure what URL you need in another section. My personal work is under https://www.brainfart.dev/ but all my work is into AsyncAPI, thus I put all resources pointing to AsyncAPI. If you support me, I will only work on AsyncAPI-related stuff.",
+      "description": "I'm an individual contributor with my own business entity that allows me to create invoices and do some consulting. I'm maintaining AsyncAPI spec, generator and few other AsyncAPI repositories. Also act as Executive Director pushing for setup of the board. Not sure what URL you need in another section. My personal work is under https://www.brainfart.dev/ but all my work is into AsyncAPI, thus I put all resources pointing to AsyncAPI. If you support me, I will only work on AsyncAPI-related stuff.",
       "webpageUrl": {
-          "url": "https://asyncapi.com/",
-          "wellKnown": ""
+          "url": "https://brainfart.dev/"
       }
   },
   "projects": [{
@@ -44,7 +43,7 @@
           "guid": "asyncapi",
           "status": "active",
           "name": "Monthly funding plan",
-          "description": "Yeah, I'm kind of confused about the whole funding here. I apply as an individual, maybe asyncapi should do separate thingy. Anyway, for me important is to support my work on monthly basis.",
+          "description": "Yeah, I'm kind of confused about the whole funding here. I apply as an individual, maybe asyncapi should do separate thingy. Anyway, for me important is to support my work on monthly basis. If you cannot support my full time work, you can do smaller donation through https://github.com/sponsors/derberg",
           "amount": 0,
           "currency": "EUR",
           "frequency": "other",
