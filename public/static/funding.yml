@@ -13,26 +13,28 @@
   "projects": [{
       "guid": "spec",
       "name": "specification",
-      "description": "Main project where AsyncAPI specification is maintained.",
+      "description": "Main project where AsyncAPI specification is maintained. The real repo URL is https://github.com/asyncapi/spec, I provided another one cause after over 1 hour of fighting with validation of funding.yml and wellKnown mechanism to check if I'm a real maintainer - I simply gave up. You can easily validate if I'm a maintainer by checking CODEOWNERS file: https://github.com/asyncapi/spec/blob/master/CODEOWNERS",
       "webpageUrl": {
-          "url": "https://brainfart.dev/projects"
+          "url": "https://brainfart.dev"
       },
       "repositoryUrl": {
-          "url": "https://github.com/asyncapi/spec"
+          "url": "https://brainfart.dev"
       },
-      "licenses": ["Apache2"]
+      "licenses": ["Apache2"],
+      "tags": ["asyncapi"]
   },
   {
       "guid": "gen",
       "name": "generator",
-      "description": "Generator project that enables code and docs generation from AsyncAPI documents.",
+      "description": "Generator project that enables code and docs generation from AsyncAPI documents. The real repo URL is https://github.com/asyncapi/generator, I provided another one cause after over 1 hour of fighting with validation of funding.yml and wellKnown mechanism to check if I'm a real maintainer - I simply gave up. You can easily validate if I'm a maintainer by checking CODEOWNERS file: https://github.com/asyncapi/generator/blob/master/CODEOWNERS",
       "webpageUrl": {
-          "url": "https://brainfart.dev/projects"
+          "url": "https://brainfart.dev"
       },
       "repositoryUrl": {
-          "url": "https://github.com/asyncapi/generator"
+          "url": "https://brainfart.dev"
       },
-      "licenses": ["Apache2"]
+      "licenses": ["Apache2"],
+      "tags": ["asyncapi"]
   }],
   "funding": {
       "channels": [{
