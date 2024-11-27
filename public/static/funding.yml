@@ -5,10 +5,10 @@
       "role": "steward",
       "name": "AsyncAPI Initiative",
       "email": "lpgornicki@gmail.com",
-      "description": "I'm a individial contributor with my own business entitiy that allows me to create invoices and do some consulting. I'm maintaining AsyncAPI spec, generator and few other AsyncAPI repositories. Also act as Executive Director pushing for setup of the board.",
+      "description": "I'm a individial contributor with my own business entitiy that allows me to create invoices and do some consulting. I'm maintaining AsyncAPI spec, generator and few other AsyncAPI repositories. Also act as Executive Director pushing for setup of the board. Not sure what URL you need in another section. My personal work is under https://www.brainfart.dev/ but all my work is into AsyncAPI, thus I put all resources pointing to AsyncAPI. If you support me, I will only work on AsyncAPI-related stuff.",
       "webpageUrl": {
           "url": "https://asyncapi.com/",
-          "wellKnown": "yeah, not really sure what URL I need to put, my personal work is under https://www.brainfart.dev/ but all my work is into AsyncAPI, thus I put all resources pointing to AsyncAPI. If you support me, I will only work on AsyncAPI-related stuff."
+          "wellKnown": ""
       }
   },
   "projects": [{
