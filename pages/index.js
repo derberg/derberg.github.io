@@ -26,14 +26,6 @@ export default function Home({ posts }) {
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Services
           </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            I have over 10 years experience of working in open source environment and over 6 year of
-            experience using AsyncAPI and event driven architecture. Ex-hybris/SAP and ex-Postman
-            currently involved actively on AsyncAPI Initiative and also engaged with different
-            initiatives focused to promote open source. I'm a huge fan of concept of Open Source
-            Program Office (OSPO) and have experience with it on organization side and also on a
-            community side. You can hire me or sponsor me for the following Services:
-          </p>
           <div className="container py-12">
             <div className="flex flex-wrap -m-4">
               {servicesData.map((d) => (
