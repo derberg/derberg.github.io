@@ -6,6 +6,7 @@ import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
+import SponsorButton from './SponsorButton'
 
 const LayoutWrapper = ({ children }) => {
   return (
@@ -40,10 +41,36 @@ const LayoutWrapper = ({ children }) => {
                 </Link>
               ))}
             </div>
+            <div className="hidden sm:flex items-center space-x-4">
+              <iframe
+                src="https://github.com/sponsors/derberg/button"
+                title="Sponsor derberg"
+                height="32"
+                width="114"
+                style={{ border: 0, borderRadius: '6px' }}
+              />
+              <SponsorButton name="Book a Call" link="https://calendly.com/lpgornicki/15" />
+            </div>
             <ThemeSwitch />
             <MobileNav />
           </div>
         </header>
+        {/* Mobile-only section */}
+        <div className="block sm:hidden space-y-4">
+          <SponsorButton
+            name="Book a Call"
+            link="https://calendly.com/lpgornicki/15"
+            className="w-full max-w-xs h-8"
+            fontSize="14px"
+            marginLeft="0px"
+          />
+          <iframe
+            src="https://github.com/sponsors/derberg/button"
+            title="Sponsor derberg"
+            className="w-full max-w-xs h-8"
+            style={{ border: 0, borderRadius: '6px' }}
+          />
+        </div>
         <main className="mb-auto">{children}</main>
         <Footer />
       </div>

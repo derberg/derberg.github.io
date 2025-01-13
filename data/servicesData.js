@@ -1,23 +1,31 @@
 const projectsData = [
   {
-    title: 'Maintainer',
+    title: 'Speaker',
     description:
-      "If you depend on AsyncAPI, to secure your investment, you need to make sure that the project is healthy and maintained. I'm one of the maintainers of the AsyncAPI Initiative focused mainly on the specification and also the generator project. You can sponsor me or hire me to focus on the project full-time.",
+      'Deliver engaging and insightful talks at your events or conferences, drawing on extensive experience with AsyncAPI, OSPOs, and open source. Topics can include AsyncAPI adoption, case studies and many others, open source strategies, and community building.',
+    price: 3000,
+    priceDetails: 'Price per presentation',
   },
   {
-    title: 'Speaker and Trainer',
+    title: 'Trainer',
     description:
-      "In the last decade, I've presented at multiple conferences, not only about AsyncAPI and not only simple talks but also performed a set of workshops. I can help you with the training of your team, I can help you with the presentation at your conference, and I can help you with the workshop at your event.",
+      'Provide tailored training sessions to your team on AsyncAPI, open source best practices, or OSPO strategies. Sessions can range from beginner to advanced levels, ensuring your team gets the knowledge they need. The length and content of the training can be customized.',
+    price: 5000,
+    priceDetails: 'Price per training session',
   },
   {
-    title: 'AsyncAPI Consultant',
+    title: 'Consulting',
     description:
-      "I have been with AsyncAPI since its v1 version. Since 2020, I have been a full-time maintainer. As Executive Director of the AsyncAPI Initiative, I'm also actively involved in the community, attending conferences, and doing research on how companies use AsyncAPI in production. I have gained unique knowledge and experience that I can share with you. I can help you with the adoption of AsyncAPI in your organization, help you with the migration from v2 to v3, help you with the tooling, and much more.",
+      "Expert guidance on adopting AsyncAPI, migrating between versions, setting up OSPOs, or building effective open source strategies. Consulting is tailored to meet your organization's unique needs. Whether you're looking to optimize workflows, integrate the latest tooling, or foster collaboration across teams, I can help reaching your goals. Book a call and let's see if I can help.",
+    price: 250,
+    priceDetails: 'Price per hour',
   },
   {
-    title: 'Open Source Consultant',
+    title: 'Get Things Done',
     description:
-      "I've seen things. I worked at SAP when there was yet no OSPO team, and getting a project open-sourced was a long way of endless meetings with legal, security, and executives. Then, I was actively involved as the OSPO champion promoting open source inside the company. Later, I joined the open-source community full-time, cooperating with companies and their OSPOs. I can help you with the creation of your OSPO, with the promotion of open source inside your company. The best companies are the ones with open source culture at their core.",
+      "Hands-on support to tackle your organization's challenges, whether it's AsyncAPI tooling, version migrations, or implementing open source initiatives. Let's work together to deliver tangible results. Maybe there is a specific feature you need in AsyncAPI Specification or Generator - I can help go through the process and work on some implementations in the Generator if needed.",
+    price: 3000,
+    priceDetails: 'Price per project phase or specific deliverable',
   },
 ]
 

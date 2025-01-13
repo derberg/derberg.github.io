@@ -1,15 +1,16 @@
 import Link from '@/components/Link'
-import servicesData from '@/data/servicesData'
+import indexServicesData from '@/data/indexServicesData'
 import { PageSEO } from '@/components/SEO'
 import Card from '@/components/Card'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
+import Image from '@/components/Image'
 
-import NewsletterForm from '@/components/NewsletterForm'
+// import NewsletterForm from '@/components/NewsletterForm'
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 2
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
@@ -23,12 +24,12 @@ export default function Home({ posts }) {
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Services
+          <h1 className="text-3xl text-center font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+            Grow Faster with an Expert by Your Side
           </h1>
-          <div className="container py-12">
+          <div className="container py-8">
             <div className="flex flex-wrap -m-4">
-              {servicesData.map((d) => (
+              {indexServicesData.map((d) => (
                 <Card
                   key={d.title}
                   title={d.title}
@@ -39,13 +40,44 @@ export default function Home({ posts }) {
               ))}
             </div>
           </div>
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Latest
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {siteMetadata.description}
-          </p>
+          <div className="py-1 ">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 text-center mb-8">
+              Trusted by top companies
+            </h2>
+            <div className="flex justify-center items-center gap-x-12 mt-4 divide-y divide-gray-200 dark:divide-gray-700">
+              <Image
+                src="/logos/postman.png"
+                alt="Postman Logo"
+                className="grayscale"
+                width={200}
+                height={80}
+              />
+              <Image
+                src="/logos/hdi.png"
+                alt="HDI Logo"
+                className="grayscale"
+                width={197}
+                height={80}
+              />
+              <Image
+                src="/logos/sap.png"
+                alt="SAP Logo"
+                className="grayscale"
+                width={147}
+                height={80}
+              />
+            </div>
+          </div>
+          <div className="py-10 ">
+            <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+              Latest Articles
+            </h1>
+            <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+              {siteMetadata.description}
+            </p>
+          </div>
         </div>
+
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
@@ -109,11 +141,11 @@ export default function Home({ posts }) {
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter.provider !== '' && (
+      {/* {siteMetadata.newsletter.provider !== '' && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
         </div>
-      )}
+      )} */}
     </>
   )
 }
