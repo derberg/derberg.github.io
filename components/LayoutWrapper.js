@@ -56,7 +56,7 @@ const LayoutWrapper = ({ children }) => {
           </div>
         </header>
         {/* Mobile-only section */}
-        <div className="block sm:hidden space-y-4">
+        <div className="sm:hidden space-y-4 mb-5 flex flex-col justify-center items-center">
           <SponsorButton
             name="Book a Call"
             link="https://calendly.com/lpgornicki/15"
