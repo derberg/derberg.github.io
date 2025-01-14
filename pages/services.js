@@ -65,6 +65,7 @@ export default function Services() {
                 href={d.href}
                 price={d.price}
                 priceDetails={d.priceDetails}
+                priceExplanation={d.priceExplanation}
               />
             ))}
           </div>

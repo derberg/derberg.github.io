@@ -1,0 +1,213 @@
+---
+title: 'Working with AsyncAPI documents locally'
+date: 2025-01-13 09:00:00Z
+lastmod: '2025-01-13'
+tags: ['asyncapi']
+draft: false
+summary: 'What tools and local setup recommendations are out there that will make it easier to work with AsyncAPI documents'
+layout: PostSimple
+---
+
+<TOCInline toc={props.toc} toHeading={3} />
+
+<br />
+<Image alt="chatgpt prompt" src="/static/images/asyncapi-local/ai.png" width={789} height={173} />
+Read below article, as ChatGPT will give you a very misleading answer with links poining to not
+existing resources - as usual.
+
+We live in times where people seem tired of cloud tools, not only for privacy reasons. In recent years, there’s been a big push towards online IDEs, code spaces, and other flashy solutions. But we all know how the web works. You start with a simple online tool, like a basic REST client, and before you know it, it’s a bloated app loaded with features you’ll never use, and it takes forever to load.
+
+To move fast, you need local and minimal setups. In this article, I’ll explore tools that help you work with AsyncAPI documents with just the basics.
+
+> In this article intentionally I ignore existance of AsyncAPI documents created with JSON. Editing huge JSON files manually is a nightmare. My assumption is that if someone stores an AsyncAPI document with JSON, it is most probably generated from code, and therefore below article is not interesting for such users.
+
+## Plain IDE
+
+You don’t need much more than your favorite IDE.
+
+> If your favorite IDE isn’t [on this list](https://www.schemastore.org/json/#editors), it might be time to consider a better one.
+
+With just your IDE, you can get awesome features like:
+
+#### Validation
+
+Instant feedback on whether your document is valid.
+
+<Image
+  alt="validation example"
+  src="/static/images/asyncapi-local/schemastore2.png"
+  width={1492}
+  height={220}
+/>
+
+#### Tooltips
+
+[Ace](https://www.linkedin.com/in/acebuild/) has worked hard to ensure the descriptions in the AsyncAPI spec markdown are reflected in JSON Schema tooltips. This means you’ll see detailed descriptions like this:
+
+<Image
+  alt="tooltips example"
+  src="/static/images/asyncapi-local/schemastore3.png"
+  width={2122}
+  height={556}
+/>
+
+#### Autocompletion
+
+<Image
+  alt="autocompletion example"
+  src="/static/images/asyncapi-local/schemastore4.png"
+  width={470}
+  height={230}
+/>
+
+But how does it work?
+
+AsyncAPI is essentially [a markdown document](https://github.com/asyncapi/spec/blob/master/spec/asyncapi.md) that defines all rules, fields, and vocabularies. Cool, but it’s massive! AsyncAPI documents can represent complex structures. How do you ensure your document is valid? Use [JSON Schema](https://json-schema.org/).
+
+At AsyncAPI, we provide [JSON Schemas](https://github.com/asyncapi/spec-json-schemas/) that define validation rules described initially in specification markdown file. These schemas integrate with [SchemaStore](https://www.schemastore.org/) — a fantastic open-source project.
+
+### SchemaStore
+
+SchemaStore is a community-driven project that hosts JSON Schemas for many tools and frameworks (GitHub Actions, OpenAPI, Angular, ESLint, etc.). IDEs use SchemaStore’s API to enable features like validation and autocompletion.
+
+SchemaStore also holds information on how to match schemas to files based on given patterns, making it even easier to use.
+
+### File Naming
+
+AsyncAPI doesn’t enforce naming conventions for documents. However, we recommend the following pattern:
+
+```
+"fileMatch": ["asyncapi.json", "asyncapi.yml", "asyncapi.yaml"]
+```
+
+This means your file name should include `asyncapi` (lowercase):
+
+- `asyncapi-client.yml`
+- `websocket_asyncapi.yaml`
+
+### (Optional) YAML Extension
+
+If you use VSCode, install the [YAML extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for SchemaStore support with YAML files. IntelliJ IDEA users—you’re in luck; it’s built-in.
+
+<Image
+  alt="SchemaStore example"
+  src="/static/images/asyncapi-local/schemastore1.png"
+  width={1078}
+  height={192}
+/>
+
+When your IDE recognizes the file as AsyncAPI, you’re set.
+
+### Summary
+
+By simply naming your files correctly and installing an extension when needed, you get great features:
+
+✅ **Pros:**
+
+- Easy to set up, you just need to name your files properly.
+- No dependencies.
+- Validation!
+- Autocompletion and detailed descriptions.
+
+⚠️ **Cons:**
+
+- Limited validation (JSON Schema covers ~80% of cases). Not all rules can be described with JSON Schema.
+- No human-readable preview unless you count YAML as human format 😊.
+
+---
+
+## IDE Plugins and Extensions
+
+Want more power? Add plugins or extensions to your IDE. I still recommend you stick to the [naming convention](#file-naming) for AsyncAPI documents.
+
+### VSCode
+
+The [`asyncapi-preview`](https://marketplace.visualstudio.com/items?itemName=asyncapi.asyncapi-preview) extension offers features like:
+
+- Scaffold an example AsyncAPI document.
+- Render documentation for humans.
+- Visualize application communication (EDA visualizer).
+
+<Image
+  alt="VSCode asyncapi-preview"
+  src="/static/images/asyncapi-local/preview.png"
+  width={914}
+  height={483}
+/>
+
+> Check out the [extension’s source code](https://github.com/asyncapi/vs-asyncapi-preview), its integrated [docs view](https://github.com/asyncapi/asyncapi-react), and the [visualizer](https://github.com/asyncapi/EDAVisualiser).
+
+### IntelliJ
+
+There’s also a plugin for IntelliJ called...surprise surprise: [AsyncAPI](https://plugins.jetbrains.com/plugin/15673-asyncapi). It offers:
+
+- Scaffold an example AsyncAPI document.
+- Resolve references with autocompletion 😍
+- Render previews in a browser.
+
+> Check out the [plugin’s source code](https://github.com/asyncapi/jasyncapi-idea-plugin).
+
+### Summary
+
+No real downsides here!
+
+✅ **Pros:**
+
+- Human-readable previews
+- Community-driven: contribute if needed
+- Detailed validation (beyond JSON Schema). These tools use official AsyncAPI component for docs rendering, with official AsyncAPI Parser included for validation purposes.
+
+---
+
+## AsyncAPI CLI
+
+Let’s level up with [AsyncAPI CLI](https://www.asyncapi.com/docs/tools/cli/installation). Whether you use it alone or with an IDE, it’s packed with features:
+
+- **Detailed validation**:
+
+  ```bash
+  asyncapi validate ./asyncapi-client.yaml
+
+  Errors:
+  39:9  error  asyncapi3-operation-messages-from-referred-channel  Operation message does not belong to the specified channel.  operations.sendUserSignedup.messages[0]
+  ```
+
+- **Run AsyncAPI Studio locally with hot reload**:
+
+  ```bash
+  asyncapi start studio -f ./asyncapi-client.yaml
+  ```
+
+- **Scaffold an example document**:
+
+  ```bash
+  asyncapi new --file-name=my-asyncapi.yml --example=default-example.yaml --no-tty
+  ```
+
+And [much more](https://www.asyncapi.com/docs/tools/cli/usage), like code generation, bundling, and conversion.
+
+### Summary
+
+AsyncAPI CLI is fantastic. CLIs are underrated tools every developer should use.
+
+✅ **Pros:**
+
+- Works without an IDE
+- Comprehensive validation and features
+- Integrated Studio for previews
+
+⚠️ **Cons:**
+
+- Studio (preview tool) is still a web app and lacks local file system references support.
+
+> Pro Tip: Contribute to [the project](https://github.com/asyncapi/cli/issues/1627) to solve the limitation.
+
+## My Choice
+
+I'm a VSCode user so:
+
+- I follow AsyncAPI recommended [naming convention](#file-naming) for AsyncAPI documents and use YAML extension.
+- The [asyncapi-preview](#vscode) extension and the EDA visualizer 😍
+- For all the extra feature, I always have a dedicated terminal window to run [AsyncAPI CLI](#asyncapi-cli) commands.
+
+Stay local, stay free.

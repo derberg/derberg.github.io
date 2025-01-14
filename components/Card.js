@@ -1,7 +1,7 @@
 import Image from './Image'
 import Link from './Link'
 
-const Card = ({ title, description, imgSrc, href, price, priceDetails }) => (
+const Card = ({ title, description, imgSrc, href, price, priceDetails, priceExplanation }) => (
   <div className="p-4 md:w-1/2 md" style={{ maxWidth: '544px' }}>
     <div
       className={`${
@@ -42,10 +42,13 @@ const Card = ({ title, description, imgSrc, href, price, priceDetails }) => (
         {price && (
           <div className="mt-4">
             <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
-              Price: ${price}
+              Price: {Array.isArray(price) ? `$${price[0]} - $${price[1]}` : `$${price}`}
             </p>
             {priceDetails && (
               <p className="text-sm text-gray-500 dark:text-gray-400">{priceDetails}</p>
+            )}
+            {priceExplanation && (
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{priceExplanation}</p>
             )}
           </div>
         )}
