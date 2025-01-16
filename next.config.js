@@ -72,7 +72,7 @@ module.exports = withBundleAnalyzer({
       {
         source: '/.well-known/funding-manifest-urls',
         destination: '/static/funding.json',
-        permanent: false, // Set to false to indicate a 302 redirect
+        permanent: true, // Set to false to indicate a 302 redirect
       },
     ]
   },
