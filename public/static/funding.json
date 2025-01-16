@@ -21,7 +21,8 @@
         "wellKnown": "https://brainfart.dev/.well-known/funding-manifest-urls"
       },
       "repositoryUrl": {
-        "url": "https://brainfart.dev"
+        "url": "https://brainfart.dev",
+        "wellKnown": "https://brainfart.dev/.well-known/funding-manifest-urls"
       },
       "licenses": ["Apache2"],
       "tags": ["asyncapi"]
@@ -35,7 +36,8 @@
         "wellKnown": "https://brainfart.dev/.well-known/funding-manifest-urls"
       },
       "repositoryUrl": {
-        "url": "https://brainfart.dev"
+        "url": "https://brainfart.dev",
+        "wellKnown": "https://brainfart.dev/.well-known/funding-manifest-urls"
       },
       "licenses": ["Apache2"],
       "tags": ["asyncapi"]
