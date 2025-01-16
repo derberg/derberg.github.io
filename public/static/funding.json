@@ -17,7 +17,8 @@
       "name": "specification",
       "description": "Main project where AsyncAPI specification is maintained. The real repo URL is https://github.com/asyncapi/spec, I provided another one cause after over 1 hour of fighting with validation of funding.yml and wellKnown mechanism to check if I'm a real maintainer - I simply gave up. You can easily validate if I'm a maintainer by checking CODEOWNERS file: https://github.com/asyncapi/spec/blob/master/CODEOWNERS",
       "webpageUrl": {
-        "url": "https://brainfart.dev"
+        "url": "https://brainfart.dev",
+        "wellKnown": "https://brainfart.dev/.well-known/funding-manifest-urls"
       },
       "repositoryUrl": {
         "url": "https://brainfart.dev"
@@ -30,7 +31,8 @@
       "name": "generator",
       "description": "Generator project that enables code and docs generation from AsyncAPI documents. The real repo URL is https://github.com/asyncapi/generator, I provided another one cause after over 1 hour of fighting with validation of funding.yml and wellKnown mechanism to check if I'm a real maintainer - I simply gave up. You can easily validate if I'm a maintainer by checking CODEOWNERS file: https://github.com/asyncapi/generator/blob/master/CODEOWNERS",
       "webpageUrl": {
-        "url": "https://brainfart.dev"
+        "url": "https://brainfart.dev",
+        "wellKnown": "https://brainfart.dev/.well-known/funding-manifest-urls"
       },
       "repositoryUrl": {
         "url": "https://brainfart.dev"
@@ -51,7 +53,7 @@
         "guid": "asyncapi",
         "status": "active",
         "name": "Monthly funding plan",
-        "description": "Yeah, I'm kind of confused about the whole funding here. I apply as an individual, maybe asyncapi should do separate thingy. Anyway, for me important is to support my work on monthly basis. If you cannot support my full time work, you can do smaller donation through https://github.com/sponsors/derberg",
+        "description": "Yeah, I'm kind of confused about the whole funding here. I apply as an individual, maybe AsyncAPI should do separate thingy. Anyway, for me important is to support my work on monthly basis. If you cannot support my full time work, you can do smaller donation through https://github.com/sponsors/derberg",
         "amount": 0,
         "currency": "EUR",
         "frequency": "other",
