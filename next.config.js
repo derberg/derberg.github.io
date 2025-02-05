@@ -67,15 +67,15 @@ module.exports = withBundleAnalyzer({
       },
     ]
   },
-  async redirects() {
-    return [
-      {
-        source: '/.well-known/funding-manifest-urls',
-        destination: '/static/funding.json',
-        permanent: true, // Set to false to indicate a 302 redirect
-      },
-    ]
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/.well-known/funding-manifest-urls',
+  //       destination: '/static/funding.json',
+  //       permanent: true, // Set to false to indicate a 302 redirect
+  //     },
+  //   ]
+  // },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|mp4)$/i,
