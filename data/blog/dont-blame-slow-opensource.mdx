@@ -1,0 +1,77 @@
+---
+title: 'Stop Blaming Open Source Slowness'
+date: 2025-02-14 09:00:00Z
+lastmod: '2025-02-14'
+tags: ['open-source']
+draft: false
+summary: "It's Valentine's Day so stop for a moment and think how you can share some love in open source and for once not blame it for your techical debt."
+layout: PostSimple
+images: static/images/dont-blame-slow-opensource/fork.webp
+---
+
+![](/static/images/dont-blame-slow-opensource/fork.webp)
+
+<TOCInline toc={props.toc} toHeading={5} />
+
+Open source can sometimes feel slow, especially when you need a change urgently. From the perspective of a simple open source consumer, this can be frustrating.
+
+To oversimplify, open source is maintained by people who are either paid to do the work and prioritize their employers' needs, or by volunteers who contribute during their free time. As a passive consumer, you often have to wait for quite a while.
+
+Under the pressure of a sprint, it might seem like the only way to meet a deadline is by implementing workarounds and quick patches. Scrum masters and product owners can be pushy. However, the hard truth is that resorting to quick fixes without a plan will only make your life harder in the long run.
+
+It's important to understand that it's not the open source maintainers' fault if you're patching things up instead of fixing them properly—the responsibility lies with you. Instead of complaining about slow responses or cumbersome processes, take ownership of your work. Below I share two solutions on how to start using open source code the right way:
+
+## Own Your Fixes: Fork, Patch, and Push Upstream
+
+When you're in the middle of a sprint and need something fixed urgently, it's tempting to patch your issue with a workaround, and keep using that temporary solution forever. However, this quick fix can lead to future headaches. Here’s how you can use your fork responsibly:
+
+1. Fork as a Temporary Fix:
+   Use your fork to get the job done, but treat it as a temporary patch, not a long-term solution. Use the fork as your product dependency, but only for a short period. This keeps your scrum master, product owner, and burn-down charts happy.
+
+2. Send Your Fixes Upstream:
+   Every time you patch your fork, open a pull request to the original project. This might involve several rounds of review and feedback, but getting your fix into the main codebase benefits everyone. This can be done in subsequent sprints as part of your usual technical debt management. Once the pull request gets merged and oryginal solution ends in upstream, switch your product away from your fork and use the upstream directly.
+
+3. Keep Your Fork Lean:
+   Avoid adding too many custom changes. Stick to essential fixes so that merging your changes back upstream remains manageable. You should also be able to update your fork with the latest changes from the upstream repository.
+
+Take responsibility for your actions. Remember that the project maintainer owes you nothing.
+
+![](/static/images/dont-blame-slow-opensource/flow.svg)
+
+## Push Your Company to Invest
+
+Sometimes, the issue isn’t just with the code—it’s with your approach. I get it, blaming others, often total strangers is an easy win. Why would you admit you made a mistake. The [blame game](https://thewanderingvegetable.com/how-to-stop-blaming-others/) is pretty old. So get over it and take charge of your own processes, even within a large company.
+
+### Talk to Decision Makers
+
+Discuss the issue with your manager, product owner, or anyone who can cut through bureaucracy. Explain that quick fixes lead to long-term problems and that investing in proper solutions will pay off. You might need to escalate the issue up the chain of command. Nobody said it would be easy.
+
+### Build a Clear Case
+
+Use real examples from your work to demonstrate how quick fixes create extra work later. Make it clear that a small investment now—whether in time or money—can prevent significant issues in the future. Explain that while quick fixes help close the current sprint, they can negatively impact future sprints and deliveries.
+
+### Leverage Your OSPO
+
+If your company has an [Open Source Program Office (OSPO)](https://github.com/todogroup/ospodefinition.org), use them. They’re there to help manage open source issues like licensing, security, and even paying maintainers. If they don't have a procedure for paying maintainers maybe they will build one basing on your case study.
+
+### It Is Possible
+
+Let me share a story from my time at SAP, about nine years ago. I was a product owner in a small team building a developer portal. We used a static site generator called DocPad, which was critical for us. I wanted to ensure that maintenance was secured and that contributing bug fixes alone wasn't enough to support the project's sustainability.
+
+I spent months emailing and meeting with people. There was no OSPO at that time. It took over six months, but we eventually secured $6,000 to support the maintainer's work. The experience taught me that sometimes you have to push hard and invest extra effort to fix problems long term. But remember, sending an email costs you nothing.
+
+Going through this process showed me things are possible, you just need to be patient. It is six months waiting, not six months "doing". In next projects it got even simpler, first open source project, then first open source project with the community in the upstream organization. If it is doable in a dinosaur corporation, it is doable anywhere.
+
+Of course it is still a dinosaur, but it found the right tunel (OSPO) with a light at the end of it 😊
+
+## In a Nutshell
+
+Stop blaming open source for your quick fixes. The real issue is your willingness to take the easy way out. Instead of patching things together, use forks as temporary fixes—but always send your changes back upstream and drive them until they are merged. If you're in a large company, push for real support so you’re not left with a mess later on.
+
+Own your code. Fix it right. And do your part to make the open source community stronger.
+
+Finally, let me share a great post from Matteo Collina, a member of the Node.js Technical Steering Committee:
+
+![](/static/images/dont-blame-slow-opensource/matteo.webp)
+
+Your feature requests and bug reports are not the maintainers' responsibility. Open a pull request to get things done and don't expect others to handle your use cases at the speed of your sprint.
