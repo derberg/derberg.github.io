@@ -15,6 +15,8 @@ images: static/images/asyncapi-as-config/flow.webp
 
 ## Introduction
 
+Event-driven architecture (EDA) is a software design pattern in which applications communicate asynchronously using events. Instead of direct API calls, components publish and consume events via message brokers like Apache Kafka, RabbitMQ, or AWS SNS. This approach enables loose coupling, scalability, and real-time data processing. Such architecture setup can be described using AsyncAPI specification.
+
 For years, API specifications like AsyncAPI and OpenAPI have been treated primarily as documentation tools—an afterthought in the development process. But what if we flipped the approach? What if we treated AsyncAPI not just as a spec for documentation but as a machine-readable contract that drives infrastructure automation?
 
 This shift is already happening. Forward-thinking companies are using AsyncAPI as a configuration file to define, deploy, and manage infrastructure in event-driven systems—companies like LEGO, Raiffeisen Bank, and others. This means teams no longer need to manually set up (probably by creating a Jira issue) topics, queues, or permissions for messaging systems like Apache Kafka or AWS SNS.
@@ -28,6 +30,7 @@ AsyncAPI is a standard for defining event-driven APIs. Just like OpenAPI helps d
 **Key Features of AsyncAPI:**
 
 - Multi-format schema approach allows you to use a schema of your choice to describe how to serialize your message: Avro? Sure. Protobuf? Yup. JSON Schema? 100%.
+- Protocol-agnostic with protocol-specific bindings. You can use it to describe any messaging system. Need more details specific to your protocol, like Apache Kafka? Want to specify the quality of service for your MQTT setup? Protocol-specific bindings let you enrich your AsyncAPI description with more details.
 - You can use it to describe all communication channels (topics, protocols, brokers).
   <Image
     alt="AsyncAPI structure"
@@ -35,7 +38,6 @@ AsyncAPI is a standard for defining event-driven APIs. Just like OpenAPI helps d
     width={825}
     height={186}
   />
-- Protocol-agnostic with protocol-specific bindings. You can use it to describe any messaging system. Need more details specific to your protocol, like Apache Kafka? Want to specify the quality of service for your MQTT setup? Protocol-specific bindings let you enrich your AsyncAPI description with more details.
 
 If you need a deeper explanation of event-driven architectures and AsyncAPI:
 
