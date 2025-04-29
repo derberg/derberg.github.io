@@ -1,43 +1,52 @@
 ---
 title: 'Beyond Docs: Using AsyncAPI as a Config for Infrastructure'
-date: 2025-02-25 09:00:00Z
-lastmod: '2025-02-25'
+date: 2025-04-27 09:00:00Z
+lastmod: '2025-04-27'
 tags: ['asyncapi', 'gitops', 'devops']
 draft: false
 summary: 'For years, API specifications like AsyncAPI and OpenAPI have been treated primarily as documentation tools—an afterthought in the development process. But what if we flipped the script?'
 layout: PostSimple
 images: static/images/asyncapi-as-config/flow.webp
+canonicalUrl: https://eviltux.com/2025/03/27/beyond-docs-using-asyncapi-as-a-config-for-infrastructure/
 ---
 
-![](/static/images/asyncapi-as-config/complex.webp)
+> I poste this articla originally at [EvilTux](https://eviltux.com/2025/03/27/beyond-docs-using-asyncapi-as-a-config-for-infrastructure/) blog ran by Linux Foundation.
+
+<Image
+  alt="ChatGPT seeing complex devops"
+  src="/static/images/asyncapi-as-config/complex.webp"
+  width={512}
+  height={512}
+/>
 
 <TOCInline toc={props.toc} toHeading={5} />
 
 ## Introduction
 
-Event-driven architecture (EDA) is a software design pattern in which applications communicate asynchronously using events. Instead of direct API calls, components publish and consume events via message brokers like Apache Kafka, RabbitMQ, or AWS SNS. This approach enables loose coupling, scalability, and real-time data processing. Such architecture setup can be described using AsyncAPI specification.
+Event-driven architecture (EDA) is a software design pattern in which applications communicate asynchronously using events. Instead of direct API calls, components publish and consume events via message brokers like [Apache Kafka](https://kafka.apache.org/), [RabbitMQ](https://www.rabbitmq.com/), or [AWS SNS](https://aws.amazon.com/sns/). This approach enables loose coupling, scalability, and real-time data processing. Such an architecture setup can be described using [AsyncAPI specification](https://asyncapi.com/).
 
 For years, API specifications like AsyncAPI and OpenAPI have been treated primarily as documentation tools—an afterthought in the development process. But what if we flipped the approach? What if we treated AsyncAPI not just as a spec for documentation but as a machine-readable contract that drives infrastructure automation?
 
-This shift is already happening. Forward-thinking companies are using AsyncAPI as a configuration file to define, deploy, and manage infrastructure in event-driven systems—companies like LEGO, Raiffeisen Bank, and others. This means teams no longer need to manually set up (probably by creating a Jira issue) topics, queues, or permissions for messaging systems like Apache Kafka or AWS SNS.
+This shift is already happening. Forward-thinking companies are using AsyncAPI as a configuration file to define, deploy, and manage infrastructure in event-driven systems—companies like LEGO, Raiffeisen Bank, and others. This means teams no longer need to manually set up topics, queues, or permissions for messaging systems like Apache Kafka or AWS SNS—tasks that would typically require creating a Jira issue.
 
-By combining AsyncAPI with DevOps (for example, GitOps), infrastructure becomes automated, standardized, and self-service. In this article, we’ll explore how this works and how companies are already using this approach in production.
+By combining AsyncAPI with DevOps (for example, GitOps), infrastructure becomes automated, standardized, and self-service. In this article, we’ll explore how this fusion of AsyncAPI and DevOps works and how companies already use this approach in production.
 
 ## What is AsyncAPI?
 
 AsyncAPI is a standard for defining event-driven APIs. Just like OpenAPI helps describe REST APIs, AsyncAPI helps describe how applications communicate using messages, queues, and brokers.
 
-**Key Features of AsyncAPI:**
+Key features of AsyncAPI:
 
 - Multi-format schema approach allows you to use a schema of your choice to describe how to serialize your message: Avro? Sure. Protobuf? Yup. JSON Schema? 100%.
 - Protocol-agnostic with protocol-specific bindings. You can use it to describe any messaging system. Need more details specific to your protocol, like Apache Kafka? Want to specify the quality of service for your MQTT setup? Protocol-specific bindings let you enrich your AsyncAPI description with more details.
 - You can use it to describe all communication channels (topics, protocols, brokers).
-  <Image
-    alt="AsyncAPI structure"
-    src="/static/images/asyncapi-as-config/asyncapi-structure.webp"
-    width={825}
-    height={186}
-  />
+
+<Image
+  alt="AsyncAPI basic structure"
+  src="/static/images/asyncapi-as-config/asyncapi-structure.webp"
+  width={660}
+  height={208}
+/>
 
 If you need a deeper explanation of event-driven architectures and AsyncAPI:
 
@@ -46,20 +55,33 @@ If you need a deeper explanation of event-driven architectures and AsyncAPI:
 
 ## Challenges with Event-Driven Architectures and Governance
 
-While event-driven systems offer scalability and flexibility, they come with several challenges:
+While event-driven systems offer scalability and flexibility, they also introduce a unique set of challenges:
 
-- Managing dependencies between services is harder. Asynchronous communication can lead to unpredictable behavior if not monitored carefully.
-- Lack of visibility. It's challenging to track message flows across systems.
-- Observability in an inconsistent and chaotic environment is difficult to set up.
-- Maintaining consistent naming conventions for topics and schemas is hard.
+- Managing service dependencies becomes harder. Asynchronous communication can lead to unpredictable behavior if not monitored carefully.
+- Lack of visibility. It’s difficult to trace where messages go, who’s consuming them, or whether they were even processed.
+- Observability in a chaotic environment is tough to implement. Traditional tools struggle with fragmented message flows.
+- Maintaining consistent naming for topics and schemas is hard. Without clear standards, your system will drift into a naming mess.
 
-To tackle these challenges, you need a proper governance strategy, a clear approach, and the right tools. You should also prepare for organizational politics and endless cross-departmental meetings. This article, however, is not about politics.
+To address these challenges, you need more than tribal knowledge or documentation—you need real governance. But what does that mean?
+
+At the simplest level, governance means having clear, enforceable answers to questions like:
+
+- Who owns an event schema? Who can create, update, and version it?
+- How do you ensure schemas are consistent and respected across services?
+- Who can create topics in the broker, and what naming conventions should they follow?
+- How do teams communicate about their integrations, and how do you keep that information up to date?
+
+These aren't theoretical concerns—they're real blockers. And the solution isn’t a dusty wiki page filled with guidelines. You need governance baked into the development lifecycle. That means automation, feedback loops, and enforcement as early as possible—ideally at the local development environment level or at least at the PR level.
+
+The most effective way to enable this is to adopt a machine-readable standard that defines how your applications communicate. You basically need a way to write down a contract. That contract becomes the foundation for tooling, validation, and automation.
+
+The best and only standard built for this purpose is AsyncAPI.
 
 ## The Problem of API Drift
 
 Wait, what? What does an API have to do with event-driven architectures?
 
-Yes, I get it—some people don’t like referring to EDAs using the word `API`. Let's park that topic for the sake of this article. `API` or not, the problem remains: Over time, your producers will evolve, send more events, and cover more topics—and you need to keep track of it.
+Yes, I get it—some people don’t like referring to EDAs using the word “API”. Let's park that topic for the sake of this article. “API” or not, the problem remains: Over time, your producers will evolve, send more events, and cover more topics—and you need to keep track of it.
 
 API drift occurs when the API specification (like AsyncAPI) becomes out of sync with the actual codebase or infrastructure. This can happen regardless of whether teams use a design-first or code-first approach.
 
@@ -71,9 +93,9 @@ As long as teams think of API specifications as documentation tools, the motivat
 
 ### Solution
 
-Solutions based solely on educating teams and providing guidelines often fail. The only reliable solution is to treat AsyncAPI as a configuration file—the source of truth for either your application or infrastructure.
+Solutions based solely on educating teams and providing guidelines often fail. The only reliable solution is to treat AsyncAPI as a configuration file—the source of truth for your application or infrastructure.
 
-In this article, I focus on infrastructure.
+In this article, I focus on the topic of infrastructure.
 
 By integrating AsyncAPI directly with infrastructure automation tools, the specification becomes the foundation for:
 
@@ -81,34 +103,82 @@ By integrating AsyncAPI directly with infrastructure automation tools, the speci
 - Automating topic creation, schema validation, and access controls.
 - Ensuring consistency across deployments.
 
-## AsyncAPI as Infrastructure Configuration
+## AsyncAPI as Infrastructure Configuration \- General Concept
+
+So what does it mean to treat AsyncAPI as a configuration file?
+
+At its core, it means shifting our perspective: Instead of viewing AsyncAPI solely as a documentation artifact, we treat it as a declarative configuration file—one that defines the complete messaging contract between services and, just as importantly, drives the provisioning of the necessary infrastructure components.
+
+Let’s abstract away the underlying platform for a moment—whether it's Kubernetes, a cloud-native environment, or something else. The general concept stays the same.
+
+Imagine you’re developing an application. Alongside your code, you maintain an AsyncAPI document. This document holds everything related to your event-driven communication setup:
+
+- Broker addresses (Kafka, MQTT, Pulsar, SNS, etc.)
+- Channels your app interacts with (topics, queues)
+- Specific topic/queue names
+- Details about the messages exchanged
+- Data schemas (JSON Schema, Avro, Protobuf, etc.)
+
+This document becomes your source of truth.
+
+Now, imagine a central **Infra Config API**—a component in your infrastructure environment responsible for taking this AsyncAPI document and turning it into actual, working infrastructure. You upload (or, preferably, CI/CD automatically uploads) your AsyncAPI file to this API. From there, everything else happens automatically:
+
+- **Access rights** are granted via integration with your access management system.
+- **Topics or queues** are created and configured in your message broker.
+- **Schemas** are validated and registered in the schema registry.
+- **Docs** are uploaded to a developer portal—providing discoverability and transparency.
+
+This flow is illustrated in the diagram below:
+
+In this generalized setup:
+
+1. The **AsyncAPI file** is stored in Git.
+2. It is uploaded to an **Infra Config API**—manually or via automation.
+3. The API performs the required configurations:
+   - Integrates with the **Access Management** system to ensure your app has the correct permissions.
+   - Talks to the **Message Broker** to provision and configure the topic or queue.
+   - Communicates with the **Schema Registry** to register and validate message schemas.
+   - Publishes documentation to the **Developer Portal**, making it accessible to other teams.
+
+<Image
+  alt="Kubernetes AsyncAPI flow"
+  src="/static/images/asyncapi-as-config/flow.webp"
+  width={951}
+  height={406}
+/>
+
+\> Diagram generated with help of amazing [https://www.mermaidchart.com/](https://www.mermaidchart.com/)
+
+As a result, developers don’t need to open Jira tickets, wait for infra engineers, or manually provision anything. They just keep their AsyncAPI up to date and push it to Git—everything else is automated.
+
+And because this configuration API can be extended, additional features like governance enforcement, standard validation, or audit trails can be easily integrated. For example, the system can verify naming conventions, check schema compatibility, and reject non-compliant configurations.
+
+This is the high-level, platform-agnostic concept. In the next section, we’ll explore how this approach is implemented using Kubernetes.
+
+## AsyncAPI as Infrastructure Configuration \- with Kubernetes
 
 Instead of treating AsyncAPI as input for documentation, companies are using it as a declarative config file—a contract that automates the provisioning of event-driven infrastructure.
 
 By integrating AsyncAPI with GitOps, infrastructure setup becomes a self-service, version-controlled, and fully automated process.
 
-AsyncAPI and GitOps work in a Kubernetes environment:
+AsyncAPI and GitOps work in a [Kubernetes](https://kubernetes.io/) environment:
 
-- **AsyncAPI Spec as a Configuration File:**  
-  Teams define event-driven architecture details in an AsyncAPI description (topics, schemas, security, etc.). They store it in a Git repository and keep it up to date to match their application implementation.
+- **AsyncAPI Spec as a Configuration File:** Teams define event-driven architecture details in an AsyncAPI description (topics, schemas, security, etc.). They store it in a Git repository and keep it up to date to match their application implementation.  
 
-- **CI/CD + GitOps for Automation:**  
-  Changes to the AsyncAPI description trigger CI/CD pipelines. The AsyncAPI description becomes the source of truth for Helm charts, which are generated and applied to the cluster.
+- **CI/CD \+ GitOps for Automation:** Changes to the AsyncAPI description trigger CI/CD pipelines. The AsyncAPI description becomes the source of truth for Helm charts, which are generated and applied to the cluster.  
 
-- **Operators Manage Infrastructure:**  
-  Dedicated Kubernetes operators pick up changes applied to the cluster. Changes are represented as CRDs (Custom Resource Definitions). These CRDs contain information about topics, security, and message schemas. Operators can create/update topics, access policies, and even register schemas in schema registries.
+- **Operators Manage Infrastructure:** Dedicated Kubernetes operators pick up changes applied to the cluster. Changes are represented as CRDs (Custom Resource Definitions). These CRDs contain information about topics, security, and message schemas. Operators can create/update topics, access policies, and even register schemas in schema registries.  
 
-- **Developers Own Their Infrastructure:**  
-  Development teams no longer need to submit infrastructure tickets or wait for setup. They just update the AsyncAPI description and push it to Git.
+- **Developers Own Their Infrastructure:** Development teams no longer need to submit infrastructure tickets or wait for setup. They just update the AsyncAPI description and push it to Git.
 
 <Image
-  alt="AsyncAPI GitOps"
+  alt="Kubernetes AsyncAPI flow"
   src="/static/images/asyncapi-as-config/gitops.svg"
-  width={654}
-  height={728}
+  width={951}
+  height={406}
 />
 
-> Diagram generated with help of amazing https://www.mermaidchart.com/
+\> Diagram generated with help of amazing [https://www.mermaidchart.com/](https://www.mermaidchart.com/)
 
 Infrastructure setup is automated. **Teams must maintain their AsyncAPI descriptions, ensuring they’re up to date and of high quality—otherwise, their application needs won’t match the available infrastructure.**
 
@@ -118,36 +188,36 @@ Is there a better motivation to ensure your API specifications don’t drift awa
 
 Let's look at how different companies are already doing it in production:
 
-### Raiffeisen Bank (Apache Pulsar + Kubernetes + AsyncAPI)
+### Raiffeisen Bank (Apache Pulsar \+ Kubernetes \+ AsyncAPI)
 
 Raiffeisen Bank, a major European financial institution, uses AsyncAPI to automate event-driven infrastructure provisioning on Kubernetes.
 
 - AsyncAPI serves as a configuration file for defining topics, schemas, and security settings.
 - GitOps principles are enforced—whenever an AsyncAPI document changes, Helm charts are generated, and ArgoCD automatically applies them to Kubernetes.
 - A custom Kubernetes Operator (Neuron) reads changes in CRDs and provisions Apache Pulsar topics while registering schemas in the built-in schema registry.
-- Automation also generates models for different languages, that depend on schemas from schema registry.
+- Automation also generates models for different languages that depend on schemas from the schema registry.
 - **Docs as a side effect:** Since AsyncAPI descriptions are always up to date, automation picks them up and publishes them in a developer portal ([Backstage-based](http://backstage.io/)).
 
 No cumbersome infra setup. Developers define their needs in AsyncAPI, and the system provisions everything automatically. AsyncAPI becomes the source of truth.
 
-### Kuehne+Nagel (Apache Kafka + AsyncAPI + GitOps)
+### Kuehne+Nagel (Apache Kafka \+ AsyncAPI \+ GitOps)
 
 The logistics giant Kuehne+Nagel follows a similar approach, with a few differences:
 
 - They use Apache Kafka instead of Apache Pulsar.
 - No need for a custom operator; they rely on the CNCF project called [Strimzi](https://strimzi.io/).
-- **Docs as a side effect:** Similar to Raiffeisen Bank, but they use [Event Catalog](https://www.eventcatalog.dev/) instead of Backstage.
+- **Docs as a side effect:** Similar to Raiffeisen Bank, but they use [Event Catalog](https://www.eventcatalog.dev/) instead of [Backstage](https://www.backstage.com/).
 
-### Postman (AWS SNS/SQS + AsyncAPI + GitOps)
+### Postman (AWS SNS/SQS \+ AsyncAPI \+ GitOps)
 
 - AsyncAPI definitions owned by teams are stored in Git.
 - A CI/CD automated process, based on the descriptions, creates serverless functions (AWS Lambdas) that act as gateways.
 - SNS topics and SQS subscriptions are created according to the AsyncAPI definition.
-- Depending on whether the app produces or consumes events, it communicates with the serverless function over HTTPS—either to publish events or through a webhook to receive events.
+- Depending on whether the app produces or consumes events, it communicates with the serverless function over HTTPS–either to publish events or through a webhook to receive events.
 
 AsyncAPI serves as the source of truth. The main focus is on automating infrastructure management, with documentation as a valuable by-product.
 
-### LEGO (Custom API + Apache Pulsar)
+### LEGO (Custom API \+ Apache Pulsar)
 
 LEGO uses a custom service that reads AsyncAPI documents and provisions infrastructure automatically. It manages Apache Pulsar topics and access rights without requiring direct developer intervention. The same service also exposes AsyncAPI documents to a developer portal based on Backstage.
 
@@ -157,7 +227,7 @@ Same flow, different tools—more abstraction from the underlying platform.
 
 All resources related to the above research are grouped in one place on the [AsyncAPI website under the Case Studies section](https://www.asyncapi.com/casestudies).
 
-More companies are moving toward using AsyncAPI as a reliable source of truth. Other notable examples include the Bank of New Zealand and Morgan Stanley.
+More companies are moving toward using AsyncAPI as a reliable source of truth. Other notable examples include the Bank of New Zealand.
 
 ## Why This Matters: AsyncAPI as Part of DevOps
 
