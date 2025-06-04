@@ -1,0 +1,211 @@
+---
+title: 'Sustainable Funding in Open Source'
+date: 2025-06-04 09:00:00Z
+lastmod: '2025-06-04'
+tags: ['open-source']
+draft: false
+summary: "I'm exploring the challenges of sustainable funding in open source, arguing that current methods like donations and grants fall short due to unpredictability and administrative burden."
+layout: PostSimple
+---
+
+<TOCInline toc={props.toc} toHeading={3} />
+
+## What “sustainable” really means
+
+Think of soil and irresponsible agriculture. A careless agribusiness dumps chemicals into the soil, takes huge harvests, then walks away when the dirt turns to dust. The same trick applies to fossil fuel extraction: drain the field dry, move on, and leave the mess.
+
+Today, a lot of companies treat open source the same way. They grab everything they can, ship products, brag about speed, and when the maintainers burn out, they complain that their sprint slipped and then go hunting for another free library.
+
+Sustainable open source means we don’t do that. We feed the soil before we harvest. Money, holidays, a dentist bill, whatever keeps the maintainer healthy. If that care is missing, the project collapses, and so does everything built on top.
+
+## Funding methods that fall short
+
+- **Donations** – Money arrives without any pattern. You cannot plan work, releases, or long-term development. The investment in soliciting donations does not yield a return. Fundraising is a full-time job.
+- **Grants** – Long forms, slow reviews, and short funding periods. When the grant ends, the work also ends.
+
+Two funding methods that sometimes help:
+
+- A large company puts a maintainer on salary. Good for that one project, but this rarely happens for small tools.
+- The maintainer builds a business (hosting, support, training). Possible, but not everyone wants to run a company.
+
+## Why asking for money is hard
+
+### When you ask as an individual
+
+Raising money for **yourself** means stepping into the spotlight and saying, _I need help_. You post on LinkedIn, write social media updates, record short videos, and reply to endless email threads. All of that is public. It feels like walking through town with a hat in your hand, bragging for help.
+
+- Each post risks comments like, “Why should we pay for free software?”
+- Any time spent on promotion is time not spent on code, documentation, or reviews.
+- Income is small and fluctuates from month to month, so you still cannot plan for bills.
+
+After weeks of work, you might gain a few new backers—then some drop out, and the cycle starts again.
+
+I'm a maintainer, not a podcaster or a YouTuber.
+
+### When you ask for the community
+
+Asking on behalf of the _project_ feels less personal. My attitude somehow changes then. Begging for money? Easy. Knocking on hundreds of doors? Easy. Nevertheless, fundraising is a full-time job, and it brings its own hurdles:
+
+- Companies respond slowly. Legal, finance, and vendor onboarding can take months.
+- The contact person inside the company can change. You must tell the whole story again.
+- Even when the money arrives, it is often a one-time payment. Renewal is never certain.
+
+Every time, you get to talk with different people who have different focuses. Sometimes it's Marketing, sometimes Product Managers, and sometimes CTOs. Most of the time, you have to handle the question (from a company that already benefits from the project): “Why should we pay?”
+
+The result is the same: many hours of unpaid work for support that may never cover the effort.
+
+### Real stories from my inbox
+
+These are not edge cases. They happen every month to many maintainers. Names are changed; the mood is real.
+
+**TechCorp A**
+They had funded the project for years. Their team asked for a deep-dive call about a new feature they needed. I joined the meeting and brought another maintainer so they could get the answers straight from the source. During the call, they asked why they should keep sponsoring AsyncAPI at all. I told them the only reason we were on the call for free was _because_ they sponsored us. Any other company would have paid consulting rates. Three months later, they communicated that sponsorship would be reduced by fifty percent.
+
+**TechCorp B**
+Marketing handled the contract. Every twelve months, someone new took the role. Each renewal, I started from zero, explaining what the project does, why the license matters, why their product would break without it. After the fourth new contact, the chain ended with silence. The software is still part of their stack; the support is not.
+
+**TechCorp C**
+An internal champion convinced their boss to send a one-off payment. Great. Then that champion moved to another company. Six months later, I asked about a renewal. Nobody knew who I was or why the line item existed. The answer was polite but clear: “We have no process for this; maybe next quarter.” Next quarter never came.
+
+Multiply these four cases across hundreds of projects, and you see why many maintainers burn out long before they reach stable funding.
+
+And please don't tell me this is normal, that maintainers should just accept it. This might be normal when you run a startup. As CEO, you have to take many calls, fight for funding. The difference is, as CEO, you fight for much larger fundraising. A maintainer doesn't run a startup.
+
+Last but not least, a story that always frustrates me whenever I think of it.
+
+**Das Corpo**
+There is a project, the maintainer's name is Luke. Marcus, an engineer at Das Corpo, asked for a new code generator. Luke remembered a call a year earlier with Walter, a manager at Das Corpo. They have an Open Source Program Office, so Luke believed they knew what open source was. Even after Luke showed how much the company depends on the standard he builds with others, Walter said he didn’t see why Das Corpo should fund the standard, even questioning why they fund the sister standard. Luke does not understand why he should help Marcus. Luke is an open-source fanatic. Luke likes people. Luke helps as much as he can anyway so Marcus can be a satisfied user. In the end, Luke feels like a loser. The incentive coming from helping another human being is not good enough to compensate for a feeling of being a loser.
+
+There is still a lot of education needed.
+
+## Grants fail
+
+I don't know a single person in academia who speaks well of grants. Every time I listen to a podcast about university research, they complain about grants for these reasons:
+
+- Writing the application takes months. Most people never get any funding.
+- You spend so much time on paperwork you lose focus on the actual work.
+- Deadlines force you to rush, and quality suffers.
+
+When the funding ends, work stops. If you didn’t finish something, that’s it, no more money.
+
+The forms never stop. You apply, you wait, you get zero feedback.
+
+Academics have learned to play the grant game: use the right keywords, form teams, chase prestige. This makes them forget about the core reason they do research.
+
+People with good intentions to help open source copied this model without question, and it doesn’t fit.
+
+Here’s how it breaks in practice:
+
+- Most open source grants pay to start new projects or research. Nobody pays to keep a project running year after year.
+- Maintainers need predictable income to basically plan life. Short-term grants don’t help.
+- Every grant has its own application process. Maintainers fill out multiple forms, each with slightly different rules.
+
+Feedback is never there. You submit, you get an automated rejection, and you move on. No chance to learn or improve.
+
+I'm not a scientist, I do not work in academia. I'm a maintainer.
+
+I’ve applied for grants myself or for the project. Let me share some examples:
+
+- [Digital Infrastructure Insights Fund](https://digitalinfrastructure.fund/) – Long application with no explanation when it failed. Classical grant. Waste of effort.
+- [FLOSS/fund](https://floss.fund/) – You set up a funding file, pour yourself into the application, then wait. Decisions are anonymous, so you don’t know why you lost. And you need to wait months for any decision. Forget about any planning. My understanding is that individual maintainers should not use it. At least the first allocation of funds went to projects only.
+- [thanks.dev](https://thanks.dev/) – They let you book a call, but nobody ever shows up. I still have no idea how that can help me as a maintainer. I'd love to learn one day.
+- [Sovereign Tech Fund](https://www.sovereign.tech/) – Seemed perfect. I knew people that were successful with them. I met the criteria, but I got zero feedback when my proposal was rejected. I probably suck at writing applications. What can I do? I'm not good at selling myself; I'm good at selling the library I build.
+- [GitHub Secure Open Source Fund](https://resources.github.com/github-secure-open-source-fund/) – I applied but never heard back. They announced a new round before I got a response. I guess it means rejection. Anyway, not a big loss; they offer $10k to fix security in the project, lol.
+
+Each of these felt like sending a résumé into a void. You do the work, you hope for money, and you get nothing. Worse, you feel ignored, even though your project might be critical to many companies. And it hurts, much more than being rejected from a job application.
+
+Sometimes I think they announce these grants and programs for marketing reasons, not to offer real help.
+
+I'm frustrated, as all these actions are against the values in open source that I believe in:
+
+- Human-first
+- Transparency
+
+Some programs try to rank projects by downloads, like [ecosyste.ms](https://ecosyste.ms/). That misses the point. A small library with no package downloads can support huge systems behind the scenes. Download numbers can be misleading. What about projects that are specifications, standards, not packages?
+
+In short, the grants approach copied from academia ignores these facts:
+
+- Maintainers are people who need stable income and feedback.
+- Maintenance is not sexy, so it never gets funded.
+- Every grant program is its own island. No standards, no shared data, no collaboration.
+
+Until we fix these issues, grants will remain a poor fit for most open source projects.
+
+There is a light in the tunnel. [Sovereign Tech Fund](https://www.sovereign.tech/) started a pilot of a `Fellowship` grant, focused purely on funding maintainers' work. I hope this will take shape, and many will follow. I also hope others that follow will make sure the process is human-friendly and a feedback loop is present, as it is not the case at the moment.
+
+I hope the idea for the [EU Sovereign Tech Fund](https://openforumeurope.org/investing-in-open-source-sustainability-and-security-ofes-proposal-for-an-eu-sovereign-tech-fund/) will go through and follow the best learnings from the German [Sovereign Tech Fund](https://www.sovereign.tech/).
+
+Just please, remember about the human in the process.
+
+## Discoverability
+
+Each funder uses a different process, making maintainers submit repetitive applications.
+
+At [SustainOSS](https://opencollective.com/sustainoss), I briefly discussed a better way with the founder of Ecosyste.ms. We could take GitHub's FUNDING.yml, significantly extend it, and build a community-driven standard outside GitHub. All grants and platforms could adopt one specification.
+
+Maintainers would list details, funding options, and needs just once, dramatically improving discoverability and saving hours of work. FLOSS.fund already did some work around `funding.json`; it just requires more effort, and most importantly, it must be done _with_ the community, _by_ the community.
+
+I'm a maintainer of the AsyncAPI spec; building standards and tooling is my daily routine. If anyone wants to fund this idea, reach out.
+
+## Entitlement in open source ain't helping
+
+Companies and developers often behave as if maintainers owe them support and features for free. They complain when bugs slow their projects down, forgetting maintainers are unpaid and not obligated to help.
+
+Most maintainers create software for personal reasons. For example, I maintain AsyncAPI because I love APIs and community-building, not because I'm happy that large corporations like Oracle or Salesforce need free code. Of course, I'm proud to know NASA depends on the project I work on, but being proud doesn't mean I accept corporations exploiting me as a human.
+
+Maintainers owe nothing beyond the license: “AS IS,” without any guarantees. Unfortunately, many people, and therefore companies, forget about it. They believe they owe you nothing, and they believe you owe them everything.
+
+Every maintainer is different, but I assure you, none of them do FOSS because they like to work for free.
+
+Read more: [Entitlement in open source](https://mikemcquaid.com/entitlement-in-open-source/)
+
+## Small consortia could help
+
+Companies hesitate to fund individually, fearing their competitors won't pay, so why should they pay? Also, processes to get payments approved are super hard. Small consortia of companies could share these costs:
+
+- Each company pays small amounts monthly. Around $500, this is a usual spending some managers do not have to justify and go through complex processes; it's easy to approve.
+- A few companies gather, pay, and have a clear incentive to get priority fixes on bugs and security issues. They can also vote on feature priorities.
+- The project is still independent; the features list comes from the maintainer and community. The solution to the problem is decided independently.
+- Maintainers get stable, predictable income, not a donation. Maintainers know that there is a direct value for the consortium.
+
+No more discussing stuff with marketing departments. The maintainer works directly with teams that depend on the project.
+
+### How to start quickly
+
+- Set up a collective on [Open Collective](https://opencollective.com/).
+- Offer simple subscription plans.
+- Provide clear, small incentives (priority support, voting, recognition).
+
+Open Collective at the moment seems too big for such a simple consortia-style. But you get the idea: there would have to be a simple-to-use platform, with templates, that would enable payments in an easy way.
+
+Simple platform with few options. Lightweight Open Collective, just for consortias.
+
+Possible legal structures could be:
+
+- Europe: Non-profits like Belgian AISBL.
+- US: Software Freedom Conservancy or Open Source Collective handle taxes and legal.
+- Larger foundations (Linux Foundation, Eclipse) if complex trademarks are involved.
+
+This can be cross-foundation cooperation. A maintainer hands over IP and trademark to some existing big foundation and uses another foundation for taxes and legal. In projects where I'm involved, we already do it; the trademark belongs to the Linux Foundation, and at the same time, we work with the Open Source Collective Foundation as a fiscal host.
+
+In the majority of cases, the above would not have to be needed anyway. Many projects are already part of foundations.
+
+There could be an organization that handles it easily. It could even support maintainers with consulting and mediation with companies.
+
+I know it makes sense because this is already happening. There are maintainers who have extensive experience, work on popular projects, and have contracts with different companies for smaller amounts so they can share the costs of their work. In well-established projects, with good connections, this is already possible. You only need to know how to do that, have contract templates, and legal agreements.
+
+An organization that would facilitate consortium setup would already have all these templates and processes.
+
+## Conclusion
+
+Maintainers keep open source alive, and open source keeps the internet running. If your company depends on open source, don't wait until it's too late. Collaborate with others and fund the maintainers who save you time and money.
+
+That's what sustainable funding means.
+
+Unfortunately, in 2025, still the only model that works in open source is:
+
+- You are lucky and work in a company that allows you to maintain the project during your working hours.
+- You are lucky and have a job that pays your rent, so you can maintain the project after hours, but at least without stress.
+
+I'd love this to turn into some meaningful discussion, so do let me know.
+I'll be in Warsaw next week attending [OFE Capital Series](https://openforumeurope.org/event/capital-series-poland/) and [APELL Conference](https://apell.info/apell-conference-2025-warsaw/). I'm happy to chat about it in person.
