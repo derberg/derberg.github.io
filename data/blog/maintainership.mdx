@@ -1,0 +1,78 @@
+---
+title: 'An Open Call: Let's Fund a Maintainer-ship Program for Open Source'
+date: 2025-06-19 09:00:00Z
+lastmod: '2025-06-19'
+tags: ['open-source']
+draft: false
+summary: 'A global "Maintainer-ship Program" is crucial for the future of open source, as it directly addresses the overwhelming burden on current maintainers by training new ones through hands on, project focused work.'
+images: static/images/foss-grow-through-events.webp
+layout: PostSimple
+---
+
+<TOCInline toc={props.toc} toHeading={3} />
+
+For years, I've poured my heart into open source. As a mentor for [Google Summer of Code (GSoC)](https://summerofcode.withgoogle.com/) through the [AsyncAPI Initiative](https://www.asyncapi.com/), I've seen firsthand the incredible impact programs like GSoC have had. They've brought countless new people into open source, teaching them how to contribute and greatly increasing the number of contributions to projects. I truly love it; in fact, I've been a GSoC mentor for four years straight, and our projects at AsyncAPI have seen a huge boost in contributions because of it.
+
+But here's a truth I've come to see clearly: while we've gotten a lot more contributors, the number of people willing and able to be **maintainers** hasn't grown at the same pace. When I recently saw a new program called [European Summer of Code](https://www.esoc.dev/), and realized there are so many similar initiatives like for example [Winter of Code](https://winterofcode.com/) or [OnlyDust](https://www.onlydust.com/) focused on bringing in new contributors, it hit me. **We have many programs for learning to contribute, but not a single one focused only on training maintainers**. In 2025, we desperately need more maintainers than contributors.
+
+### What Maintainership Means to Me
+
+I've coined the word **Maintainership** as a play on "mentorship to become a maintainer". It makes it clear that this program is all about training maintainers. It shows people what it really means to be one.
+
+It was in 2023 when we had to come up with a plan to get stronger [maintainers coverage in website](https://github.com/asyncapi/website/issues/1937#issuecomment-1706422865) repository. Two folks that were part of the trial ended up becoming maintainers. Great feeling. This work also forced us to rethink our contributor guide, come up with two level maintainer setup. We introduced `triagers` and `committers`. This encouraged me to do more, to try to get funding for such `Maintainership` through some official program. My eyes turned towards GSoC.
+
+Over the past four years with AsyncAPI and GSoC, we've definitely seen a massive increase in contributions. GSoC is a fantastic program that has made a huge difference in open source. The natural result, though, was a much heavier workload for our existing maintainers. While a few GSoC participants stayed on as maintainers, the majority did not. This meant we achieved our goal of more contributions, but we also overloaded our maintainers. Some maintainers stopped participating as mentors. Now, we have many more features that need ongoing care. That's maintainers` work now.
+
+This led us to ask: What are we doing wrong? How can we do better? And how can both mentors and maintainers benefit more?
+
+We started talking about trying a new kind of project, even within GSoC. We called it `Conference Website Maintenance` and `Generator Maintainership`. The goal wasn't to add new features. It was purely about teaching a mentee what it means to be a maintainer. It was about showing them the real work: the often boring bug fixing, the detailed pull request reviews, sifting through issues, and explaining basic concepts to others. There's not much time left for personal creativity or developing new features. It was pretty much about showing what real work they will have also in their daily jobs.
+
+We tried this. It worked. We did it once through GSoC. We also did it again in 2024. With some extra funding, we even started our own internal mentorship program at AsyncAPI (cause we wanted a program that also supports documentation and design topics). We pushed maintainership projects through there too. This year, for GSoC 2025, we're trying it again. Why do we keep trying? Because it works.
+
+### How I Know It Works
+
+Let me explain what I mean by "it works".
+
+In a simpler project, like our conference website, the mentee actually became a co-maintainer. In the AsyncAPI Generator project, which is much more complex, requiring deep knowledge of APIs, event driven architectures, AsyncAPI itself, JavaScript coding, and web components concept, it's a different story. I've had three mentees so far, and none have stayed on as maintainers.
+
+But this is the first time as a mentor that I felt I was truly doing something useful. Even if these mentees decide that being a maintainer isn't for them, I never felt my time was wasted. There were times mentoring contributors to new features when I had mixed feelings. Sometimes, honestly, I felt close to burnout, almost exploited.
+
+The beauty of maintainership is that it makes you a better mentor. It improves your own workflows. And even if someone at the end says, "Hey, I realized I can't be a maintainer right now," you know it's completely fine. Throughout the months of teaching them, we improved so many things in the project. Contributor and development guides are sharp! Triaging issues and PRs review became a regular habit. I also know my mentees learned a lot and gained a lot of knowledge, and they are always welcome back.
+
+### My Maintainer Board and the Power of Discipline
+
+This experience led me to set up a **maintainer board**. This helps me track who is working on what. Especially in programs like GSoC, before you even choose a mentee, there's a lot of work. Many candidates apply, trying to see if the project is a good fit. At the start, you might have several people working on a project at once. A board becomes essential to track pull requests, issues, and to keep a clear pipeline of tasks. You share inside knowledge about the project that you would never write in a simple issue, like deep dives into the code.
+
+I maintain this board every week. The result? It forces me into a great habit of regularly engaging with the project and keeping it up to date. My commitment to the mentee becomes a commitment to the entire project.
+
+Board review takes place at the meeting, meeting that anyone in the community can join, not only mentees. One hour a week is really not a big commitment. You give people a place where you can do knowledge sharing sessions, deep dives into some complex issues, explain complex legacy code and why some things were implemented "this" way.
+
+I don't know if other open source maintainers feel the same, but we often have a million things on our minds. We're overloaded. And the more tasks we have, the more we might put off tasks that don't bring immediate joy or excitement. If I hadn't pushed myself to try this maintainership concept within AsyncAPI, I would never do these regular weekly checks of issues and requests. I wouldn't work on the project so consistently.
+
+Then there's **discipline**. In these programs, the mentees are often young people finishing studies or in their first jobs, eager to grow. It's natural for young people to want to work on new, cool features. This is where a very important rule comes in with maintainership: **learn to say no.** When someone wants to work on a fancy new feature, I often have to say, "No, that's not what we're doing here." In maintainership, features are a luxury, like a cherry on top. Not everyone gets the cherry. Before working on a new feature, you should fix some bugs around it. I'll point them to our test coverage tool and tell them to find missing tests. Focus on the most "boring" maintainer tasks: fix bugs, add missing tests, improve test coverage. Maybe help review a related pull request. And crucially, as you run the project locally, read our development guide. If anything is missing, even about the tests I mentioned, open a pull request and update it. Improve our internal developer documentation.
+
+### The Coolest Side Effect: Teammates and Energy
+
+One of the coolest things I never expected was gaining **teammates**. In open source, especially if you don't work in a company team, you can feel quite alone. You get used to it. But it becomes a problem when you have a project with only a few maintainers, some with demanding day jobs, who aren't always available. They might do big reviews or offer advice sometimes, but they aren't there when you need them daily.
+
+With mentees, you build a team. And I think it's the best kind of team. It reminds me of my first team as a product owner years ago: myself and a group of fresh graduates. We had the most energetic team in the company, the `Wookiee` team. The level of energy was unbeatable. That's how I feel about maintainership. It's a lot of fun. It's like a shot of adrenaline, a motivation boost. You see so many people fascinated, energized, and eager to do the work. You get infected by that positive energy. For me, it even meant I started asking them for their opinions, not just giving instructions.
+
+The main focus of maintainership is showing what being a maintainer truly is. It's not just about creating new features. It's about working through issues, understanding how to triage, and making decisions. You teach the mentee your approach to triage. With pull requests, because GitHub is transparent, they can watch how you ask questions and what you check. They learn what's important to look for, the level of detail needed, and that documentation is often more important than just the code. Then, as they progress, you can tell them, "Okay, you're getting it. Now, you be the main reviewer for a few pull requests. Lead them to the end. I won't look at them until you explicitly accept them or ask for my help." This way, they move from observer to active reviewer. It even helps you refresh your own habits.
+
+### The Future of Open Source?
+
+Why do I do this? I've had three mentees so far, and I believe they all learned invaluable lessons about what it really means to be a maintainer. They learned about the responsibility, the potential for being overloaded, but also how much you can learn. For mentees, it's a huge learning experience. They might not build a fancy new feature for their portfolio, but they learn things that are far more important in daily jobs: managing a board, holding regular meetings, working with existing code, testing, and making project decisions. Switching mentorship from "becoming a contributor" to "becoming a maintainer" has no negative result on mentees.
+
+In my opinion, they gain amazing experience. If I were hiring for any company and saw that someone had participated in a maintainership program and I could see how that project worked, I would hire that person in a heartbeat. They're already prepared. They understand priorities. They know how to choose to fix technical debt instead of just adding new features. They learn development, but also critical documentation, testing, and project management—owning the product and deciding priorities.
+
+Yes, I think this is the future of open source. We simply must have a program like this.
+
+### My Call to Action
+
+I hope I've managed to convince you and share my perspective. I am 100% sure that at AsyncAPI, if we continue this year our mentorship program after the summer, it will be renamed to **AsyncAPI Maintainership**. We will have many more maintainer focused projects. Will it mean a huge increase in new maintainers? Probably not many. But we will certainly have happy mentors, a much better rate of fixed issues and closed pull requests, and greatly improved documentation from a developer's perspective.
+
+So, if you have a large budget, if you can spend a few hundred thousand dollars or more on such a program on a global level, just like GSoC is, please do it. Feel free to take everything I've shared here and make it happen. Feel free to also reach out if you need help, I can easily set up a team that will lead these efforts.
+
+Until then, GSoC is happening now. I plan to attend the GSoC Mentor Summit to share my experiences again and talk with others.
+
+I also hope that some of you will try next year with GSoC to push for maintainership projects, not just new features.
