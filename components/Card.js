@@ -81,9 +81,7 @@ const Card = ({ title, description, imgSrc, href, price, priceDetails, priceExpl
                 <p className="text-sm text-gray-500 dark:text-gray-400">{priceDetails}</p>
               )}
               {priceExplanation && (
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                  {priceExplanation}
-                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{priceExplanation}</p>
               )}
             </div>
           )}
