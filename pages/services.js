@@ -52,6 +52,13 @@ export default function Services() {
               width={147}
               height={80}
             />
+            <Image
+              src="/logos/pzu.png"
+              alt="PZU Logo"
+              className="grayscale"
+              width={80}
+              height={80}
+            />
           </div>
         </div>
         <div className="container py-12">
