@@ -70,7 +70,7 @@ export default function Home({ posts }) {
                 src="/logos/pzu.png"
                 alt="PZU Logo"
                 className="grayscale"
-                width={147}
+                width={80}
                 height={80}
               />
             </div>
