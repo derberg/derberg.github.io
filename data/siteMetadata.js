@@ -1,7 +1,7 @@
 const siteMetadata = {
-  title: 'Brain Fart Services',
+  title: 'Brain Fart',
   author: 'Lukasz Gornicki',
-  headerTitle: 'Brain Fart Services',
+  headerTitle: 'Brain Fart',
   description:
     'Accelerate your business growth with expert consulting and tailored solutions. Trusted by top companies like Postman, HDI, and SAP, we specialize in helping you build expertise faster, saving you time and resources. AsyncAPI? Open source? We got you covered.',
   language: 'en-us',
