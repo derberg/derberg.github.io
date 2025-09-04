@@ -9,7 +9,9 @@ const Card = ({ title, description, imgSrc, href, price, priceDetails, priceExpl
   return (
     <div className="p-4 md:w-1/2 md" style={{ maxWidth: '544px' }}>
       <div
-        className={`${imgSrc && 'h-full'} overflow-hidden border-2 border-gray-200 rounded-md border-opacity-60 dark:border-gray-700`}
+        className={`${
+          imgSrc ? 'h-full' : ''
+        } overflow-hidden border-2 border-gray-200 rounded-md border-opacity-60 dark:border-gray-700`}
       >
         {imgSrc &&
           (href ? (
@@ -79,7 +81,9 @@ const Card = ({ title, description, imgSrc, href, price, priceDetails, priceExpl
                 <p className="text-sm text-gray-500 dark:text-gray-400">{priceDetails}</p>
               )}
               {priceExplanation && (
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{priceExplanation}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                  {priceExplanation}
+                </p>
               )}
             </div>
           )}
