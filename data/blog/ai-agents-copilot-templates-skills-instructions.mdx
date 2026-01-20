@@ -24,10 +24,10 @@ People mix up `agent`, `instructions`, `skills`, `prompt` and `prompt files` (co
 They're not the same. They're different **layers**:
 
 - **Prompt**: the one thing you ask _right now_.
-- **Prompt file**: a saved, reusable prompt you run repeatedly.
-- **Instructions**: background rules that apply all the time.
-- **Agent**: a defined, specialized persona that acts as a "wrapper" around your prompts—interpreting them through a specific role and coordinating the necessary tools.
-- **Skills**: single-responsibility competences the agent can trigger (search, run tests, edit files, etc.).
+- **[Prompt file](https://docs.github.com/en/copilot/tutorials/customization-library/prompt-files)**: a saved, reusable prompt you run repeatedly.
+- **[Instructions](https://docs.github.com/en/copilot/tutorials/use-custom-instructions)**: background rules that apply all the time.
+- **[Agent](https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents/your-first-custom-agent)**: a defined, specialized persona that acts as a "wrapper" around your prompts—interpreting them through a specific role and coordinating the necessary tools.
+- **[Skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)**: single-responsibility competences the agent can trigger (search, run tests, edit files, etc.).
 
 ## The Bear analogy
 
@@ -100,6 +100,14 @@ Examples:
 
 In GitHub Copilot for VS Code, repo-level instructions are commonly stored in `.github/copilot-instructions.md` (plus any settings-based instructions you configure).
 
+There's also `AGENTS.md` standard for agent-specific instructions. What I recommend is having `AGENTS.md` in the root of your project and link it in `.github/copilot-instructions.md` as a reference:
+
+```markdown
+// .github/copilot-instructions.md file
+
+When working on this repository, follow the guidelines in [AGENTS.md](../AGENTS.md).
+```
+
 ### Agent
 
 An agent for documentation maintenance operates as a **multi-step coordinator**, not just a text generator. It can:
@@ -130,6 +138,8 @@ Print it out and put on the wallboard:
 - Use a one-off **prompt** for a single request.
 - Use an **agent** when the task is multi-step and touches multiple files and is specialized
 - Rely on **skills** whenever you have some special task that could be in responsibility of more than one agent, and could also be used by some **prompt files**. Then better define specialized tasks, even with scripts or custom assets, so it can be reused in different scenarios.
+
+> Cross-link, reference, or point to specific scripts, templates, or MCP servers that the `agent` or `prompt file` should use. This makes things easier for your agents and saves your tokens.
 
 ## Final
 
