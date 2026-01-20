@@ -1,0 +1,137 @@
+---
+title: 'The Bear in GitHub Copilot: Agents vs Prompts vs Skills vs Instructions'
+date: 2026-01-20 09:00:00Z
+lastmod: '2026-01-20'
+tags: ['ai']
+draft: false
+summary: 'A The Bear-style analogy for Copilot agents vs instructions vs prompt files vs skills, plus practical API documentation maintenance examples.'
+layout: PostSimple
+images: static/images/copilot-explained/bear.webp
+---
+
+![](/static/images/copilot-explained/bear.webp)
+
+> Image generated using Gemini
+
+<TOCInline toc={props.toc} toHeading={3} />
+
+> **Note:**
+> This guide is for anyone who wants to use AI agents efficiently in their daily project work. If you want to get the most out of Copilot’s agent system—saving time, reducing errors, and making your workflow smoother—follow the practices and distinctions explained below.
+
+## The quick mental model
+
+People mix up `agent`, `instructions`, `skills`, `prompt` and `prompt files` (commands in Claude Code) because they sound like the same thing: _ways to tell Copilot what to do_. Ok, let's be honest, I blame people for mixing it up, but I mix it up too.
+
+They're not the same. They're different **layers**:
+
+- **Prompt**: the one thing you ask _right now_.
+- **Prompt file**: a saved, reusable prompt you run repeatedly.
+- **Instructions**: background rules that apply all the time.
+- **Agent**: a defined, specialized persona that acts as a "wrapper" around your prompts—interpreting them through a specific role and coordinating the necessary tools.
+- **Skills**: single-responsibility competences the agent can trigger (search, run tests, edit files, etc.).
+
+## The Bear analogy
+
+If we used GitHub Copilot's features to help run a restaurant like in [_The Bear_](https://www.imdb.com/title/tt14452776/) (an excellent series about running a chaotic high-end restaurant):
+
+- **Instructions**: The house rules (how you talk in the kitchen, what vocabulary to use, how you address guests).
+- **Agent**: A specific role with clear responsibilities (the chef running the kitchen, the host managing tables and guests, the waiter coordinating between guests and the kitchen).
+- **Skills**: Specialized expertise you can call on (the pastry chef who knows cakes, the saucier who masters sauces, the sommelier for wine pairing).
+- **Prompt file**: A saved template for common orders—when the waiter sends it to the kitchen, it already contains all the rules, steps, and requirements needed to fulfill the order correctly.
+- **Prompt**: A one-off order from a guest
+
+### How it all flows together
+
+Let's see how these pieces work together in a real scenario:
+
+1. A guest uses a **prompt file** to place an order. This prompt file is configured to use the **waiter agent**. It's invoked like so: `/placeOrder`.
+
+   ![](/static/images/copilot-explained/prompt.png)
+
+2. The **waiter agent** starts a conversation with the guest to define the order. Each **prompt** from the guest ("I want ribeye, medium-rare", "What sides come with it?") goes through the **waiter agent**, who asks questions, confirms details, and collects everything needed.
+
+   ![](/static/images/copilot-explained/agent.png)
+
+3. Once the order is complete, the waiter agent uses a dedicated **prompt file** that's designed for placing orders with the kitchen. This prompt file references the **chef agent** and includes all the details: tofu steak, rest for 5 minutes, serve with roasted vegetables.
+4. The **chef agent** reads the order and identifies what's needed, then activates the right **skills**: the grilling capability for perfectly cooking meat, the sauce-making competence for preparing reductions, the vegetable preparation skill for handling sides. Each skill executes its single responsibility.
+5. Throughout the process, everyone follows the **instructions**: they call "behind" when moving, say "heard" when acknowledging, and plate according to house standards.
+
+Everyone communicates clearly and executes smoothly because the instructions keep them aligned, the agents coordinate the work, the prompt file ensures consistency, and the skills handle specialized tasks.
+
+### Relations
+
+- You can prompt using a **prompt file** with:
+  - The generic built-in agent
+  - A specialized **agent**
+- You can still prompt directly without a **prompt file** to:
+  - The generic built-in agent
+  - A specialized **agent**
+- **Instructions** are always passed to the agent with each prompt
+- **Skills** are auto-detected based on prompt content and each skill's description
+- **Agents** can have defined output formats based on provided templates in prompt files. You know like template on how dish should be placed and on what plates, in the kitchen.
+
+## Translating to Copilot with example: API documentation maintenance
+
+### Prompt
+
+What you type in chat, right now.
+
+Example: "The POST /users endpoint now accepts profile_picture_url. Update the docs."
+
+Avoid prompting without skills, agents and prompt files. Even for simple tasks like properties update in endpoint, you should have a clear definition for the AI Agent on what steps shoudl be performed.
+Avoid prompting without skills, agents, and prompt files. Even for simple tasks like updating properties in an endpoint, you should provide the AI Agent with a clear definition of the steps to perform.
+
+### Prompt files
+
+A reusable prompt you run again and again for the same kind of job.
+
+Example: "/docs.review make sure this document follows guidelines and templates."
+
+Think: **copy/paste once, reuse forever**.
+
+### Instructions
+
+Rules that should apply to all documentation work in your repo.
+
+Examples:
+
+- "Always use second-person voice ('you')."
+- "Every endpoint must include auth details and one request/response example."
+- "Mark breaking changes with a warning callout and migration steps."
+
+In GitHub Copilot for VS Code, repo-level instructions are commonly stored in `.github/copilot-instructions.md` (plus any settings-based instructions you configure).
+
+### Agent
+
+An agent for documentation maintenance operates as a **multi-step coordinator**, not just a text generator. It can:
+
+- find what files are docs related and require update
+- scan API schema files for changes,
+- identify which doc pages are affected,
+- update multiple documentation files consistently,
+- verify code examples still work.
+
+### Skills
+
+These are the "hands" of the agent for API documentation work. You can have dedicated skill slike :
+
+- `search code to check if given endpoint info in OpenAPI document is in code`
+- `linting documentation syntax`
+- `execute code examples to verify they still work`
+- `check for broken links across documentation`
+
+Without these tools, the agent can only guess. With them, it can verify facts and avoid hallucinating outdated information.
+
+## Again on when to use what
+
+Print it out and put on the wallboard:
+
+- Use **instructions** when you're tired of repeating standards.
+- Use a **prompt file** when you keep asking the same kind of question.
+- Use a one-off **prompt** for a single request.
+- Use an **agent** when the task is multi-step and touches multiple files and is specialized
+- Rely on **skills** whenever you have some special task that could be in responsibility of more than one agent, and could also be used by some **prompt files**. Then better define specialized tasks, even with scripts or custom assets, so it can be reused in different scenarios.
+
+## Final
+
+Make AI your ally. If you want to rely on it daily, do it in a structured way as I described above. This will save you a lot of frustration and tokens.
